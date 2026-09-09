@@ -37,20 +37,21 @@ The top module wires four elements together: the on-chip HSOSC (clock source), t
 
 ![7-segment display wiring, showing common anode to +3.3 V and each cathode via a 150 Ω current-limiting resistor to its assigned FPGA GPIO pin (highlighted in purple).](images/schematic.png){#fig-schematic width=80%}
 
-::: {.callout-note}
+::: {.callout-tip title="Schematic Notation"}
 Signal names in the schematic are highlighted in green to indicate the corresponding FPGA GPIO pin assignment.
 ::: 
 
 ## Calculations
 
 ### Current Limiting Resistor Calculation
-[Resistor Calculation - given a Vf of 2.0 V and a desired current of 7mA, we calculate 130 Ω as our effective resistnace. However, due to the lab supplies, we will use a 150 Ω resistor.](images/resistor_calcs.png){#fig-resistor-calcs width=60%}
+![Resistor Calculation - given a Vf of 2.0 V and a desired current of 7mA, we calculate 130 Ω as our effective resistnace. However, due to the lab supplies, we will use a 150 Ω resistor.](images/resistor_calcs.png){#fig-resistor-calcs width=60%}
 
 ### Clock Divider Calculation
-[Clock cycle calculation - since HSOSC runs at 48 MHz and we want a 2.4 Hz output, we as 4.8 cycles per blink thus the MAX number of clock signals per cycle can only be 9,999,999.](images/clock_calcs.png){#fig-clock-calcs}
+![Clock cycle calculation - since HSOSC runs at 48 MHz and we want a 2.4 Hz output, we as 4.8 cycles per blink thus the MAX number of clock signals per cycle can only be 9,999,999.](images/clock_calcs.png){#fig-clock-calcs width="60%"}
 
 ## Results and Discussion
 ### Decoder Simulation
+
 All 16 hex values exercised, all assertions passed.
 
 ![Decoder waveform - input data ranging from 0x0 through 0xF, segments outputs match expected patterns.](images/screenshots/seven_seg_module_waveforms.png){#fig-decoder-wave}
@@ -69,8 +70,8 @@ All five combinational assertions passed; 'dut.clk' visibly toggles at 48 MHz th
 ![Top-level console — all combinational assertions passed.](images/screenshots/top_module_console.png){#fig-top-console}
 
 ### On-Board Verification
-![Onboard confirmation of design blinking LED with both LEDs 0-1 off at 4'b0](images/onboard_1.jpeg){#fig-onboard width=80%}
-![Displaying a 0 in hex given a input of 4'b0](images/onboard_2.jpeg){#fig-onboard width=80%}
+![Onboard confirmation of design blinking LED with both LEDs 0-1 off at 4'b0](images/onboard_1.jpeg){#fig-onboard width=50%}
+![Displaying a 0 in hex given a input of 4'b0](images/onboard_2.jpeg){#fig-onboard width=50%}
 
 ## Summary & Conclusion
 
@@ -80,14 +81,33 @@ The design meets all functional requirements: switches map to led[0] (XOR), led[
 This submission meets every requirement in the Lab 1 spec in addition to all "Excellence-rubric items": parameterized counter, exhaustive decoder testbench, feature-oriented counter testbench, and top-level testbench covering HSOSC, wiring, and 'assign' logic.
 :::
 
-### Hours spent
-
-- Assembly and smoke test:  h
-- Verilog design and synthesis: h
-- QuestaSim setup and simulation debugging: h
-- Report writeup, block diagram, and schematic: h
-- **Total:  hours**
 ## AI Prototype Summary
+<details>
+<summary>Prompting Conversation</summary>
+
+**Prompt:**
+
+![Claude Conversation](images/ai_proto_1.png)
+
+**Output code:**
+
+![Generated blink.sv](images/ai_proto_3.png)
+
+</details>
+
+### Reflection
+Upon prompting Claude it quickly spit out some verilog code that I found hard to comprehend. Both the syntax and structues of the module it generated were so different that what ive seen in class or in E85 in previous years. So much that even if a synthesis error would up i would little idea as to what the error was speaking let alone why is occured. 
+
+That being said I did find it helpful to ask claude specific questions about snippets of code to gain a better understanding of what was actually going on. I also found that it very helpful in the context it would bringup for expalining why a error was occuring and giving a course of actions on how to fix it. With that I found it to be more useful in the debuging process that the actual code generation however, there is an obvious danger of going down unnecessary rabbit holes making it more of a risk of being a time sink than saver.
+
+
+### Hours spent
+- Assembly and FPGA/MCU programming: 7h
+- Verilog design and synthesis: 4h
+- QuestaSim setup and simulation debugging: 7h
+- Report writeup, block diagram, and schematic: 4h
+- **Total: 22 hours**
+
 
 
 
