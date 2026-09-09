@@ -1,7 +1,7 @@
 ---
 title: "E155 Labs"
 listing:
-  contents: Lab Reports
+  contents: "lab*/lab*.qmd"
   sort: "date desc"
   type: default
 ---
