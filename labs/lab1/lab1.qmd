@@ -4,6 +4,7 @@ author: "Haspard Murphy"
 date: "2026-09-09"
 categories: [FPGA, Verilog, iCE40, Nucleo]
 description: "Assembling the E155 development board, writing Verilog to drive LEDs and a 7-segment display, and validating the design in QuestaSim before programming the UPduino v3.1."
+image: images/onboard_2.jpeg
 ---
 
 ## Introduction:
@@ -16,7 +17,9 @@ All SMT and THT components were soldered onto the E155 development board are wer
 ::: 
 
 Once the physical hardware was assenbled, the overall design of the projeck was broken down into threemodules (two submodules plus a top-level module): 'seven_segment_decoder.sv', 'counter.sv', and 'lab1_hm.sv'. 
+
 - The 'seven_segment_decoder.sv' module was responsible for implementing combinational logic to convert a 4-bit binary input from a set of DIP switches (SW6) into the appropriate 7-segment display output. 
+
 - The 'counter.sv' module implemented a simple counter that incremented based on the internal clock signal derived from the on-board high-speed oscillator (HSOSC) onboard the iCE40. Given the HSOSC was configured to operate at 48MHz, the counter was used to divide the clock signal down to a frequency of 2.4Hz to drive a flashing LED (led2) on the board.
 - the 'lab1_hm.sv' top-level module integrated both submodules, managing the overall functionality of the design as well as test two types of combitinational logic (AND & XOR) using the same input set of DIP switches to control and additional two seperate LEDs (led0 and led1). 
 
@@ -25,14 +28,14 @@ Each module had its own testbench to selfcheck the functionality of the respecti
 :::
 
 ### Technical Documentation:
-The source code for the project can be found in the '/labs/lab1/fpga/radiant project' directory in the associated GitHub repository.
+The source code for the project can be found in the '/labs/lab1/fpga/radiant project' directory in the associated [GitHub repository](https://github.com/hlmurphy/e155-portfolio).
 
 ### Block Diagram
-![RTL connections inside the top level module 'lab1_hm' (indicaiting expected relationship between modules)](images/block_diagram.jpeg){#fig-block width=80%}
+![RTL connections inside the top level module 'lab1_hm' (indicaiting expected relationship between modules)](images/block_diagram.png){#fig-block width=80%}
 
 The top module wires four elements together: the on-chip HSOSC (clock source), the combinational decoder (driven by switches), the parameterized counter (driven by HSOSC), and two combinational `assign` statements for `led[0]` and `led[1]`.
 
-![7-segment display wiring, showing common anode to +3.3 V and each cathode via a 150 Ω current-limiting resistor to its assigned FPGA GPIO pin (highlighted in purple).](images/schematic.jpeg){#fig-schematic width=80%}
+![7-segment display wiring, showing common anode to +3.3 V and each cathode via a 150 Ω current-limiting resistor to its assigned FPGA GPIO pin (highlighted in purple).](images/schematic.png){#fig-schematic width=80%}
 
 ::: {.callout-note}
 Signal names in the schematic are highlighted in green to indicate the corresponding FPGA GPIO pin assignment.
@@ -40,11 +43,17 @@ Signal names in the schematic are highlighted in green to indicate the correspon
 
 ## Calculations
 
+### Current Limiting Resistor Calculation
+[Resistor Calculation - given a Vf of 2.0 V and a desired current of 7mA, we calculate 130 Ω as our effective resistnace. However, due to the lab supplies, we will use a 150 Ω resistor.](images/resistor_calcs.png){#fig-resistor-calcs width=60%}
+
+### Clock Divider Calculation
+[Clock cycle calculation - since HSOSC runs at 48 MHz and we want a 2.4 Hz output, we as 4.8 cycles per blink thus the MAX number of clock signals per cycle can only be 9,999,999.](images/clock_calcs.png){#fig-clock-calcs}
+
 ## Results and Discussion
 ### Decoder Simulation
 All 16 hex values exercised, all assertions passed.
 
-![Decoder waveform with input data ranging from 0x0 through 0xF, segments outputs match expected patterns.](images/screenshots/seven_seg_module_waveforms.png){#fig-decoder-wave}
+![Decoder waveform - input data ranging from 0x0 through 0xF, segments outputs match expected patterns.](images/screenshots/seven_seg_module_waveforms.png){#fig-decoder-wave}
 
 ![Decoder console — 16 PASSED lines followed by 'decoder PASSED'.](images/screenshots/seven_seg_console.png){#fig-decoder-console}
 
@@ -58,7 +67,6 @@ All five combinational assertions passed; 'dut.clk' visibly toggles at 48 MHz th
 ![Top-level waveform — switch changes propagate to 'led[0]', 'led[1]', and 'seg'; 'led[2]' blinks from the HSOSC-driven counter.](images/screenshots/top_module_waveforms.png){#fig-top-wave}
 
 ![Top-level console — all combinational assertions passed.](images/screenshots/top_module_console.png){#fig-top-console}
-
 
 ### On-Board Verification
 ![Onboard confirmation of design blinking LED with both LEDs 0-1 off at 4'b0](images/onboard_1.jpeg){#fig-onboard width=80%}
@@ -80,4 +88,6 @@ This submission meets every requirement in the Lab 1 spec in addition to all "Ex
 - Report writeup, block diagram, and schematic: h
 - **Total:  hours**
 ## AI Prototype Summary
+
+
 
