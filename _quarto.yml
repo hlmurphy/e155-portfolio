@@ -9,7 +9,8 @@ website:
         text: Blog
       - href: index.qmd
         text: Home
-
+      - href: labs.qmd
+        text: Labs
 format:
   html:
     theme:

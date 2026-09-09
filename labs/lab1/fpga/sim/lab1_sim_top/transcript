@@ -1,0 +1,700 @@
+# //  Questa Lattice OEM Edition-64
+# //  Version 2025.2 win64 May 31 2025
+# //
+# // Unpublished work. Copyright 2025 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# do C:/Users/hmurphy/Downloads/E155/lab1_murphy/lab1_sim_top/lab1_sim_top.vdo
+# ** Note: (qrun-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# Deleting directory qrun.out...
+# Creating library 'qrun.out/work'.
+# Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# Start time: 19:42:48 on Sep 08,2026
+# 
+# vlog -reportprogress 300 -L work -sv -L pmi_work -L ovi_ice40up C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/counter.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/lab1_hm.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/seven_segment_decoder.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/seven_segment_decoder_tb.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/lab1_hm_tb.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/counter_tb.sv -work qrun.out/work -statslog qrun.out/stats_log -csession=incr 
+# 
+# ** Note: (vlog-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# -- Compiling module counter
+# 
+# -- Compiling module lab1_hm
+# 
+# -- Compiling module seven_segment_decoder
+# 
+# -- Compiling module seven_segment_decoder_tb
+# 
+# -- Compiling module lab1_hm_tb
+# 
+# -- Compiling module counter_tb
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	seven_segment_decoder_tb
+# 
+# 	lab1_hm_tb
+# 
+# 	counter_tb
+# 
+# End time: 19:42:48 on Sep 08,2026, Elapsed time: 0:00:00
+# 
+# Errors: 0, Warnings: 0
+# 
+# Questa Lattice OEM Edition-64 vopt 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# ** Warning: (vopt-10908) Some optimizations are turned off because the +acc switch is in effect.
+# 
+# Start time: 19:42:48 on Sep 08,2026
+# 
+# vopt -reportprogress 300 -L work "+acc" "+noacc+pmi_work.*" "+noacc+ovi_ice40up.*" -L pmi_work -L ovi_ice40up lab1_hm_tb -suppress vopt-7033 -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=3 
+# 
+# ** Note: (vopt-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	lab1_hm_tb
+# 
+# 
+# 
+# Analyzing design...
+# 
+# -- Loading module lab1_hm_tb
+# 
+# -- Loading module lab1_hm
+# 
+# -- Loading module ovi_ice40up.HSOSC
+# 
+# -- Loading module ovi_ice40up.VLO
+# 
+# -- Loading module ovi_ice40up.HSOSC_CORE
+# 
+# -- Loading module ovi_ice40up.HFOSC
+# 
+# -- Loading module ovi_ice40up.HFOSC_CORE
+# 
+# -- Loading module seven_segment_decoder
+# 
+# -- Loading module counter
+# 
+# ** Warning: (vopt-2108) Cannot find module '*' specified in +noacc option.
+# 
+# Optimizing 9 design-units (inlining 4/9 module instances):
+# 
+# -- Inlining module ovi_ice40up.VLO(fast)
+# 
+# -- Inlining module ovi_ice40up.HFOSC_CORE(fast)
+# 
+# -- Inlining module ovi_ice40up.HFOSC(fast)
+# 
+# -- Inlining module ovi_ice40up.HSOSC_CORE(fast)
+# 
+# -- Optimizing module ovi_ice40up.HSOSC(fast)
+# 
+# -- Optimizing module lab1_hm_tb(fast)
+# 
+# -- Optimizing module counter(fast)
+# 
+# -- Optimizing module lab1_hm(fast)
+# 
+# -- Optimizing module seven_segment_decoder(fast)
+# 
+# Optimized design name is qrun_opt
+# 
+# End time: 19:42:48 on Sep 08,2026, Elapsed time: 0:00:00
+# 
+# Errors: 0, Warnings: 2
+# 
+vsim -L work -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do {view wave} -do {add wave /*} -do {run 100 ns} -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log
+# //  Questa Lattice OEM Edition-64
+# //  Version 2025.2 win64 May 31 2025
+# //
+# // Unpublished work. Copyright 2025 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# do C:/Users/hmurphy/Downloads/E155/lab1_murphy/lab1_sim_top/lab1_sim_top.vdo
+# ** Note: (qrun-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# Deleting directory qrun.out...
+# Creating library 'qrun.out/work'.
+# Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# Start time: 19:44:16 on Sep 08,2026
+# 
+# vlog -reportprogress 300 -L work -sv -L pmi_work -L ovi_ice40up C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/counter.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/lab1_hm.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/seven_segment_decoder.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/seven_segment_decoder_tb.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/lab1_hm_tb.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/counter_tb.sv -work qrun.out/work -statslog qrun.out/stats_log -csession=incr 
+# 
+# ** Note: (vlog-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# -- Compiling module counter
+# 
+# -- Compiling module lab1_hm
+# 
+# -- Compiling module seven_segment_decoder
+# 
+# -- Compiling module seven_segment_decoder_tb
+# 
+# -- Compiling module lab1_hm_tb
+# 
+# -- Compiling module counter_tb
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	seven_segment_decoder_tb
+# 
+# 	lab1_hm_tb
+# 
+# 	counter_tb
+# 
+# End time: 19:44:16 on Sep 08,2026, Elapsed time: 0:00:00
+# 
+# Errors: 0, Warnings: 0
+# 
+# Questa Lattice OEM Edition-64 vopt 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# ** Warning: (vopt-10908) Some optimizations are turned off because the +acc switch is in effect.
+# 
+# Start time: 19:44:17 on Sep 08,2026
+# 
+# vopt -reportprogress 300 -L work "+acc" "+noacc+pmi_work.*" "+noacc+ovi_ice40up.*" -L pmi_work -L ovi_ice40up counter_tb -suppress vopt-7033 -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=3 
+# 
+# ** Note: (vopt-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	counter_tb
+# 
+# 
+# 
+# Analyzing design...
+# 
+# -- Loading module counter_tb
+# 
+# -- Loading module counter
+# 
+# ** Warning: (vopt-2108) Cannot find module '*' specified in +noacc option.
+# 
+# ** Warning: (vopt-2108) Cannot find module '*' specified in +noacc option.
+# 
+# Optimizing 2 design-units (inlining 0/2 module instances):
+# 
+# -- Optimizing module counter_tb(fast)
+# 
+# -- Optimizing module counter(fast)
+# 
+# Optimized design name is qrun_opt
+# 
+# End time: 19:44:17 on Sep 08,2026, Elapsed time: 0:00:00
+# 
+# Errors: 0, Warnings: 3
+# 
+vsim -L work -t ns -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do {view wave} -do {add wave /*} -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log
+# //  Questa Lattice OEM Edition-64
+# //  Version 2025.2 win64 May 31 2025
+# //
+# // Unpublished work. Copyright 2025 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# do C:/Users/hmurphy/Downloads/E155/lab1_murphy/lab1_sim_top/lab1_sim_top.vdo
+# ** Note: (qrun-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# Deleting directory qrun.out...
+# Creating library 'qrun.out/work'.
+# Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# Start time: 20:07:29 on Sep 08,2026
+# 
+# vlog -reportprogress 300 -L work -sv -L pmi_work -L ovi_ice40up C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/counter.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/lab1_hm.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/seven_segment_decoder.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/seven_segment_decoder_tb.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/lab1_hm_tb.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/counter_tb.sv -work qrun.out/work -statslog qrun.out/stats_log -csession=incr 
+# 
+# ** Note: (vlog-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# -- Compiling module counter
+# 
+# -- Compiling module lab1_hm
+# 
+# -- Compiling module seven_segment_decoder
+# 
+# -- Compiling module seven_segment_decoder_tb
+# 
+# -- Compiling module lab1_hm_tb
+# 
+# -- Compiling module counter_tb
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	seven_segment_decoder_tb
+# 
+# 	lab1_hm_tb
+# 
+# 	counter_tb
+# 
+# End time: 20:07:29 on Sep 08,2026, Elapsed time: 0:00:00
+# 
+# Errors: 0, Warnings: 0
+# 
+# Questa Lattice OEM Edition-64 vopt 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# ** Warning: (vopt-10908) Some optimizations are turned off because the +acc switch is in effect.
+# 
+# Start time: 20:07:29 on Sep 08,2026
+# 
+# vopt -reportprogress 300 -L work "+acc" "+noacc+pmi_work.*" "+noacc+ovi_ice40up.*" -L pmi_work -L ovi_ice40up lab1_hm_tb -suppress vopt-7033 -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=3 
+# 
+# ** Note: (vopt-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	lab1_hm_tb
+# 
+# 
+# 
+# Analyzing design...
+# 
+# -- Loading module lab1_hm_tb
+# 
+# -- Loading module lab1_hm
+# 
+# -- Loading module ovi_ice40up.HSOSC
+# 
+# -- Loading module ovi_ice40up.VLO
+# 
+# -- Loading module ovi_ice40up.HSOSC_CORE
+# 
+# -- Loading module ovi_ice40up.HFOSC
+# 
+# -- Loading module ovi_ice40up.HFOSC_CORE
+# 
+# -- Loading module seven_segment_decoder
+# 
+# -- Loading module counter
+# 
+# ** Warning: (vopt-2108) Cannot find module '*' specified in +noacc option.
+# 
+# Optimizing 9 design-units (inlining 4/9 module instances):
+# 
+# -- Inlining module ovi_ice40up.VLO(fast)
+# 
+# -- Inlining module ovi_ice40up.HFOSC_CORE(fast)
+# 
+# -- Inlining module ovi_ice40up.HFOSC(fast)
+# 
+# -- Inlining module ovi_ice40up.HSOSC_CORE(fast)
+# 
+# -- Optimizing module ovi_ice40up.HSOSC(fast)
+# 
+# -- Optimizing module lab1_hm_tb(fast)
+# 
+# -- Optimizing module counter(fast)
+# 
+# -- Optimizing module lab1_hm(fast)
+# 
+# -- Optimizing module seven_segment_decoder(fast)
+# 
+# Optimized design name is qrun_opt
+# 
+# End time: 20:07:30 on Sep 08,2026, Elapsed time: 0:00:01
+# 
+# Errors: 0, Warnings: 2
+# 
+vsim -L work -t ns -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do {view wave} -do {add wave /*} -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log
+# //  Questa Lattice OEM Edition-64
+# //  Version 2025.2 win64 May 31 2025
+# //
+# // Unpublished work. Copyright 2025 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# do C:/Users/hmurphy/Downloads/E155/lab1_murphy/lab1_sim_top/lab1_sim_top.vdo
+# ** Note: (qrun-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# Deleting directory qrun.out...
+# Creating library 'qrun.out/work'.
+# Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# Start time: 20:11:02 on Sep 08,2026
+# 
+# vlog -reportprogress 300 -L work -sv -L pmi_work -L ovi_ice40up C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/counter.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/lab1_hm.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/seven_segment_decoder.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/seven_segment_decoder_tb.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/lab1_hm_tb.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/counter_tb.sv -work qrun.out/work -statslog qrun.out/stats_log -csession=incr 
+# 
+# ** Note: (vlog-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# -- Compiling module counter
+# 
+# -- Compiling module lab1_hm
+# 
+# -- Compiling module seven_segment_decoder
+# 
+# -- Compiling module seven_segment_decoder_tb
+# 
+# -- Compiling module lab1_hm_tb
+# 
+# -- Compiling module counter_tb
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	seven_segment_decoder_tb
+# 
+# 	lab1_hm_tb
+# 
+# 	counter_tb
+# 
+# End time: 20:11:02 on Sep 08,2026, Elapsed time: 0:00:00
+# 
+# Errors: 0, Warnings: 0
+# 
+# Questa Lattice OEM Edition-64 vopt 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# ** Warning: (vopt-10908) Some optimizations are turned off because the +acc switch is in effect.
+# 
+# Start time: 20:11:02 on Sep 08,2026
+# 
+# vopt -reportprogress 300 -L work "+acc" "+noacc+pmi_work.*" "+noacc+ovi_ice40up.*" -L pmi_work -L ovi_ice40up lab1_hm_tb -suppress vopt-7033 -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=3 
+# 
+# ** Note: (vopt-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	lab1_hm_tb
+# 
+# 
+# 
+# Analyzing design...
+# 
+# -- Loading module lab1_hm_tb
+# 
+# -- Loading module lab1_hm
+# 
+# -- Loading module ovi_ice40up.HSOSC
+# 
+# -- Loading module ovi_ice40up.VLO
+# 
+# -- Loading module ovi_ice40up.HSOSC_CORE
+# 
+# -- Loading module ovi_ice40up.HFOSC
+# 
+# -- Loading module ovi_ice40up.HFOSC_CORE
+# 
+# -- Loading module seven_segment_decoder
+# 
+# -- Loading module counter
+# 
+# ** Warning: (vopt-2108) Cannot find module '*' specified in +noacc option.
+# 
+# Optimizing 9 design-units (inlining 4/9 module instances):
+# 
+# -- Inlining module ovi_ice40up.VLO(fast)
+# 
+# -- Inlining module ovi_ice40up.HFOSC_CORE(fast)
+# 
+# -- Inlining module ovi_ice40up.HFOSC(fast)
+# 
+# -- Inlining module ovi_ice40up.HSOSC_CORE(fast)
+# 
+# -- Optimizing module ovi_ice40up.HSOSC(fast)
+# 
+# -- Optimizing module lab1_hm_tb(fast)
+# 
+# -- Optimizing module counter(fast)
+# 
+# -- Optimizing module lab1_hm(fast)
+# 
+# -- Optimizing module seven_segment_decoder(fast)
+# 
+# Optimized design name is qrun_opt
+# 
+# End time: 20:11:03 on Sep 08,2026, Elapsed time: 0:00:01
+# 
+# Errors: 0, Warnings: 2
+# 
+vsim -L work -t ns -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do {view wave} -do {add wave /*} -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log
+# //  Questa Lattice OEM Edition-64
+# //  Version 2025.2 win64 May 31 2025
+# //
+# // Unpublished work. Copyright 2025 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# do C:/Users/hmurphy/Downloads/E155/lab1_murphy/lab1_sim_top/lab1_sim_top.vdo
+# ** Note: (qrun-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# Deleting directory qrun.out...
+# Creating library 'qrun.out/work'.
+# Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# Start time: 20:22:01 on Sep 08,2026
+# 
+# vlog -reportprogress 300 -L work -sv -L pmi_work -L ovi_ice40up C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/counter.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/lab1_hm.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/seven_segment_decoder.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/seven_segment_decoder_tb.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/lab1_hm_tb.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/counter_tb.sv -work qrun.out/work -statslog qrun.out/stats_log -csession=incr 
+# 
+# ** Note: (vlog-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# -- Compiling module counter
+# 
+# -- Compiling module lab1_hm
+# 
+# -- Compiling module seven_segment_decoder
+# 
+# -- Compiling module seven_segment_decoder_tb
+# 
+# -- Compiling module lab1_hm_tb
+# 
+# -- Compiling module counter_tb
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	seven_segment_decoder_tb
+# 
+# 	lab1_hm_tb
+# 
+# 	counter_tb
+# 
+# End time: 20:22:01 on Sep 08,2026, Elapsed time: 0:00:00
+# 
+# Errors: 0, Warnings: 0
+# 
+# Questa Lattice OEM Edition-64 vopt 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# ** Warning: (vopt-10908) Some optimizations are turned off because the +acc switch is in effect.
+# 
+# Start time: 20:22:01 on Sep 08,2026
+# 
+# vopt -reportprogress 300 -L work "+acc" "+noacc+pmi_work.*" "+noacc+ovi_ice40up.*" -L pmi_work -L ovi_ice40up lab1_hm_tb -suppress vopt-7033 -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=3 
+# 
+# ** Note: (vopt-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	lab1_hm_tb
+# 
+# 
+# 
+# Analyzing design...
+# 
+# -- Loading module lab1_hm_tb
+# 
+# -- Loading module lab1_hm
+# 
+# -- Loading module ovi_ice40up.HSOSC
+# 
+# -- Loading module ovi_ice40up.VLO
+# 
+# -- Loading module ovi_ice40up.HSOSC_CORE
+# 
+# -- Loading module ovi_ice40up.HFOSC
+# 
+# -- Loading module ovi_ice40up.HFOSC_CORE
+# 
+# -- Loading module seven_segment_decoder
+# 
+# -- Loading module counter
+# 
+# ** Warning: (vopt-2108) Cannot find module '*' specified in +noacc option.
+# 
+# Optimizing 9 design-units (inlining 4/9 module instances):
+# 
+# -- Inlining module ovi_ice40up.VLO(fast)
+# 
+# -- Inlining module ovi_ice40up.HFOSC_CORE(fast)
+# 
+# -- Inlining module ovi_ice40up.HFOSC(fast)
+# 
+# -- Inlining module ovi_ice40up.HSOSC_CORE(fast)
+# 
+# -- Optimizing module ovi_ice40up.HSOSC(fast)
+# 
+# -- Optimizing module lab1_hm_tb(fast)
+# 
+# -- Optimizing module counter(fast)
+# 
+# -- Optimizing module lab1_hm(fast)
+# 
+# -- Optimizing module seven_segment_decoder(fast)
+# 
+# Optimized design name is qrun_opt
+# 
+# End time: 20:22:01 on Sep 08,2026, Elapsed time: 0:00:00
+# 
+# Errors: 0, Warnings: 2
+# 
+vsim -L work -t ns -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do {view wave} -do {add wave /*} -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log
+# //  Questa Lattice OEM Edition-64
+# //  Version 2025.2 win64 May 31 2025
+# //
+# // Unpublished work. Copyright 2025 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# do C:/Users/hmurphy/Downloads/E155/lab1_murphy/lab1_sim_top/lab1_sim_top.vdo
+# ** Note: (qrun-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# Deleting directory qrun.out...
+# Creating library 'qrun.out/work'.
+# Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# Start time: 20:25:09 on Sep 08,2026
+# 
+# vlog -reportprogress 300 -L work -sv -L pmi_work -L ovi_ice40up C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/counter.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/lab1_hm.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/seven_segment_decoder.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/seven_segment_decoder_tb.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/lab1_hm_tb.sv C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/counter_tb.sv -work qrun.out/work -statslog qrun.out/stats_log -csession=incr 
+# 
+# ** Note: (vlog-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# -- Compiling module counter
+# 
+# -- Compiling module lab1_hm
+# 
+# -- Compiling module seven_segment_decoder
+# 
+# -- Compiling module seven_segment_decoder_tb
+# 
+# -- Compiling module lab1_hm_tb
+# 
+# -- Compiling module counter_tb
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	seven_segment_decoder_tb
+# 
+# 	lab1_hm_tb
+# 
+# 	counter_tb
+# 
+# End time: 20:25:09 on Sep 08,2026, Elapsed time: 0:00:00
+# 
+# Errors: 0, Warnings: 0
+# 
+# Questa Lattice OEM Edition-64 vopt 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# ** Warning: (vopt-10908) Some optimizations are turned off because the +acc switch is in effect.
+# 
+# Start time: 20:25:09 on Sep 08,2026
+# 
+# vopt -reportprogress 300 -L work "+acc" "+noacc+pmi_work.*" "+noacc+ovi_ice40up.*" -L pmi_work -L ovi_ice40up lab1_hm_tb -suppress vopt-7033 -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=3 
+# 
+# ** Note: (vopt-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	lab1_hm_tb
+# 
+# 
+# 
+# Analyzing design...
+# 
+# -- Loading module lab1_hm_tb
+# 
+# -- Loading module lab1_hm
+# 
+# -- Loading module ovi_ice40up.HSOSC
+# 
+# -- Loading module ovi_ice40up.VLO
+# 
+# -- Loading module ovi_ice40up.HSOSC_CORE
+# 
+# -- Loading module ovi_ice40up.HFOSC
+# 
+# -- Loading module ovi_ice40up.HFOSC_CORE
+# 
+# -- Loading module seven_segment_decoder
+# 
+# -- Loading module counter
+# 
+# ** Warning: (vopt-2108) Cannot find module '*' specified in +noacc option.
+# 
+# Optimizing 9 design-units (inlining 4/9 module instances):
+# 
+# -- Inlining module ovi_ice40up.VLO(fast)
+# 
+# -- Inlining module ovi_ice40up.HFOSC_CORE(fast)
+# 
+# -- Inlining module ovi_ice40up.HFOSC(fast)
+# 
+# -- Inlining module ovi_ice40up.HSOSC_CORE(fast)
+# 
+# -- Optimizing module ovi_ice40up.HSOSC(fast)
+# 
+# -- Optimizing module lab1_hm_tb(fast)
+# 
+# -- Optimizing module counter(fast)
+# 
+# -- Optimizing module lab1_hm(fast)
+# 
+# -- Optimizing module seven_segment_decoder(fast)
+# 
+# Optimized design name is qrun_opt
+# 
+# End time: 20:25:09 on Sep 08,2026, Elapsed time: 0:00:00
+# 
+# Errors: 0, Warnings: 2
+# 
+vsim -L work -t ns -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do {view wave} -do {add wave /*} -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log

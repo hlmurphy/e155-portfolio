@@ -1,0 +1,13 @@
+<RadiantSimulationProject language="1" name="lab1_sim_seven" path="." simType="QuestaSim Qrun" stage="0" version="2.0">
+    <Source include="none" langstandard="System Verilog" path="../../../Documents/GitHub/E155-lab01/fpga/radiant_project/counter.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="System Verilog" path="../../../Documents/GitHub/E155-lab01/fpga/radiant_project/lab1_hm.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="System Verilog" path="../../../Documents/GitHub/E155-lab01/fpga/radiant_project/seven_segment_decoder.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="" path="../../../Documents/GitHub/E155-lab01/fpga/sim/seven_segment_decoder_tb.sv" type="VERILOG" worklib=""/>
+    <Source include="none" langstandard="" path="../../../Documents/GitHub/E155-lab01/fpga/sim/lab1_hm_tb.sv" type="VERILOG" worklib=""/>
+    <Source include="none" langstandard="" path="../../../Documents/GitHub/E155-lab01/fpga/sim/counter_tb.sv" type="VERILOG" worklib=""/>
+    <SimLib value="pmi_work ovi_ice40up"/>
+    <GlbInc value=""/>
+    <Macro value=""/>
+    <Udo value=""/>
+    <TopModule instance="" language="VERILOG" name="seven_segment_decoder_tb"/>
+</RadiantSimulationProject>

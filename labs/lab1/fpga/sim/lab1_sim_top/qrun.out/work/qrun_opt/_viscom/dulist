@@ -1,0 +1,9 @@
+1 3 VLO 4 fast 58 C:/lscc/radiant/2026.1/cae_library/simulation/libs/iCE40UP 0 0 0 0 6 0
+1 10 HFOSC_CORE 4 fast 58 C:/lscc/radiant/2026.1/cae_library/simulation/libs/iCE40UP 0 0 0 0 167 0
+1 5 HFOSC 4 fast 58 C:/lscc/radiant/2026.1/cae_library/simulation/libs/iCE40UP 0 0 0 0 184 0
+1 10 HSOSC_CORE 4 fast 58 C:/lscc/radiant/2026.1/cae_library/simulation/libs/iCE40UP 0 0 131072 0 854 0
+1 5 HSOSC 4 fast 58 C:/lscc/radiant/2026.1/cae_library/simulation/libs/iCE40UP 0 0 131072 0 887 0
+1 21 seven_segment_decoder 4 fast 70 C:/Users/hmurphy/Downloads/E155/lab1_murphy/lab1_sim_top/qrun.out/work 0 0 0 0 44 0
+1 7 counter 4 fast 70 C:/Users/hmurphy/Downloads/E155/lab1_murphy/lab1_sim_top/qrun.out/work 0 0 0 0 61 0
+1 7 lab1_hm 4 fast 70 C:/Users/hmurphy/Downloads/E155/lab1_murphy/lab1_sim_top/qrun.out/work 0 0 0 0 49 0
+1 10 lab1_hm_tb 4 fast 70 C:/Users/hmurphy/Downloads/E155/lab1_murphy/lab1_sim_top/qrun.out/work 0 0 0 0 152 0
