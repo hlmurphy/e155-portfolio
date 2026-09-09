@@ -8,30 +8,30 @@ image: images/onboard_2.jpeg
 ---
 
 ## Introduction:
-Lab 1 focused on the introduction of the E155 development board (which integrates both a UPduino v3.1, equipped with a iCE40 UP5K FPGA, and an STM32 Nucleo microcontroller). The primary goals of the lab were to assemble both the board and all hardware associated with it, confirming functionality in addition to writing verilog to drive a 7-segment LED display using just the FPGA and DIP switches with a requirement to model the design in QuestaSim prior to programming the board. Furthermore, the lab also required 
+Lab 1 focused on the introduction of the E155 development board (which integrates both a UPduino v3.1, equipped with an iCE40 UP5K FPGA, and an STM32 Nucleo microcontroller). The primary goals of the lab were to assemble both the board and all hardware associated with it, confirming functionality in addition to writing Verilog to drive a 7-segment LED display using just the FPGA and DIP switches with a requirement to model the design in QuestaSim prior to programming the board.
 
 
 ## Design and Testing Methodology:
 ::: {.callout-note}
-All SMT and THT components were soldered onto the E155 development board are were examined using a mulitmeter to confrim connectivity, as well as functional resistance and capacitance values. The board was then powered on to assess the functionality of the onboard LEDs, and DIP switches using provided source code to initialize and confirm the ability to program the onboard FPGA and MCU. 
+All SMT and THT components were soldered onto the E155 development board and were examined using a multimeter to confirm connectivity, as well as functional resistance and capacitance values. The board was then powered on to assess the functionality of the onboard LEDs, and DIP switches using provided source code to initialize and confirm the ability to program the onboard FPGA and MCU. 
 ::: 
 
-Once the physical hardware was assenbled, the overall design of the projeck was broken down into threemodules (two submodules plus a top-level module): 'seven_segment_decoder.sv', 'counter.sv', and 'lab1_hm.sv'. 
+Once the physical hardware was assembled, the overall design of the project was broken down into three modules (two submodules plus a top-level module): 'seven_segment_decoder.sv', 'counter.sv', and 'lab1_hm.sv'. 
 
 - The 'seven_segment_decoder.sv' module was responsible for implementing combinational logic to convert a 4-bit binary input from a set of DIP switches (SW6) into the appropriate 7-segment display output. 
 
 - The 'counter.sv' module implemented a simple counter that incremented based on the internal clock signal derived from the on-board high-speed oscillator (HSOSC) onboard the iCE40. Given the HSOSC was configured to operate at 48MHz, the counter was used to divide the clock signal down to a frequency of 2.4Hz to drive a flashing LED (led2) on the board.
-- the 'lab1_hm.sv' top-level module integrated both submodules, managing the overall functionality of the design as well as test two types of combitinational logic (AND & XOR) using the same input set of DIP switches to control and additional two seperate LEDs (led0 and led1). 
+- The 'lab1_hm.sv' top-level module integrated both submodules, managing the overall functionality of the design as well as test two types of combinational logic (AND & XOR) using the same input set of DIP switches to control an additional two separate LEDs (led0 and led1). 
 
 ::: {.callout-note}
-Each module had its own testbench to selfcheck the functionality of the respective module using a series of assert statements to validate the expected output of each module in addition to producing waveforms that could be analyzed to confirm expected behavior of the design.
+Each module had its own testbench to self-check the functionality of the respective module using a series of assert statements to validate the expected output of each module in addition to producing waveforms that could be analyzed to confirm expected behavior of the design.
 :::
 
 ### Technical Documentation:
-The source code for the project can be found in the '/labs/lab1/fpga/radiant project' directory in the associated [GitHub repository](https://github.com/hlmurphy/e155-portfolio).
+The source code for the project can be found in the '/labs/lab1/fpga/radiant_project' directory in the associated [GitHub repository](https://github.com/hlmurphy/e155-portfolio).
 
 ### Block Diagram
-![RTL connections inside the top level module 'lab1_hm' (indicaiting expected relationship between modules)](images/block_diagram.png){#fig-block width=80%}
+![RTL connections inside the top level module 'lab1_hm' (indicating expected relationship between modules)](images/block_diagram.png){#fig-block width=80%}
 
 The top module wires four elements together: the on-chip HSOSC (clock source), the combinational decoder (driven by switches), the parameterized counter (driven by HSOSC), and two combinational `assign` statements for `led[0]` and `led[1]`.
 
@@ -44,10 +44,10 @@ Signal names in the schematic are highlighted in green to indicate the correspon
 ## Calculations
 
 ### Current Limiting Resistor Calculation
-![Resistor Calculation - given a Vf of 2.0 V and a desired current of 7mA, we calculate 130 Ω as our effective resistnace. However, due to the lab supplies, we will use a 150 Ω resistor.](images/resistor_calcs.png){#fig-resistor-calcs width=60%}
+![Resistor Calculation - given a Vf of 2.0 V and a desired current of 7mA, we calculate 130 Ω as our effective resistance. However, due to the lab supplies, we will use a 150 Ω resistor.](images/resistor_calcs.png){#fig-resistor-calcs width=60%}
 
 ### Clock Divider Calculation
-![Clock cycle calculation - since HSOSC runs at 48 MHz and we want a 2.4 Hz output, we as 4.8 cycles per blink thus the MAX number of clock signals per cycle can only be 9,999,999.](images/clock_calcs.png){#fig-clock-calcs width="60%"}
+![Clock cycle calculation - since HSOSC runs at 48 MHz and we want a 2.4 Hz output, we need 4.8 cycles per blink thus the MAX number of clock signals per cycle can only be 9,999,999.](images/clock_calcs.png){#fig-clock-calcs width="60%"}
 
 ## Results and Discussion
 ### Decoder Simulation
@@ -71,7 +71,7 @@ All five combinational assertions passed; 'dut.clk' visibly toggles at 48 MHz th
 
 ### On-Board Verification
 ![Onboard confirmation of design blinking LED with both LEDs 0-1 off at 4'b0](images/onboard_1.jpeg){#fig-onboard width=50%}
-![Displaying a 0 in hex given a input of 4'b0](images/onboard_2.jpeg){#fig-onboard width=50%}
+![Displaying a 0 in hex given an input of 4'b0](images/onboard_2.jpeg){#fig-onboard width=50%}
 
 ## Summary & Conclusion
 
@@ -96,9 +96,9 @@ This submission meets every requirement in the Lab 1 spec in addition to all "Ex
 </details>
 
 ### Reflection
-Upon prompting Claude it quickly spit out some verilog code that I found hard to comprehend. Both the syntax and structues of the module it generated were so different that what ive seen in class or in E85 in previous years. So much that even if a synthesis error would up i would little idea as to what the error was speaking let alone why is occured. 
+Upon prompting Claude, it quickly spit out some Verilog code that I found hard to comprehend. Both the syntax and structures of the module it generated were so different that what ive seen in class or in E85 in previous years. So much so that even if a synthesis error came up, I would have little idea as to what the error was saying, let alone why it occurred. 
 
-That being said I did find it helpful to ask claude specific questions about snippets of code to gain a better understanding of what was actually going on. I also found that it very helpful in the context it would bringup for expalining why a error was occuring and giving a course of actions on how to fix it. With that I found it to be more useful in the debuging process that the actual code generation however, there is an obvious danger of going down unnecessary rabbit holes making it more of a risk of being a time sink than saver.
+That being said I did find it helpful to ask Claude specific questions about snippets of code to gain a better understanding of what was actually going on. I also found that it was very helpful in the context it would bring up for explaining why an error was occurring and giving a course of action on how to fix it. With that I found it to be more useful in the debugging process than the actual code generation however, there is an obvious danger of going down unnecessary rabbit holes making it more of a risk of being a time sink than saver.
 
 
 ### Hours spent
