@@ -37,7 +37,7 @@ module counter_tb;
 
         // reset clears count and holds it at zero until renabled
         reset = 1;
-        #
+        #50
         
         // reset is shut off to resume the counter for the remainder of the simulation
         reset = 0;

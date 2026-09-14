@@ -4,7 +4,7 @@ author: "Haspard Murphy"
 date: "2026-09-09"
 categories: [FPGA, Verilog, iCE40, Nucleo]
 description: "Assembling the E155 development board, writing Verilog to drive LEDs and a 7-segment display, and validating the design in QuestaSim before programming the UPduino v3.1."
-image: images/onboard_2.jpeg
+image: images/onboard_1.jpeg 
 ---
 
 ## Introduction:
@@ -63,9 +63,9 @@ All 16 hex values exercised, all assertions passed.
 ![Counter waveform — count climbs 0→9, wraps to 0, 'tick' pulses at count=9, 'led_blink' toggles on each pulse. Reset returns the count to 0, and counting only proceeds when the enable signal is asserted.](images/screenshots/counter_module_waveforms.png){#fig-counter-wave}
 
 ### Top-level Simulation
-All five combinational assertions passed; 'dut.clk' visibly toggles at 48 MHz throughout, confirming HSOSC operation; 'led[2]' is demonstrated to blink throughout the simulation.
+All five combinational assertions passed; dut.clk visibly toggles at 48 MHz throughout, confirming HSOSC operation; led[2] is demonstrated to blink throughout the simulation.
 
-![Top-level waveform — switch changes propagate to 'led[0]', 'led[1]', and 'seg'; 'led[2]' blinks from the HSOSC-driven counter.](images/screenshots/top_module_waveforms.png){#fig-top-wave}
+![Top-level waveform — switch changes propagate to 'led[0]', 'led[1]', and 'seg'; 'led[2]' blinks from the HSOSC-driven counter.](images/screenshots/top_test_waveform.png){#fig-top-wave}
 
 ![Top-level console — all combinational assertions passed.](images/screenshots/top_module_console.png){#fig-top-console}
 
