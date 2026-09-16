@@ -1,0 +1,90 @@
+---
+title: "Lab 2 — Dual Seven Segment Display Muxxing & 4X4 Keypad Integration"
+author: "Haspard Murphy"
+date: "2026-09-015"
+categories: [FPGA, Verilog, Mulitplexing, iCE40, Nucleo]
+description: "Multiplexing 4-bit inputs from two sets of dip switches to a dual seven segment display, in addition to integrating a 4x4 Keypad matrix by blinking column corresponding leds upon key-presses."
+image: images/cover.png
+---
+
+## Introduction:
+To do
+
+
+## Design and Testing Methodology:
+::: {.callout-note}
+To Do  
+::: 
+
+To Do
+
+::: {.callout-note}
+Each module had its own testbench to self-check the functionality of the respective module using a series of assert statements to validate the expected output of each module (modules resued from previous labs were validated agasint their repsectively created testbenches).
+:::
+
+### Technical Documentation:
+The source code for the project can be found in the '/labs/lab1/fpga/radiant_project' directory in the associated [GitHub repository](https://github.com/hlmurphy/e155-portfolio).
+
+### Block Diagram
+![To Do](images/block_diagram2.png){#fig-block width=80%}
+
+The top module wires four elements together: the on-chip HSOSC (clock source), the combinational decoder (driven by switches), the parameterized counter (driven by HSOSC), and two combinational `assign` statements for `led[0]` and `led[1]`.
+
+![To Do](images/schematic2.png){#fig-schematic width=80%}
+
+::: {.callout-tip title="Schematic Notation"}
+Signal names in the schematic are highlighted in green to indicate the corresponding FPGA GPIO pin assignment.
+::: 
+
+## Calculations
+
+### Current Limiting Resistor for PNP and NPN Transistor Calculation
+![Resistor Calculation - given a  V and a desired current of 7mA, we calculate 130 Ω as our effective resistance. However, due to the lab supplies, we will use a 150 Ω resistor.](images/transistors_calcs.png){#fig-resistor-calcs width=60%}
+
+## Results and Discussion
+### Scan_Counter Simulation
+
+All 4 rows are cycled through, all assertions passed.
+
+![To Do](images/scan_counter_waveforms.png){#fig-decoder-wave}
+
+![Scanning module console - ](images/scan_counter_console.png){#fig-decoder-console}
+
+### Top Module Simulation
+
+![To Do](images/top_mux_waveforms.png){#fig-counter-wave}
+
+![To Do](images/top_col_leds_waveforms.png){#fig-counter-wave}
+
+
+![Top-level console — all combinational assertions passed.](images/top_module_console.png){#fig-top-console}
+
+### On-Board Verification
+![Onboard confirmation of design: both hex digit signals muxxed across the dual display, blinking LED from keypress cannot be observered but is confirmed.](images/onboard.png){#fig-onboard width=50%}
+
+
+## Summary & Conclusion
+
+The design meets all functional requirements: To Do...
+
+::: {.callout-tip title="Compliance"}
+This submission meets every requirement in the Lab 2 spec in addition to all "Excellence-rubric items": To Do.
+:::
+
+## AI Prototype Summary
+To Do 
+
+### Reflection
+To Do
+
+
+### Hours spent
+- Assembly and Wire Routing/Pin Assignments: 10h
+- Verilog design and synthesis: 5h
+- QuestaSim setup and simulation debugging: 4h
+- Report writeup, block diagram, and schematic: 6h 
+- **Total: 25 hours**
+
+
+
+
