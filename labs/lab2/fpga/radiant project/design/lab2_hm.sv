@@ -18,7 +18,10 @@ module lab2_hm (input logic reset,
                 input logic [3:0] cols, // read from the 4 column lines
                 output logic [3:0] rows, // to the NPN transitors bases
                 output logic [3:0] col_leds); // LED's echocing column reads
-
+                
+        logic reset_inv;
+        assign reset_inv = ~reset;
+        
         // Internal clock signal from 48MHz oscillator
         logic clk;
         HSOSC hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(clk));
@@ -28,9 +31,9 @@ module lab2_hm (input logic reset,
         logic [3:0] hex_current;
 
         // Instantiate both counter modules for muxing displays and scanning keypad inputs
-        display_scan u_display_scan (.clk(clk), .reset(reset), .select(select));
+        display_scan u_display_scan (.clk(clk), .reset(reset_inv), .enable(1'b1), .select(select));
 
-        scan_counter u_scan_counter (.clk(clk), .reset(reset), .enable(1'b1), .rows(rows));
+        scan_counter u_scan_counter (.clk(clk), .reset(reset_inv), .enable(1'b1), .rows(rows));
 
         // 2:1 mux for hex digit shown on each display
         assign hex_current = select ? s0 : s1;

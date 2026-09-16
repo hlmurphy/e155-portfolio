@@ -1,5 +1,5 @@
 // -------------------------------------------------------------
-// display_scan.sv  
+// scan_counter.sv  
 // Author: Haspard Murphy <hmurphy@g.hmc.edu>
 // Date:   2026-09-12
 // Course: HMC E155, Lab 2
@@ -22,11 +22,11 @@ module scan_counter #(parameter bit_number = 24,
                 state <= 2'b0;
             end
             else if (enable) begin
-                else if (count == max_count) begin
+                if (count == max_count) begin
                 count <= 0;
                 state <= state + 1;
-            end
-            else count <= count + 1;
+                end
+                else count <= count + 1;
             end
         end
 
