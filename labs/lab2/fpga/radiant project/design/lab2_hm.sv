@@ -6,7 +6,11 @@
 // Purpose: Top-level module for Lab 2 instatiating the seven_segment_decoder module 
 // (output logic for the two 7-segment displays) and the counter module (scanning the inputs from the keypad matrix).
 // -------------------------------------------------------------
-module lab2_hm (input logic reset,
+module lab2_hm #(parameter display_max = 23_999,
+                 parameter display_bit_number = 15,
+                 parameter scan_max = 11_999_999,
+                 parameter scan_bit_number = 24)
+                (input logic reset,
                 // Hex data sources for two seven segment displays
                 input logic [3:0] s0,
                 input logic [3:0] s1,
@@ -31,9 +35,11 @@ module lab2_hm (input logic reset,
         logic [3:0] hex_current;
 
         // Instantiate both counter modules for muxing displays and scanning keypad inputs
-        display_scan u_display_scan (.clk(clk), .reset(reset_inv), .enable(1'b1), .select(select));
+        display_scan #(.bit_number(display_bit_number), .max_count(display_max))
+        u_display_scan (.clk(clk), .reset(reset_inv), .enable(1'b1), .select(select));
 
-        scan_counter u_scan_counter (.clk(clk), .reset(reset_inv), .enable(1'b1), .rows(rows));
+        scan_counter #(.bit_number(scan_bit_number), .max_count(scan_max)) 
+        u_scan_counter (.clk(clk), .reset(reset_inv), .enable(1'b1), .rows(rows));
 
         // 2:1 mux for hex digit shown on each display
         assign hex_current = select ? s0 : s1;
