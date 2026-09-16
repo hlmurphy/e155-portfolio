@@ -1,0 +1,1051 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BaliMessageLog>
+    <Task name="Synthesis">
+        <Message>
+            <ID>35831036</ID>
+            <Severity>256</Severity>
+        </Message>
+        <Message>
+            <ID>35921014</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\standard.vhd(9): </Dynamic>
+            <Dynamic>standard</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\standard.vhd</Navigation>
+            <Navigation>9</Navigation>
+        </Message>
+        <Message>
+            <ID>35921014</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\std_1164.vhd(15): </Dynamic>
+            <Dynamic>std_logic_1164</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\std_1164.vhd</Navigation>
+            <Navigation>15</Navigation>
+        </Message>
+        <Message>
+            <ID>35921013</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\std_1164.vhd(178): </Dynamic>
+            <Dynamic>std_logic_1164</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\std_1164.vhd</Navigation>
+            <Navigation>178</Navigation>
+        </Message>
+        <Message>
+            <ID>35921014</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\mgc_qsim.vhd(18): </Dynamic>
+            <Dynamic>qsim_logic</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\mgc_qsim.vhd</Navigation>
+            <Navigation>18</Navigation>
+        </Message>
+        <Message>
+            <ID>35921013</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\mgc_qsim.vhd(753): </Dynamic>
+            <Dynamic>qsim_logic</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\mgc_qsim.vhd</Navigation>
+            <Navigation>753</Navigation>
+        </Message>
+        <Message>
+            <ID>35921014</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\numeric_bit.vhd(54): </Dynamic>
+            <Dynamic>numeric_bit</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\numeric_bit.vhd</Navigation>
+            <Navigation>54</Navigation>
+        </Message>
+        <Message>
+            <ID>35921013</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\numeric_bit.vhd(834): </Dynamic>
+            <Dynamic>numeric_bit</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\numeric_bit.vhd</Navigation>
+            <Navigation>834</Navigation>
+        </Message>
+        <Message>
+            <ID>35921014</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\numeric_std.vhd(57): </Dynamic>
+            <Dynamic>numeric_std</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\numeric_std.vhd</Navigation>
+            <Navigation>57</Navigation>
+        </Message>
+        <Message>
+            <ID>35921013</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\numeric_std.vhd(874): </Dynamic>
+            <Dynamic>numeric_std</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\numeric_std.vhd</Navigation>
+            <Navigation>874</Navigation>
+        </Message>
+        <Message>
+            <ID>35921014</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\textio.vhd(13): </Dynamic>
+            <Dynamic>textio</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\textio.vhd</Navigation>
+            <Navigation>13</Navigation>
+        </Message>
+        <Message>
+            <ID>35921013</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\textio.vhd(114): </Dynamic>
+            <Dynamic>textio</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\textio.vhd</Navigation>
+            <Navigation>114</Navigation>
+        </Message>
+        <Message>
+            <ID>35921014</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\std_logic_textio.vhd(26): </Dynamic>
+            <Dynamic>std_logic_textio</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\std_logic_textio.vhd</Navigation>
+            <Navigation>26</Navigation>
+        </Message>
+        <Message>
+            <ID>35921013</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\std_logic_textio.vhd(72): </Dynamic>
+            <Dynamic>std_logic_textio</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\std_logic_textio.vhd</Navigation>
+            <Navigation>72</Navigation>
+        </Message>
+        <Message>
+            <ID>35921014</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\syn_misc.vhd(30): </Dynamic>
+            <Dynamic>std_logic_misc</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\syn_misc.vhd</Navigation>
+            <Navigation>30</Navigation>
+        </Message>
+        <Message>
+            <ID>35921013</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\syn_misc.vhd(182): </Dynamic>
+            <Dynamic>std_logic_misc</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\syn_misc.vhd</Navigation>
+            <Navigation>182</Navigation>
+        </Message>
+        <Message>
+            <ID>35921014</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\math_real.vhd(56): </Dynamic>
+            <Dynamic>math_real</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\math_real.vhd</Navigation>
+            <Navigation>56</Navigation>
+        </Message>
+        <Message>
+            <ID>35921013</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\math_real.vhd(685): </Dynamic>
+            <Dynamic>math_real</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\math_real.vhd</Navigation>
+            <Navigation>685</Navigation>
+        </Message>
+        <Message>
+            <ID>35921014</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\mixed_lang_vltype.vhd(9): </Dynamic>
+            <Dynamic>vl_types</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\mixed_lang_vltype.vhd</Navigation>
+            <Navigation>9</Navigation>
+        </Message>
+        <Message>
+            <ID>35921013</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\mixed_lang_vltype.vhd(88): </Dynamic>
+            <Dynamic>vl_types</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\mixed_lang_vltype.vhd</Navigation>
+            <Navigation>88</Navigation>
+        </Message>
+        <Message>
+            <ID>35921014</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\syn_arit.vhd(25): </Dynamic>
+            <Dynamic>std_logic_arith</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\syn_arit.vhd</Navigation>
+            <Navigation>25</Navigation>
+        </Message>
+        <Message>
+            <ID>35921013</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\syn_arit.vhd(206): </Dynamic>
+            <Dynamic>std_logic_arith</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\syn_arit.vhd</Navigation>
+            <Navigation>206</Navigation>
+        </Message>
+        <Message>
+            <ID>35921014</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\syn_attr.vhd(39): </Dynamic>
+            <Dynamic>attributes</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\syn_attr.vhd</Navigation>
+            <Navigation>39</Navigation>
+        </Message>
+        <Message>
+            <ID>35921014</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\syn_sign.vhd(35): </Dynamic>
+            <Dynamic>std_logic_signed</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\syn_sign.vhd</Navigation>
+            <Navigation>35</Navigation>
+        </Message>
+        <Message>
+            <ID>35921013</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\syn_sign.vhd(96): </Dynamic>
+            <Dynamic>std_logic_signed</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\syn_sign.vhd</Navigation>
+            <Navigation>96</Navigation>
+        </Message>
+        <Message>
+            <ID>35921014</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\syn_unsi.vhd(35): </Dynamic>
+            <Dynamic>std_logic_unsigned</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\syn_unsi.vhd</Navigation>
+            <Navigation>35</Navigation>
+        </Message>
+        <Message>
+            <ID>35921013</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\syn_unsi.vhd(94): </Dynamic>
+            <Dynamic>std_logic_unsigned</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\syn_unsi.vhd</Navigation>
+            <Navigation>94</Navigation>
+        </Message>
+        <Message>
+            <ID>35921014</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\synattr.vhd(50): </Dynamic>
+            <Dynamic>attributes</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ispfpga\vhdl_packages\synattr.vhd</Navigation>
+            <Navigation>50</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v(1): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_addsub.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v</Navigation>
+            <Navigation>1</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_addsub.v(40): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../common/adder_subtractor/rtl/lscc_add_sub.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_addsub.v</Navigation>
+            <Navigation>40</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v(2): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_add.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v</Navigation>
+            <Navigation>2</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_add.v(50): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../common/adder/rtl/lscc_adder.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_add.v</Navigation>
+            <Navigation>50</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v(3): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_complex_mult.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v</Navigation>
+            <Navigation>3</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_complex_mult.v(52): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../common/complex_mult/rtl/lscc_complex_mult.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_complex_mult.v</Navigation>
+            <Navigation>52</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v(4): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_counter.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_counter.v(39): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../common/counter/rtl/lscc_cntr.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_counter.v</Navigation>
+            <Navigation>39</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v(5): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_fifo.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v</Navigation>
+            <Navigation>5</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_fifo.v(44): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../common/fifo/rtl/lscc_fifo.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_fifo.v</Navigation>
+            <Navigation>44</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v(6): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_fifo_dc.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v</Navigation>
+            <Navigation>6</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_fifo_dc.v(47): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../common/fifo_dc/rtl/lscc_fifo_dc.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_fifo_dc.v</Navigation>
+            <Navigation>47</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_fifo_dc.v(48): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_fifo_dc.v</Navigation>
+            <Navigation>48</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v(128): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc_distributed_ram.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v</Navigation>
+            <Navigation>128</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v(129): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc_ecc.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v</Navigation>
+            <Navigation>129</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v(130): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc_flag_and_cnts_logic.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v</Navigation>
+            <Navigation>130</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v(131): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc_gray_reg.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v</Navigation>
+            <Navigation>131</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v(132): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc_gray_synchronizer.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v</Navigation>
+            <Navigation>132</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v(133): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc_harden_prim.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v</Navigation>
+            <Navigation>133</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v(134): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc_harden_rd_ctrl_logic.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v</Navigation>
+            <Navigation>134</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v(135): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc_harden_rd_output_logic.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v</Navigation>
+            <Navigation>135</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v(136): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc_harden_ring_counter.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v</Navigation>
+            <Navigation>136</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v(137): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc_harden_wr_ctrl_logic.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v</Navigation>
+            <Navigation>137</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v(138): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc_harden.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v</Navigation>
+            <Navigation>138</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v(139): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc_prim_gen.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v</Navigation>
+            <Navigation>139</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v(140): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc_rd_ctrl_logic.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v</Navigation>
+            <Navigation>140</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v(141): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc_wr_ctrl_logic.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/fifo_dc/rtl/lscc_lfmxo4_fifo_dc.v</Navigation>
+            <Navigation>141</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v(7): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_mac.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v</Navigation>
+            <Navigation>7</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_mac.v(52): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../common/mult_accumulate/rtl/lscc_mult_accumulate.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_mac.v</Navigation>
+            <Navigation>52</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v(8): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_multaddsubsum.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v</Navigation>
+            <Navigation>8</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_multaddsubsum.v(53): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../common/mult_add_sub_sum/rtl/lscc_mult_add_sub_sum.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_multaddsubsum.v</Navigation>
+            <Navigation>53</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v(9): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_multaddsub.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v</Navigation>
+            <Navigation>9</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_multaddsub.v(52): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../common/mult_add_sub/rtl/lscc_mult_add_sub.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_multaddsub.v</Navigation>
+            <Navigation>52</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v(10): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_mult.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v</Navigation>
+            <Navigation>10</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_mult.v(51): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../common/multiplier/rtl/lscc_multiplier.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_mult.v</Navigation>
+            <Navigation>51</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v(11): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_ram_dp.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v</Navigation>
+            <Navigation>11</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_ram_dp.v(48): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../common/ram_dp/rtl/lscc_ram_dp.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_ram_dp.v</Navigation>
+            <Navigation>48</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_ram_dp.v(49): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_ram_dp.v</Navigation>
+            <Navigation>49</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp.v(438): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp_impl.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp.v</Navigation>
+            <Navigation>438</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp_impl.v(64): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp_behavioral.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp_impl.v</Navigation>
+            <Navigation>64</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp_impl.v(66): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp_lut_decode.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp_impl.v</Navigation>
+            <Navigation>66</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp_impl.v(478): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp_functions.vh</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp_impl.v</Navigation>
+            <Navigation>478</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp_impl.v(609): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp_functions.vh</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp_impl.v</Navigation>
+            <Navigation>609</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp_impl.v(1511): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp_functions.vh</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp_impl.v</Navigation>
+            <Navigation>1511</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp_impl.v(2456): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp_functions.vh</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp_impl.v</Navigation>
+            <Navigation>2456</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp_impl.v(4673): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp_functions.vh</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp_impl.v</Navigation>
+            <Navigation>4673</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v(12): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_ram_dq.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v</Navigation>
+            <Navigation>12</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_ram_dq.v(45): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../common/ram_dq/rtl/lscc_ram_dq.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_ram_dq.v</Navigation>
+            <Navigation>45</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_ram_dq.v(46): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dq/rtl/lscc_lfmxo4_ram_dq.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_ram_dq.v</Navigation>
+            <Navigation>46</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dq/rtl/lscc_lfmxo4_ram_dq.v(2839): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dq/rtl/hsiao_ecc_encoder.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dq/rtl/lscc_lfmxo4_ram_dq.v</Navigation>
+            <Navigation>2839</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dq/rtl/lscc_lfmxo4_ram_dq.v(2840): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dq/rtl/hsiao_ecc_decoder.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dq/rtl/lscc_lfmxo4_ram_dq.v</Navigation>
+            <Navigation>2840</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dq/rtl/lscc_lfmxo4_ram_dq.v(2841): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dq/rtl/lscc_lfmxo4_ram_dq_lut_decode.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dq/rtl/lscc_lfmxo4_ram_dq.v</Navigation>
+            <Navigation>2841</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v(13): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_rom.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v</Navigation>
+            <Navigation>13</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_rom.v(45): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../common/rom/rtl/lscc_rom.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_rom.v</Navigation>
+            <Navigation>45</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v(14): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_sub.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v</Navigation>
+            <Navigation>14</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_sub.v(50): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../common/subtractor/rtl/lscc_subtractor.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_sub.v</Navigation>
+            <Navigation>50</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v(15): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_ram_dp_be.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v</Navigation>
+            <Navigation>15</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_ram_dp_be.v(49): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../common/ram_dp/rtl/lscc_ram_dp.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_ram_dp_be.v</Navigation>
+            <Navigation>49</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_ram_dp_be.v(50): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_ram_dp_be.v</Navigation>
+            <Navigation>50</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp.v(438): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp_impl.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dp/rtl/lscc_lfmxo4_ram_dp.v</Navigation>
+            <Navigation>438</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v(16): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_ram_dq_be.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v</Navigation>
+            <Navigation>16</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_ram_dq_be.v(45): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../common/ram_dq/rtl/lscc_ram_dq.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_ram_dq_be.v</Navigation>
+            <Navigation>45</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_ram_dq_be.v(46): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dq/rtl/lscc_lfmxo4_ram_dq.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_ram_dq_be.v</Navigation>
+            <Navigation>46</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dq/rtl/lscc_lfmxo4_ram_dq.v(2839): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dq/rtl/hsiao_ecc_encoder.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dq/rtl/lscc_lfmxo4_ram_dq.v</Navigation>
+            <Navigation>2839</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dq/rtl/lscc_lfmxo4_ram_dq.v(2840): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dq/rtl/hsiao_ecc_decoder.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dq/rtl/lscc_lfmxo4_ram_dq.v</Navigation>
+            <Navigation>2840</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dq/rtl/lscc_lfmxo4_ram_dq.v(2841): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dq/rtl/lscc_lfmxo4_ram_dq_lut_decode.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/../LFMXO4/ram_dq/rtl/lscc_lfmxo4_ram_dq.v</Navigation>
+            <Navigation>2841</Navigation>
+        </Message>
+        <Message>
+            <ID>35901328</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v(17): </Dynamic>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_dsp.v</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v</Navigation>
+            <Navigation>17</Navigation>
+        </Message>
+        <Message>
+            <ID>35921014</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.vhd(4): </Dynamic>
+            <Dynamic>components</Dynamic>
+            <Navigation>C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.vhd</Navigation>
+            <Navigation>4</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/lab2_hm.sv(9): </Dynamic>
+            <Dynamic>lab2_hm</Dynamic>
+            <Navigation>C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/lab2_hm.sv</Navigation>
+            <Navigation>9</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/display_scan.sv(8): </Dynamic>
+            <Dynamic>display_scan</Dynamic>
+            <Navigation>C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/display_scan.sv</Navigation>
+            <Navigation>8</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>16</Severity>
+            <Dynamic>C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/display_scan.sv(26): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>15</Dynamic>
+            <Navigation>C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/display_scan.sv</Navigation>
+            <Navigation>26</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/scan_counter.sv(8): </Dynamic>
+            <Dynamic>scan_counter</Dynamic>
+            <Navigation>C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/scan_counter.sv</Navigation>
+            <Navigation>8</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>16</Severity>
+            <Dynamic>C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/scan_counter.sv(27): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>2</Dynamic>
+            <Navigation>C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/scan_counter.sv</Navigation>
+            <Navigation>27</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>16</Severity>
+            <Dynamic>C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/scan_counter.sv(29): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>24</Dynamic>
+            <Navigation>C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/scan_counter.sv</Navigation>
+            <Navigation>29</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/seven_seg_decoder.sv(9): </Dynamic>
+            <Dynamic>seven_segment_decoder</Dynamic>
+            <Navigation>C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/seven_seg_decoder.sv</Navigation>
+            <Navigation>9</Navigation>
+        </Message>
+        <Message>
+            <ID>35001797</ID>
+            <Severity>1</Severity>
+        </Message>
+        <Message>
+            <ID>35001476</ID>
+            <Severity>256</Severity>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>../../../../Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/lab2_hm.sv(9): </Dynamic>
+            <Dynamic>lab2_hm</Dynamic>
+            <Navigation>../../../../Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/lab2_hm.sv</Navigation>
+            <Navigation>9</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>../../../../Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/display_scan.sv(8): </Dynamic>
+            <Dynamic>display_scan</Dynamic>
+            <Navigation>../../../../Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/display_scan.sv</Navigation>
+            <Navigation>8</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>16</Severity>
+            <Dynamic>../../../../Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/display_scan.sv(26): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>15</Dynamic>
+            <Navigation>../../../../Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/display_scan.sv</Navigation>
+            <Navigation>26</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>../../../../Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/scan_counter.sv(8): </Dynamic>
+            <Dynamic>scan_counter</Dynamic>
+            <Navigation>../../../../Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/scan_counter.sv</Navigation>
+            <Navigation>8</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>16</Severity>
+            <Dynamic>../../../../Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/scan_counter.sv(27): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>2</Dynamic>
+            <Navigation>../../../../Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/scan_counter.sv</Navigation>
+            <Navigation>27</Navigation>
+        </Message>
+        <Message>
+            <ID>35901209</ID>
+            <Severity>16</Severity>
+            <Dynamic>../../../../Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/scan_counter.sv(29): </Dynamic>
+            <Dynamic>32</Dynamic>
+            <Dynamic>24</Dynamic>
+            <Navigation>../../../../Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/scan_counter.sv</Navigation>
+            <Navigation>29</Navigation>
+        </Message>
+        <Message>
+            <ID>35901018</ID>
+            <Severity>1</Severity>
+            <Dynamic>../../../../Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/seven_seg_decoder.sv(9): </Dynamic>
+            <Dynamic>seven_segment_decoder</Dynamic>
+            <Navigation>../../../../Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/seven_seg_decoder.sv</Navigation>
+            <Navigation>9</Navigation>
+        </Message>
+        <Message>
+            <ID>35001774</ID>
+            <Severity>1</Severity>
+            <Dynamic>\u_scan_counter/state</Dynamic>
+            <Dynamic>one-hot</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>reset</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>s0[3]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>s0[2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>s0[1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>s0[0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>s1[3]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>s1[2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>s1[1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>s1[0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>seg[6]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>seg[5]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>seg[4]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>seg[3]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>seg[2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>seg[1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>seg[0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>anode_0</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>anode_1</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>cols[3]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>cols[2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>cols[1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>cols[0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>rows[3]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>rows[2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>rows[1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>rows[0]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>col_leds[3]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>col_leds[2]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>col_leds[1]</Dynamic>
+        </Message>
+        <Message>
+            <ID>35002062</ID>
+            <Severity>16</Severity>
+            <Dynamic>col_leds[0]</Dynamic>
+        </Message>
+    </Task>
+</BaliMessageLog>

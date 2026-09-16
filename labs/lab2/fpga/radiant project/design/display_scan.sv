@@ -9,7 +9,7 @@ module display_scan #(parameter bit_number = 15, parameter max_count = 23_999) /
     (input logic clk, // Clock signal dervied from internal HSOSC
     input logic reset, 
     input logic enable,
-    output logic select = 0); // High when counter reaches the max_count, used to select which display to show
+    output logic select); // High when counter reaches the max_count, used to select which display to show
     logic [bit_number-1:0] count = 0; // Current counter value
 
     always_ff@(posedge clk)
