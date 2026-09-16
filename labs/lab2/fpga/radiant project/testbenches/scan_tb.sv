@@ -1,9 +1,9 @@
 // -------------------------------------------------------------
-// lab2_tb.sv
+// scan_tb.sv
 // Author: Haspard Murphy <hmurphy@g.hmc.edu>
 // Date:   2026-09-16
 // Course: HMC E155, Lab 2
-// Purpose: Top-level self-checking testbench for lab2_hm. 
+// Purpose: Scanning module self-checking testbench for lab2_hm (checking rows for key pressed). 
 // -------------------------------------------------------------
 module scan_tb;
     logic clk = 0;
