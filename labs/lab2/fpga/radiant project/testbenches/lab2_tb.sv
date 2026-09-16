@@ -32,73 +32,73 @@ module lab2_tb;
 
         // ---- Phase 1: reset propagation ----
         repeat (4) @(posedge clk); #1;
-        assert (anode_0 === 1'b1 && anode_1 === 1'b0)
-            $display("[t=%0t] PASS phase1 anodes: %b/%b", $time, anode_0, anode_1);
+        assert (anode_0 == 1'b1 && anode_1 == 1'b0)
+            $display("[t=%0t] PASS initial anode test: %b/%b", $time, anode_0, anode_1);
         else
-            $error  ("[t=%0t] FAIL phase1 anodes: %b/%b exp 1/0",
+            $error  ("[t=%0t] FAIL initial anode test: %b/%b expected 1/0",
                      $time, anode_0, anode_1);
-        assert (seg === 7'b0010010)
-            $display("[t=%0t] PASS phase1 seg=s1(2): %b", $time, seg);
+        assert (seg == 7'b0010010)
+            $display("[t=%0t] PASS segment check  seg=s1(2): %b", $time, seg);
         else
-            $error  ("[t=%0t] FAIL phase1 seg: %b exp %b", $time, seg, 7'b0010010);
-        assert (rows === 4'b1000)
-            $display("[t=%0t] PASS phase1 rows: %b", $time, rows);
+            $error  ("[t=%0t] FAIL segment check seg: %b expected %b", $time, seg, 7'b0010010);
+        assert (rows == 4'b1000)
+            $display("[t=%0t] PASS row check rows: %b", $time, rows);
         else
-            $error  ("[t=%0t] FAIL phase1 rows: %b exp 1000", $time, rows);
+            $error  ("[t=%0t] FAIL row check rows: %b expected 1000", $time, rows);
 
         // Release reset (external active-low)
         reset = 1'b1;
 
         // ---- Phase 2a: mux flips to select=1, digit 0 shows s0=A ----
         repeat (4) @(posedge clk); #1;
-        assert (anode_0 === 1'b0 && anode_1 === 1'b1)
-            $display("[t=%0t] PASS phase2a anodes: %b/%b", $time, anode_0, anode_1);
+        assert (anode_0 == 1'b0 && anode_1 == 1'b1)
+            $display("[t=%0t] PASS secondary anode test anodes: %b/%b", $time, anode_0, anode_1);
         else
-            $error  ("[t=%0t] FAIL phase2a anodes: %b/%b exp 0/1",
+            $error  ("[t=%0t] FAIL secondary anode test anodes: %b/%b expected 0/1",
                      $time, anode_0, anode_1);
-        assert (seg === 7'b0111000)
-            $display("[t=%0t] PASS phase2a seg=s0(F): %b", $time, seg);
+        assert (seg == 7'b0111000)
+            $display("[t=%0t] PASS secondary segment check seg=s0(F): %b", $time, seg);
         else
-            $error  ("[t=%0t] FAIL phase2a seg: %b exp %b", $time, seg, 7'b0111000);
+            $error  ("[t=%0t] FAIL secondar segment check seg: %b expected %b", $time, seg, 7'b0111000);
 
         // ---- Phase 2b: mux flips back to select=0, digit 1 shows s1=5 ----
         repeat (4) @(posedge clk); #1;
-        assert (anode_0 === 1'b1 && anode_1 === 1'b0)
-            $display("[t=%0t] PASS phase2b anodes: %b/%b", $time, anode_0, anode_1);
+        assert (anode_0 == 1'b1 && anode_1 == 1'b0)
+            $display("[t=%0t] PASS anodes: %b/%b", $time, anode_0, anode_1);
         else
-            $error  ("[t=%0t] FAIL phase2b anodes: %b/%b exp 1/0",
+            $error  ("[t=%0t] FAIL anodes: %b/%b expected 1/0",
                      $time, anode_0, anode_1);
-        assert (seg === 7'b0010010)
-            $display("[t=%0t] PASS phase2b seg=s1(2): %b", $time, seg);
+        assert (seg == 7'b0010010)
+            $display("[t=%0t] PASS seg=s1(2): %b", $time, seg);
         else
-            $error  ("[t=%0t] FAIL phase2b seg: %b exp %b", $time, seg, 7'b0010010);
+            $error  ("[t=%0t] FAIL seg: %b expected %b", $time, seg, 7'b0010010);
 
         // ---- Phase 4: col_leds = ~cols ----
         cols = 4'b1000;
         @(posedge clk); #1;
         assert (col_leds === 4'b0111)
-            $display("[t=%0t] PASS phase4a col_leds: cols=%b leds=%b",
+            $display("[t=%0t] PASS corresponding column LED test col_leds: cols=%b leds=%b",
                      $time, cols, col_leds);
         else
-            $error  ("[t=%0t] FAIL phase4a col_leds: %b exp 0111",
+            $error  ("[t=%0t] FAIL corresponding column LED test col_leds: %b expected 0111",
                      $time, col_leds);
 
         cols = 4'b0010;
         @(posedge clk); #1;
         assert (col_leds === 4'b1101)
-            $display("[t=%0t] PASS phase4b col_leds: cols=%b leds=%b",
+            $display("[t=%0t] PASS secondary column LED test col_leds: cols=%b leds=%b",
                      $time, cols, col_leds);
         else
-            $error  ("[t=%0t] FAIL phase4b col_leds: %b exp 1101",
+            $error  ("[t=%0t] FAIL secondary column LED test col_leds: %b expected 1101",
                      $time, col_leds);
 
         cols = 4'b1001;
         @(posedge clk); #1;
         assert (col_leds === 4'b0110)
-            $display("[t=%0t] PASS phase4c col_leds (idle): cols=%b leds=%b",
+            $display("[t=%0t] PASS tertiary column LED test col_leds (idle): cols=%b leds=%b",
                      $time, cols, col_leds);
         else
-            $error  ("[t=%0t] FAIL phase4c col_leds: %b exp 0110",
+            $error  ("[t=%0t] FAIL tertiary column LED test col_leds: %b expected 0110",
                      $time, col_leds);
 
         $display("*** lab2_tb complete -- see assertion summary above ***");
