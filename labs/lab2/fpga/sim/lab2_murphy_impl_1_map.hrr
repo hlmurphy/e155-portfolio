@@ -1,0 +1,40 @@
+---------------------------------------------------
+Report for cell lab2_hm
+   Instance path: lab2_hm
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         83        100.0
+                               LUTGATE	         41        100.0
+                                LUTCCU	         42        100.0
+                                 IOBUF	         30        100.0
+                                PFUREG	         44        100.0
+SUB MODULES
+                                  cell	      count    LUT4 Usage(%)
+                          display_scan	          1        28.9
+                          scan_counter	          1        45.8
+                 seven_segment_decoder	          1         8.4
+---------------------------------------------------
+Report for cell scan_counter
+   Instance path: lab2_hm/u_scan_counter
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         38        45.8
+                               LUTGATE	         12        29.3
+                                LUTCCU	         26        61.9
+                                PFUREG	         28        63.6
+---------------------------------------------------
+Report for cell seven_segment_decoder
+   Instance path: lab2_hm/u_dec
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	          7         8.4
+                               LUTGATE	          7        17.1
+---------------------------------------------------
+Report for cell display_scan
+   Instance path: lab2_hm/u_display_scan
+                     Cell usage:
+                                  cell	      count    Res Usage(%)
+                                  LUT4	         24        28.9
+                               LUTGATE	          8        19.5
+                                LUTCCU	         16        38.1
+                                PFUREG	         16        36.4

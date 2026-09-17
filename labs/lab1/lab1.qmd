@@ -1,0 +1,113 @@
+---
+title: "Lab 1 — FPGA and MCU Setup and Testing"
+author: "Haspard Murphy"
+date: "2026-09-09"
+categories: [FPGA, Verilog, iCE40, Nucleo]
+description: "Assembling the E155 development board, writing Verilog to drive LEDs and a 7-segment display, and validating the design in QuestaSim before programming the UPduino v3.1."
+image: images/onboard_1.jpeg 
+---
+
+## Introduction:
+Lab 1 focused on the introduction of the E155 development board (which integrates both a UPduino v3.1, equipped with an iCE40 UP5K FPGA, and an STM32 Nucleo microcontroller). The primary goals of the lab were to assemble both the board and all hardware associated with it, confirming functionality in addition to writing Verilog to drive a 7-segment LED display using just the FPGA and DIP switches with a requirement to model the design in QuestaSim prior to programming the board.
+
+
+## Design and Testing Methodology:
+::: {.callout-note}
+All SMT and THT components were soldered onto the E155 development board and were examined using a multimeter to confirm connectivity, as well as functional resistance and capacitance values. The board was then powered on to assess the functionality of the onboard LEDs, and DIP switches using provided source code to initialize and confirm the ability to program the onboard FPGA and MCU. 
+::: 
+
+Once the physical hardware was assembled, the overall design of the project was broken down into three modules (two submodules plus a top-level module): 'seven_segment_decoder.sv', 'counter.sv', and 'lab1_hm.sv'. 
+
+- The 'seven_segment_decoder.sv' module was responsible for implementing combinational logic to convert a 4-bit binary input from a set of DIP switches (SW6) into the appropriate 7-segment display output. 
+
+- The 'counter.sv' module implemented a simple counter that incremented based on the internal clock signal derived from the on-board high-speed oscillator (HSOSC) onboard the iCE40. Given the HSOSC was configured to operate at 48MHz, the counter was used to divide the clock signal down to a frequency of 2.4Hz to drive a flashing LED (led2) on the board.
+- The 'lab1_hm.sv' top-level module integrated both submodules, managing the overall functionality of the design as well as test two types of combinational logic (AND & XOR) using the same input set of DIP switches to control an additional two separate LEDs (led0 and led1). 
+
+::: {.callout-note}
+Each module had its own testbench to self-check the functionality of the respective module using a series of assert statements to validate the expected output of each module in addition to producing waveforms that could be analyzed to confirm expected behavior of the design.
+:::
+
+### Technical Documentation:
+The source code for the project can be found in the '/labs/lab1/fpga/radiant_project' directory in the associated [GitHub repository](https://github.com/hlmurphy/e155-portfolio).
+
+### Block Diagram
+![RTL connections inside the top level module 'lab1_hm' (indicating expected relationship between modules)](images/block_diagram.png){#fig-block width=80%}
+
+The top module wires four elements together: the on-chip HSOSC (clock source), the combinational decoder (driven by switches), the parameterized counter (driven by HSOSC), and two combinational `assign` statements for `led[0]` and `led[1]`.
+
+![7-segment display wiring, showing common anode to +3.3 V and each cathode via a 150 Ω current-limiting resistor to its assigned FPGA GPIO pin (highlighted in purple).](images/schematic.png){#fig-schematic width=80%}
+
+::: {.callout-tip title="Schematic Notation"}
+Signal names in the schematic are highlighted in green to indicate the corresponding FPGA GPIO pin assignment.
+::: 
+
+## Calculations
+
+### Current Limiting Resistor Calculation
+![Resistor Calculation - given a Vf of 2.0 V and a desired current of 7mA, we calculate 130 Ω as our effective resistance. However, due to the lab supplies, we will use a 150 Ω resistor.](images/resistor_calcs.png){#fig-resistor-calcs width=60%}
+
+### Clock Divider Calculation
+![Clock cycle calculation - since HSOSC runs at 48 MHz and we want a 2.4 Hz output, we need 4.8 cycles per blink thus the MAX number of clock signals per cycle can only be 9,999,999.](images/clock_calcs.png){#fig-clock-calcs width="60%"}
+
+## Results and Discussion
+### Decoder Simulation
+
+All 16 hex values exercised, all assertions passed.
+
+![Decoder waveform - input data ranging from 0x0 through 0xF, segments outputs match expected patterns.](images/screenshots/seven_seg_module_waveforms.png){#fig-decoder-wave}
+
+![Decoder console — 16 PASSED lines followed by 'decoder PASSED'.](images/screenshots/seven_seg_console.png){#fig-decoder-console}
+
+### Counter Simulation
+
+![Counter waveform — count climbs 0→9, wraps to 0, 'tick' pulses at count=9, 'led_blink' toggles on each pulse. Reset returns the count to 0, and counting only proceeds when the enable signal is asserted.](images/screenshots/counter_module_waveforms.png){#fig-counter-wave}
+
+### Top-level Simulation
+All five combinational assertions passed; dut.clk visibly toggles at 48 MHz throughout, confirming HSOSC operation; led[2] is demonstrated to blink throughout the simulation.
+
+![Top-level waveform — switch changes propagate to 'led[0]', 'led[1]', and 'seg'; 'led[2]' blinks from the HSOSC-driven counter.](images/screenshots/top_test_waveform.png){#fig-top-wave}
+
+![Top-level console — all combinational assertions passed.](images/screenshots/top_module_console.png){#fig-top-console}
+
+### On-Board Verification
+![Onboard confirmation of design blinking LED with both LEDs 0-1 off at 4'b0](images/onboard_1.jpeg){#fig-onboard width=50%}
+![Displaying a 0 in hex given an input of 4'b0](images/onboard_2.jpeg){#fig-onboard width=50%}
+
+## Summary & Conclusion
+
+The design meets all functional requirements: switches map to led[0] (XOR), led[1] (AND), and a 7-segment hex-format display; led[2] blinks at 2.4 Hz driven by the on-chip 48 MHz oscillator through a parameterized divider. All three testbenches pass with self-checking assertions, and the design was successfully programmed to the UPduino using openFPGA.
+
+::: {.callout-tip title="Compliance"}
+This submission meets every requirement in the Lab 1 spec in addition to all "Excellence-rubric items": parameterized counter, exhaustive decoder testbench, feature-oriented counter testbench, and top-level testbench covering HSOSC, wiring, and 'assign' logic.
+:::
+
+## AI Prototype Summary
+<details>
+<summary>Prompting Conversation</summary>
+
+**Prompt:**
+
+![Claude Conversation](images/ai_proto_1.png)
+
+**Output code:**
+
+![Generated blink.sv](images/ai_proto_3.png)
+
+</details>
+
+### Reflection
+Upon prompting Claude, it quickly spit out some Verilog code that I found hard to comprehend. Both the syntax and structures of the module it generated were so different that what ive seen in class or in E85 in previous years. So much so that even if a synthesis error came up, I would have little idea as to what the error was saying, let alone why it occurred. 
+
+That being said I did find it helpful to ask Claude specific questions about snippets of code to gain a better understanding of what was actually going on. I also found that it was very helpful in the context it would bring up for explaining why an error was occurring and giving a course of action on how to fix it. With that I found it to be more useful in the debugging process than the actual code generation however, there is an obvious danger of going down unnecessary rabbit holes making it more of a risk of being a time sink than saver.
+
+
+### Hours spent
+- Assembly and FPGA/MCU programming: 7h
+- Verilog design and synthesis: 4h
+- QuestaSim setup and simulation debugging: 7h
+- Report writeup, block diagram, and schematic: 4h
+- **Total: 22 hours**
+
+
+
+

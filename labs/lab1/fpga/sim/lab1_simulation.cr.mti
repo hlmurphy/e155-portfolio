@@ -1,0 +1,49 @@
+C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/seven_segment_decoder.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/seven_segment_decoder.sv
+Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vlog-220) 'C:/Users/hmurphy/Downloads/E155/lab1_murphy/lab1_simulation.mpf' is used as the ini file.
+-- Compiling module seven_segment_decoder
+
+Top level modules:
+	seven_segment_decoder
+
+} {} {}} C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/lab1_hm.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/lab1_hm.sv
+Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vlog-220) 'C:/Users/hmurphy/Downloads/E155/lab1_murphy/lab1_simulation.mpf' is used as the ini file.
+-- Compiling module lab1_hm
+
+Top level modules:
+	lab1_hm
+
+} {} {}} C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/counter.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/radiant_project/counter.sv
+Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vlog-220) 'C:/Users/hmurphy/Downloads/E155/lab1_murphy/lab1_simulation.mpf' is used as the ini file.
+-- Compiling module counter
+
+Top level modules:
+	counter
+
+} {} {}} C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/counter_tb.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/counter_tb.sv
+Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vlog-220) 'C:/Users/hmurphy/Downloads/E155/lab1_murphy/lab1_simulation.mpf' is used as the ini file.
+-- Compiling module counter_tb
+
+Top level modules:
+	counter_tb
+
+} {} {}} C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/lab1_hm_tb.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/lab1_hm_tb.sv
+Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vlog-220) 'C:/Users/hmurphy/Downloads/E155/lab1_murphy/lab1_simulation.mpf' is used as the ini file.
+-- Compiling module lab1_hm_tb
+
+Top level modules:
+	lab1_hm_tb
+
+} {} {}} C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/seven_segment_decoder_tb.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/hmurphy/Documents/GitHub/E155-lab01/fpga/sim/seven_segment_decoder_tb.sv
+Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vlog-220) 'C:/Users/hmurphy/Downloads/E155/lab1_murphy/lab1_simulation.mpf' is used as the ini file.
+-- Compiling module seven_segment_decoder_tb
+
+Top level modules:
+	seven_segment_decoder_tb
+
+} {} {}}

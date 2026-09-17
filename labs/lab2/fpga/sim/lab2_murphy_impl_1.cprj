@@ -1,0 +1,7 @@
+-ver "C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.v"
+-lib pmi -vhd "C:/lscc/radiant/2026.1/ip/pmi/pmi_iCE40UP.vhd"
+-sver "C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/display_scan.sv" "C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/lab2_hm.sv" "C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/scan_counter.sv" "C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab2/fpga/radiant project/design/seven_seg_decoder.sv"
+-path "C:/Users/hmurphy/Downloads/E155/lab2_murphy" "C:/Users/hmurphy/Downloads/E155/lab2_murphy"
+-isTop
+-a "iCE40UP"
+-t "iCE40UP5K"

@@ -1,0 +1,10 @@
+---
+title: "Hello Quarto"
+description: "Welcome to my Quarto portfolio"
+author: "Haspard Murphy"
+date: "9/9/26"
+categories:
+  - reflection
+  - labreport
+draft: false
+---

@@ -1,0 +1,42 @@
+----------------------------------------------------------------------
+Report for cell lab2_hm.TECH
+Register bits:  44 of 5280 (0.833%)
+I/O cells:      30
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               CCU2        21          100.0
+                            FD1P3XZ        44          100.0
+                         HSOSC_CORE         1          100.0
+                                 IB        13          100.0
+                               LUT4        36          100.0
+                                 OB        17          100.0
+SUB MODULES
+                       display_scan         1
+                       scan_counter         1
+              seven_segment_decoder         1
+                              TOTAL       135
+----------------------------------------------------------------------
+Report for cell scan_counter.v1
+Instance Path : u_scan_counter
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2        13           61.9
+                            FD1P3XZ        28           63.6
+                               LUT4        12           33.3
+                              TOTAL        53
+----------------------------------------------------------------------
+Report for cell seven_segment_decoder.v1
+Instance Path : u_dec
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                               LUT4         7           19.4
+                              TOTAL         7
+----------------------------------------------------------------------
+Report for cell display_scan.v1
+Instance Path : u_display_scan
+                                  Cell usage:
+                               cell     count   Res Usage(%)
+                                FA2         8           38.1
+                            FD1P3XZ        16           36.4
+                               LUT4         8           22.2
+                              TOTAL        32

@@ -1,0 +1,12 @@
+---
+title: "E155 Portfolio"
+image: images/headshot.jpeg
+about:
+    template: jolla
+    links:
+        - icon: github
+          text: GitHub
+          href: https://github.com/hlmurphy
+---
+
+Haspard Murphy is a undergraduate engineering student at [Harvey Mudd College](https://hmc.edu) focusing on embedded systems and robotics with a passion for Guidance Navigation and Control (GNC) in aerospace applications. When not in the ECF or Design Lab, he is working on his personal projects working with two custom UAV platforms he built during his time in Professor Mohanty's MADD Lab. His personal interests include soccer, skiing, fly fishing, and most of all trying new foods in countries he has absolutely no buisness being in. If he is not doing any of the above, you will definitely catching him spending time with his friends or younger siblings. He is also a huge fan of the show Avatar The Last Airbender and believes that Kylian Mbappé is the greatest footballer on the planet.
