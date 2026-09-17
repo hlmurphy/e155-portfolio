@@ -1,1 +1,0 @@
-This repository continas the code for all E155 Microprocessor projects including simulations, verilog desgin, and critical material for lab reports.

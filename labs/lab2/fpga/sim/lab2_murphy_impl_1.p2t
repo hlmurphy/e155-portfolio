@@ -1,9 +1,0 @@
--w
--gui
--msgset "C:/Users/hmurphy/Downloads/E155/lab2_murphy/promote.xml"
--n 1
--t 1
--s 1
--cores 1
--hsp m
--exp parPathBased=ON

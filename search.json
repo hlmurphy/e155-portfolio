@@ -1,0 +1,121 @@
+[
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "E155 Blog",
+    "section": "",
+    "text": "Hello Quarto\n\n\nWelcome to my Quarto portfolio\n\n\n\n\n\nSep 9, 2026\n\n\nHaspard Murphy\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "labs.html",
+    "href": "labs.html",
+    "title": "Labs Writeups",
+    "section": "",
+    "text": "Lab 2 — Dual Seven Segment Display Muxxing & 4X4 Keypad Integration\n\n\nMultiplexing 4-bit inputs from two sets of dip switches to a dual seven segment display, in addition to integrating a 4x4 Keypad matrix by blinking column corresponding leds upon key-presses.\n\n\n\n\n\nSep 15, 2026\n\n\nHaspard Murphy\n\n\n\n\n\n\n\n\n\n\n\n\nLab 1 — FPGA and MCU Setup and Testing\n\n\nAssembling the E155 development board, writing Verilog to drive LEDs and a 7-segment display, and validating the design in QuestaSim before programming the UPduino v3.1.\n\n\n\n\n\nSep 9, 2026\n\n\nHaspard Murphy\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "labs/lab2/lab2.html",
+    "href": "labs/lab2/lab2.html",
+    "title": "Lab 2 — Dual Seven Segment Display Muxxing & 4X4 Keypad Integration",
+    "section": "",
+    "text": "To do"
+  },
+  {
+    "objectID": "labs/lab2/lab2.html#introduction",
+    "href": "labs/lab2/lab2.html#introduction",
+    "title": "Lab 2 — Dual Seven Segment Display Muxxing & 4X4 Keypad Integration",
+    "section": "",
+    "text": "To do"
+  },
+  {
+    "objectID": "labs/lab2/lab2.html#design-and-testing-methodology",
+    "href": "labs/lab2/lab2.html#design-and-testing-methodology",
+    "title": "Lab 2 — Dual Seven Segment Display Muxxing & 4X4 Keypad Integration",
+    "section": "Design and Testing Methodology:",
+    "text": "Design and Testing Methodology:\n\n\n\n\n\n\nNote\n\n\n\nTo Do\n\n\nTo Do\n\n\n\n\n\n\nNote\n\n\n\nEach module had its own testbench to self-check the functionality of the respective module using a series of assert statements to validate the expected output of each module (modules resued from previous labs were validated agasint their repsectively created testbenches).\n\n\n\nTechnical Documentation:\nThe source code for the project can be found in the ‘/labs/lab1/fpga/radiant_project’ directory in the associated GitHub repository.\n\n\nBlock Diagram\n\n\n\n\n\n\nFigure 1: To Do\n\n\n\nThe top module wires four elements together: the on-chip HSOSC (clock source), the combinational decoder (driven by switches), the parameterized counter (driven by HSOSC), and two combinational assign statements for led[0] and led[1].\n\n\n\n\n\n\nFigure 2: To Do\n\n\n\n\n\n\n\n\n\nTipSchematic Notation\n\n\n\nSignal names in the schematic are highlighted in green to indicate the corresponding FPGA GPIO pin assignment."
+  },
+  {
+    "objectID": "labs/lab2/lab2.html#calculations",
+    "href": "labs/lab2/lab2.html#calculations",
+    "title": "Lab 2 — Dual Seven Segment Display Muxxing & 4X4 Keypad Integration",
+    "section": "Calculations",
+    "text": "Calculations\n\nCurrent Limiting Resistor for PNP and NPN Transistor Calculation\n\n\n\n\n\n\nFigure 3: Resistor Calculation - given a V and a desired current of 7mA, we calculate 130 Ω as our effective resistance. However, due to the lab supplies, we will use a 150 Ω resistor."
+  },
+  {
+    "objectID": "labs/lab2/lab2.html#results-and-discussion",
+    "href": "labs/lab2/lab2.html#results-and-discussion",
+    "title": "Lab 2 — Dual Seven Segment Display Muxxing & 4X4 Keypad Integration",
+    "section": "Results and Discussion",
+    "text": "Results and Discussion\n\nScan_Counter Simulation\nAll 4 rows are cycled through, all assertions passed.\n\n\n\n\n\n\nFigure 4: To Do\n\n\n\n\n\n\n\n\n\nFigure 5: Scanning module console -\n\n\n\n\n\nTop Module Simulation\n\n\n\n\n\n\nFigure 6: To Do\n\n\n\n\n\n\n\n\n\nFigure 7: To Do\n\n\n\n\n\n\n\n\n\nFigure 8: Top-level console — all combinational assertions passed.\n\n\n\n\n\nOn-Board Verification\n\n\n\n\n\n\nFigure 9: Onboard confirmation of design: both hex digit signals muxxed across the dual display, blinking LED from keypress cannot be observered but is confirmed."
+  },
+  {
+    "objectID": "labs/lab2/lab2.html#summary-conclusion",
+    "href": "labs/lab2/lab2.html#summary-conclusion",
+    "title": "Lab 2 — Dual Seven Segment Display Muxxing & 4X4 Keypad Integration",
+    "section": "Summary & Conclusion",
+    "text": "Summary & Conclusion\nThe design meets all functional requirements: To Do…\n\n\n\n\n\n\nTipCompliance\n\n\n\nThis submission meets every requirement in the Lab 2 spec in addition to all “Excellence-rubric items”: To Do."
+  },
+  {
+    "objectID": "labs/lab2/lab2.html#ai-prototype-summary",
+    "href": "labs/lab2/lab2.html#ai-prototype-summary",
+    "title": "Lab 2 — Dual Seven Segment Display Muxxing & 4X4 Keypad Integration",
+    "section": "AI Prototype Summary",
+    "text": "AI Prototype Summary\nTo Do\n\nReflection\nTo Do\n\n\nHours spent\n\nAssembly and Wire Routing/Pin Assignments: 10h\nVerilog design and synthesis: 5h\nQuestaSim setup and simulation debugging: 4h\nReport writeup, block diagram, and schematic: 6h\nTotal: 25 hours"
+  },
+  {
+    "objectID": "labs/lab1/lab1.html",
+    "href": "labs/lab1/lab1.html",
+    "title": "Lab 1 — FPGA and MCU Setup and Testing",
+    "section": "",
+    "text": "Lab 1 focused on the introduction of the E155 development board (which integrates both a UPduino v3.1, equipped with an iCE40 UP5K FPGA, and an STM32 Nucleo microcontroller). The primary goals of the lab were to assemble both the board and all hardware associated with it, confirming functionality in addition to writing Verilog to drive a 7-segment LED display using just the FPGA and DIP switches with a requirement to model the design in QuestaSim prior to programming the board."
+  },
+  {
+    "objectID": "labs/lab1/lab1.html#introduction",
+    "href": "labs/lab1/lab1.html#introduction",
+    "title": "Lab 1 — FPGA and MCU Setup and Testing",
+    "section": "",
+    "text": "Lab 1 focused on the introduction of the E155 development board (which integrates both a UPduino v3.1, equipped with an iCE40 UP5K FPGA, and an STM32 Nucleo microcontroller). The primary goals of the lab were to assemble both the board and all hardware associated with it, confirming functionality in addition to writing Verilog to drive a 7-segment LED display using just the FPGA and DIP switches with a requirement to model the design in QuestaSim prior to programming the board."
+  },
+  {
+    "objectID": "labs/lab1/lab1.html#design-and-testing-methodology",
+    "href": "labs/lab1/lab1.html#design-and-testing-methodology",
+    "title": "Lab 1 — FPGA and MCU Setup and Testing",
+    "section": "Design and Testing Methodology:",
+    "text": "Design and Testing Methodology:\n\n\n\n\n\n\nNote\n\n\n\nAll SMT and THT components were soldered onto the E155 development board and were examined using a multimeter to confirm connectivity, as well as functional resistance and capacitance values. The board was then powered on to assess the functionality of the onboard LEDs, and DIP switches using provided source code to initialize and confirm the ability to program the onboard FPGA and MCU.\n\n\nOnce the physical hardware was assembled, the overall design of the project was broken down into three modules (two submodules plus a top-level module): ‘seven_segment_decoder.sv’, ‘counter.sv’, and ‘lab1_hm.sv’.\n\nThe ‘seven_segment_decoder.sv’ module was responsible for implementing combinational logic to convert a 4-bit binary input from a set of DIP switches (SW6) into the appropriate 7-segment display output.\nThe ‘counter.sv’ module implemented a simple counter that incremented based on the internal clock signal derived from the on-board high-speed oscillator (HSOSC) onboard the iCE40. Given the HSOSC was configured to operate at 48MHz, the counter was used to divide the clock signal down to a frequency of 2.4Hz to drive a flashing LED (led2) on the board.\nThe ‘lab1_hm.sv’ top-level module integrated both submodules, managing the overall functionality of the design as well as test two types of combinational logic (AND & XOR) using the same input set of DIP switches to control an additional two separate LEDs (led0 and led1).\n\n\n\n\n\n\n\nNote\n\n\n\nEach module had its own testbench to self-check the functionality of the respective module using a series of assert statements to validate the expected output of each module in addition to producing waveforms that could be analyzed to confirm expected behavior of the design.\n\n\n\nTechnical Documentation:\nThe source code for the project can be found in the ‘/labs/lab1/fpga/radiant_project’ directory in the associated GitHub repository.\n\n\nBlock Diagram\n\n\n\n\n\n\nFigure 1: RTL connections inside the top level module ‘lab1_hm’ (indicating expected relationship between modules)\n\n\n\nThe top module wires four elements together: the on-chip HSOSC (clock source), the combinational decoder (driven by switches), the parameterized counter (driven by HSOSC), and two combinational assign statements for led[0] and led[1].\n\n\n\n\n\n\nFigure 2: 7-segment display wiring, showing common anode to +3.3 V and each cathode via a 150 Ω current-limiting resistor to its assigned FPGA GPIO pin (highlighted in purple).\n\n\n\n\n\n\n\n\n\nTipSchematic Notation\n\n\n\nSignal names in the schematic are highlighted in green to indicate the corresponding FPGA GPIO pin assignment."
+  },
+  {
+    "objectID": "labs/lab1/lab1.html#calculations",
+    "href": "labs/lab1/lab1.html#calculations",
+    "title": "Lab 1 — FPGA and MCU Setup and Testing",
+    "section": "Calculations",
+    "text": "Calculations\n\nCurrent Limiting Resistor Calculation\n\n\n\n\n\n\nFigure 3: Resistor Calculation - given a Vf of 2.0 V and a desired current of 7mA, we calculate 130 Ω as our effective resistance. However, due to the lab supplies, we will use a 150 Ω resistor.\n\n\n\n\n\nClock Divider Calculation\n\n\n\n\n\n\nFigure 4: Clock cycle calculation - since HSOSC runs at 48 MHz and we want a 2.4 Hz output, we need 4.8 cycles per blink thus the MAX number of clock signals per cycle can only be 9,999,999."
+  },
+  {
+    "objectID": "labs/lab1/lab1.html#results-and-discussion",
+    "href": "labs/lab1/lab1.html#results-and-discussion",
+    "title": "Lab 1 — FPGA and MCU Setup and Testing",
+    "section": "Results and Discussion",
+    "text": "Results and Discussion\n\nDecoder Simulation\nAll 16 hex values exercised, all assertions passed.\n\n\n\n\n\n\nFigure 5: Decoder waveform - input data ranging from 0x0 through 0xF, segments outputs match expected patterns.\n\n\n\n\n\n\n\n\n\nFigure 6: Decoder console — 16 PASSED lines followed by ‘decoder PASSED’.\n\n\n\n\n\nCounter Simulation\n\n\n\n\n\n\nFigure 7: Counter waveform — count climbs 0→9, wraps to 0, ‘tick’ pulses at count=9, ‘led_blink’ toggles on each pulse. Reset returns the count to 0, and counting only proceeds when the enable signal is asserted.\n\n\n\n\n\nTop-level Simulation\nAll five combinational assertions passed; dut.clk visibly toggles at 48 MHz throughout, confirming HSOSC operation; led[2] is demonstrated to blink throughout the simulation.\n\n\n\n\n\n\nFigure 8: Top-level waveform — switch changes propagate to ‘led[0]’, ‘led[1]’, and ‘seg’; ‘led[2]’ blinks from the HSOSC-driven counter.\n\n\n\n\n\n\n\n\n\nFigure 9: Top-level console — all combinational assertions passed.\n\n\n\n\n\nOn-Board Verification"
+  },
+  {
+    "objectID": "labs/lab1/lab1.html#summary-conclusion",
+    "href": "labs/lab1/lab1.html#summary-conclusion",
+    "title": "Lab 1 — FPGA and MCU Setup and Testing",
+    "section": "Summary & Conclusion",
+    "text": "Summary & Conclusion\nThe design meets all functional requirements: switches map to led[0] (XOR), led[1] (AND), and a 7-segment hex-format display; led[2] blinks at 2.4 Hz driven by the on-chip 48 MHz oscillator through a parameterized divider. All three testbenches pass with self-checking assertions, and the design was successfully programmed to the UPduino using openFPGA.\n\n\n\n\n\n\nTipCompliance\n\n\n\nThis submission meets every requirement in the Lab 1 spec in addition to all “Excellence-rubric items”: parameterized counter, exhaustive decoder testbench, feature-oriented counter testbench, and top-level testbench covering HSOSC, wiring, and ‘assign’ logic."
+  },
+  {
+    "objectID": "labs/lab1/lab1.html#ai-prototype-summary",
+    "href": "labs/lab1/lab1.html#ai-prototype-summary",
+    "title": "Lab 1 — FPGA and MCU Setup and Testing",
+    "section": "AI Prototype Summary",
+    "text": "AI Prototype Summary\n\n\nPrompting Conversation\n\nPrompt:\n\n\n\nClaude Conversation\n\n\nOutput code:\n\n\n\nGenerated blink.sv\n\n\n\n\nReflection\nUpon prompting Claude, it quickly spit out some Verilog code that I found hard to comprehend. Both the syntax and structures of the module it generated were so different that what ive seen in class or in E85 in previous years. So much so that even if a synthesis error came up, I would have little idea as to what the error was saying, let alone why it occurred.\nThat being said I did find it helpful to ask Claude specific questions about snippets of code to gain a better understanding of what was actually going on. I also found that it was very helpful in the context it would bring up for explaining why an error was occurring and giving a course of action on how to fix it. With that I found it to be more useful in the debugging process than the actual code generation however, there is an obvious danger of going down unnecessary rabbit holes making it more of a risk of being a time sink than saver.\n\n\nHours spent\n\nAssembly and FPGA/MCU programming: 7h\nVerilog design and synthesis: 4h\nQuestaSim setup and simulation debugging: 7h\nReport writeup, block diagram, and schematic: 4h\nTotal: 22 hours"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "E155 Portfolio",
+    "section": "",
+    "text": "Haspard Murphy is a undergraduate engineering student at Harvey Mudd College focusing on embedded systems and robotics with a passion for Guidance Navigation and Control (GNC) in aerospace applications. When not in the ECF or Design Lab, he is working on his personal projects working with two custom UAV platforms he built during his time in Professor Mohanty’s MADD Lab. His personal interests include soccer, skiing, fly fishing, and most of all trying new foods in countries he has absolutely no buisness being in. If he is not doing any of the above, you will definitely catching him spending time with his friends or younger siblings. He is also a huge fan of the show Avatar The Last Airbender and believes that Kylian Mbappé is the greatest footballer on the planet."
+  }
+]

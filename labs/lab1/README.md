@@ -1,1 +1,0 @@
- This repository contains code to validate the assembly of the E155 Development board as well as the functionality of the FPGA and MCU.

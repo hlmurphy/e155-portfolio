@@ -1,7 +1,0 @@
----
-title: "Labs Writeups"
-listing:
-  contents: "lab*/lab*.qmd"
-  sort: "date desc"
-  type: default
----
