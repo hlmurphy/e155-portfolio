@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Haspard Murphy">
-<meta name="dcterms.date" content="2026-09-15">
+<meta name="dcterms.date" content="2026-09-16">
 <meta name="description" content="Multiplexing 4-bit inputs from two sets of dip switches to a dual seven segment display, in addition to integrating a 4x4 Keypad matrix by blinking column corresponding leds upon key-presses.">
 
 <title>Lab 2 — Dual Seven Segment Display Muxxing &amp; 4X4 Keypad Integration – E155 Portfolio</title>
@@ -134,7 +134,8 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#calculations" id="toc-calculations" class="nav-link" data-scroll-target="#calculations">Calculations</a>
   <ul class="collapse">
-  <li><a href="#current-limiting-resistor-for-pnp-and-npn-transistor-calculation" id="toc-current-limiting-resistor-for-pnp-and-npn-transistor-calculation" class="nav-link" data-scroll-target="#current-limiting-resistor-for-pnp-and-npn-transistor-calculation">Current Limiting Resistor for PNP and NPN Transistor Calculation</a></li>
+  <li><a href="#segment-current-limiting-resistors" id="toc-segment-current-limiting-resistors" class="nav-link" data-scroll-target="#segment-current-limiting-resistors">Segment current-limiting resistors</a></li>
+  <li><a href="#pnp-anode-driver-base-resistor-2n3906" id="toc-pnp-anode-driver-base-resistor-2n3906" class="nav-link" data-scroll-target="#pnp-anode-driver-base-resistor-2n3906">PNP anode-driver base resistor (2N3906)</a></li>
   </ul></li>
   <li><a href="#results-and-discussion" id="toc-results-and-discussion" class="nav-link" data-scroll-target="#results-and-discussion">Results and Discussion</a>
   <ul class="collapse">
@@ -160,7 +161,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="quarto-categories">
     <div class="quarto-category">FPGA</div>
     <div class="quarto-category">Verilog</div>
-    <div class="quarto-category">Mulitplexing</div>
+    <div class="quarto-category">Multiplexing</div>
     <div class="quarto-category">iCE40</div>
     <div class="quarto-category">Nucleo</div>
   </div>
@@ -185,7 +186,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 15, 2026</p>
+      <p class="date">September 16, 2026</p>
     </div>
   </div>
   
@@ -199,7 +200,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction:</h2>
-<p>To do</p>
+<p>Lab 2 built on the Lab 1 development board with two extensions: driving <em>two</em> seven-segment displays from a single shared set of seven segment lines via time-multiplexing, and scanning a 4x4 matrix keypad with the column reads echoed back onto LEDs. Both extensions push past what the FPGA’s I/O drivers can do directly, so the design also required the use of external transistors: 2N3906 PNPs to source the current the anodes each respective seven segment display needed, and four 2N3904 NPNs configured as open-drain drivers on the keypad rows so that multiple simultaneous key presses cannot short row lines together.</p>
 </section>
 <section id="design-and-testing-methodology" class="level2">
 <h2 class="anchored" data-anchor-id="design-and-testing-methodology">Design and Testing Methodology:</h2>
@@ -213,10 +214,15 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>To Do</p>
+<p>The design was decomposed into four modules: “seven_segment_decoder.sv” (recycledfrom Lab 1), a new “display_scan.sv” counter that drives the digit-select signal for the 2:1 mux, a new “scan_counter.sv” non-canonical FSM that rotates a one-hot-row pattern across the keypad, and the top-level “lab2_hm.sv” that wires them all together, and provides the anode-drive and column-echo combinational logic.</p>
 </div>
 </div>
-<p>To Do</p>
+<ul>
+<li>“seven_segment_decoder.sv” — combinational 4-bit → active-low 7-segment decoder, unchanged from Lab 1 and instantiated <em>once</em> at the top level, time-shared between the two digits.</li>
+<li>“display_scan.sv” — 15-bit counter with parameters “bit_number” and “max_count”. At 48 MHz with “max_count = 23_999”, the output “select” toggles every 500 µs, giving each digit a 1 kHz refresh rate — well above the human flicker threshold of 60Hz.</li>
+<li>“scan_counter.sv” — non-canonical FSM: a 24-bit prescaler feeding a 2-bit state register whose combinational output logic maps state → “rows[3:0]” one-hot. With “max_count = 11_999_999”, the state advances every 250 ms, so each of the four row patterns (‘1000’, ‘0100’, ‘0010’, ‘0001’) is asserted for a quarter-second and each row line toggles at 2 Hz.</li>
+<li>“lab2_hm.sv” — top level. Instantiates HSOSC, both counters, and the decoder; contains the 2:1 hex mux, the anode selection, and the column-LED echo.</li>
+</ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -227,33 +233,33 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Each module had its own testbench to self-check the functionality of the respective module using a series of assert statements to validate the expected output of each module (modules resued from previous labs were validated agasint their repsectively created testbenches).</p>
+<p>Each new module has its own testbench that exercises reset, enable, and every output transition with assert statements. Modules reused from Lab 1 were not re-simulated; their existing testbenches remain the source of truth.</p>
 </div>
 </div>
 <section id="technical-documentation" class="level3">
 <h3 class="anchored" data-anchor-id="technical-documentation">Technical Documentation:</h3>
-<p>The source code for the project can be found in the ‘/labs/lab1/fpga/radiant_project’ directory in the associated <a href="https://github.com/hlmurphy/e155-portfolio">GitHub repository</a>.</p>
+<p>The source code for the project can be found in the <code>/labs/lab2/fpga/radiant project</code> directory of the associated <a href="https://github.com/hlmurphy/e155-portfolio">GitHub repository</a>.</p>
 </section>
 <section id="block-diagram" class="level3">
 <h3 class="anchored" data-anchor-id="block-diagram">Block Diagram</h3>
 <div id="fig-block" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-block-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/block_diagram2.png" class="img-fluid figure-img" style="width:80.0%">
+<img src="images/lab2_netlist.png" class="img-fluid figure-img" style="width:80.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-block-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: To Do
+Figure&nbsp;1: RTL block diagram from Radiant’s netlist analyzer. The green net from HSOSC’s CLKHF fans out to both counters’ clock inputs.
 </figcaption>
 </figure>
 </div>
-<p>The top module wires four elements together: the on-chip HSOSC (clock source), the combinational decoder (driven by switches), the parameterized counter (driven by HSOSC), and two combinational <code>assign</code> statements for <code>led[0]</code> and <code>led[1]</code>.</p>
+<p>The top module wires seven elements together: the on-chip HSOSC (clock source shared by both counters), the display multiplexing counter “u_display_scan”, the keypad-row scanning counter “u_scan_counter”, the reused decoder “u_dec”, the 2:1 hex mux driven by “select”, the two anode assigns, and the “col_leds = ~cols” echo.</p>
 <div id="fig-schematic" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-schematic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/schematic2.png" class="img-fluid figure-img" style="width:80.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-schematic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: To Do
+Figure&nbsp;2: Lab 2 hardware schematic: two 2N3906 PNP anode drivers with 470 Ω base resistors sourcing current for the two display common anodes; four 2N3904 NPN row drivers configured as open-drain outputs on the keypad rows; 150 Ω current-limiting resistors on each of the seven shared segment lines (carried over from Lab 1); the 4x4 matrix keypad with 1 kΩ column pull-ups to +3.3 V; SW6 DIP switches for “s0[3:0]” and SW7 positions 1-4 (MCU-bridged) for “s1[3:0]”; reset push button with FPGA internal 100 kΩ pull-up.
 </figcaption>
 </figure>
 </div>
@@ -267,22 +273,26 @@ Figure&nbsp;2: To Do
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Signal names in the schematic are highlighted in green to indicate the corresponding FPGA GPIO pin assignment.</p>
+<p>FPGA GPIO pins numbers are highlited in green, where corresponsdign signal names notated in white above their respective wires.</p>
 </div>
 </div>
 </section>
 </section>
 <section id="calculations" class="level2">
 <h2 class="anchored" data-anchor-id="calculations">Calculations</h2>
-<section id="current-limiting-resistor-for-pnp-and-npn-transistor-calculation" class="level3">
-<h3 class="anchored" data-anchor-id="current-limiting-resistor-for-pnp-and-npn-transistor-calculation">Current Limiting Resistor for PNP and NPN Transistor Calculation</h3>
-<div id="fig-resistor-calcs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<section id="segment-current-limiting-resistors" class="level3">
+<h3 class="anchored" data-anchor-id="segment-current-limiting-resistors">Segment current-limiting resistors</h3>
+<p>Reused from Lab 1: with a forward voltage of ~2.0 V and target current of ~7 mA per lit segment, “R = (3.3 - 2.0) / 0.007 ≈ 185 Ω”. The 150 Ω resistors from Lab 1 remain in place and pass approximately 8.7 mA per segment.</p>
+</section>
+<section id="pnp-anode-driver-base-resistor-2n3906" class="level3">
+<h3 class="anchored" data-anchor-id="pnp-anode-driver-base-resistor-2n3906">PNP anode-driver base resistor (2N3906)</h3>
+<div id="fig-pnp-calcs" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-resistor-calcs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-pnp-calcs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/transistors_calcs.png" class="img-fluid figure-img" style="width:60.0%">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-resistor-calcs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Resistor Calculation - given a V and a desired current of 7mA, we calculate 130 Ω as our effective resistance. However, due to the lab supplies, we will use a 150 Ω resistor.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pnp-calcs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: PNP base resistor calculation: Given a Veb (emitter-base voltage) of 0.95V given a Ib (base current) of 5mA <em>2N3906 datasheet</em>, we caluate Rb as demonstrated in the figure above. It is important to note that the Voh of the FGPA’s GPIO’s pin is 8mA thus we determine 5mA as an acceptable value.
 </figcaption>
 </figure>
 </div>
@@ -292,47 +302,48 @@ Figure&nbsp;3: Resistor Calculation - given a V and a desired current of 7mA, we
 <h2 class="anchored" data-anchor-id="results-and-discussion">Results and Discussion</h2>
 <section id="scan_counter-simulation" class="level3">
 <h3 class="anchored" data-anchor-id="scan_counter-simulation">Scan_Counter Simulation</h3>
-<p>All 4 rows are cycled through, all assertions passed.</p>
-<div id="fig-decoder-wave" class="quarto-float quarto-figure quarto-figure-center anchored">
+<p>All four row-scan states cycled through, reset-from-cold-start and mid-cycle reset behavior verified, enable-freeze verified. Six self-checking <code>assert</code> statements passed.</p>
+<div id="fig-scan-wave" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-decoder-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-scan-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/scan_counter_waveforms.png" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-decoder-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4: To Do
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scan-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Scan_counter waveform — “rows” shifts through the sequence “1000 → 0100 → 0010 → 0001 → 1000”, advancing every four sim clocks (with “max_count” shrunk from “11_999_999” to “3” for fast simulation). Reset drives “rows” back to “1000”.
 </figcaption>
 </figure>
 </div>
-<div id="fig-decoder-console" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-scan-console" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-decoder-console-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-scan-console-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/scan_counter_console.png" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-decoder-console-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5: Scanning module console -
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-scan-console-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Scan_counter console — six PASS lines, ending in <code>*** scan_tb complete ***</code>.
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="top-module-simulation" class="level3">
 <h3 class="anchored" data-anchor-id="top-module-simulation">Top Module Simulation</h3>
-<div id="fig-counter-wave" class="quarto-float quarto-figure quarto-figure-center anchored">
+<p>The top-level testbench tests, reset through the top level, both directions of the display multiplexer — verifying “anode_0”/“anode_1” along with whether “seg” decodes the correct hex source, and the column-echo LED logic across three keypad-input patterns. All assertions passed.</p>
+<div id="fig-top-mux" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-counter-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-top-mux-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/top_mux_waveforms.png" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-counter-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6: To Do
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-top-mux-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Top-level mux waveform — “select” toggles every four sim clocks; “anode_0” and “anode_1” are exact complements throughout; “seg” alternates between s1 = 0010010 and s0 = 0111000 in step with the mux.
 </figcaption>
 </figure>
 </div>
-<div id="fig-counter-wave" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-top-cols" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-counter-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-top-cols-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/top_col_leds_waveforms.png" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-counter-wave-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7: To Do
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-top-cols-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: Top-level col_leds waveform — “col_leds” is the bitwise inverse of “cols”.
 </figcaption>
 </figure>
 </div>
@@ -342,7 +353,7 @@ Figure&nbsp;7: To Do
 <img src="images/top_module_console.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-top-console-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8: Top-level console — all combinational assertions passed.
+Figure&nbsp;8: Top-level console — PASS lines for reset propagation, both mux phases, and all three col_leds patterns, ending in “*** lab2_tb complete ***“.
 </figcaption>
 </figure>
 </div>
@@ -355,7 +366,7 @@ Figure&nbsp;8: Top-level console — all combinational assertions passed.
 <img src="images/onboard.png" class="img-fluid figure-img" style="width:50.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-onboard-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9: Onboard confirmation of design: both hex digit signals muxxed across the dual display, blinking LED from keypress cannot be observered but is confirmed.
+Figure&nbsp;9: On-board result — both digit light and display their coresponsing hex values muxxed at a 1 kHz refresh rate; keypad column echo verified by pressing keys and observing the corresponding on-board LED blink at the row-scan rate.
 </figcaption>
 </figure>
 </div>
@@ -363,27 +374,46 @@ Figure&nbsp;9: Onboard confirmation of design: both hex digit signals muxxed acr
 </section>
 <section id="summary-conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="summary-conclusion">Summary &amp; Conclusion</h2>
-<p>The design meets all functional requirements: To Do…</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Compliance">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Compliance
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This submission meets every requirement in the Lab 2 spec in addition to all “Excellence-rubric items”: To Do.</p>
-</div>
-</div>
+<p>The design meets the functional requirements of Lab 2: two independent 4-bit hex inputs are multiplexed onto a shared seven-segment decoder at 1 kHz per digit, the keypad matrix is scanned at 4 Hz per row using a non-canonical FSM (prescaler + 2-bit state + combinational output logic), and the column reads are echoed on LEDs.</p>
 </section>
 <section id="ai-prototype-summary" class="level2">
 <h2 class="anchored" data-anchor-id="ai-prototype-summary">AI Prototype Summary</h2>
-<p>To Do</p>
+<details>
+<summary>
+Prompting Conversation
+</summary>
+<p><strong>Prompt:</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ai_convo1.png" class="img-fluid figure-img"></p>
+<figcaption>Claude Conversation</figcaption>
+</figure>
+</div>
+<p><strong>Output code:</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ai_code1.png" class="img-fluid figure-img"></p>
+<figcaption>Generated blink.sv</figcaption>
+</figure>
+</div>
+<p><strong>Prompt:</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ai_convo2.png" class="img-fluid figure-img"></p>
+<figcaption>Claude Conversation</figcaption>
+</figure>
+</div>
+<p><strong>Output code:</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ai_code2.png" class="img-fluid figure-img"></p>
+<figcaption>Generated blink.sv</figcaption>
+</figure>
+</div>
+</details>
 <section id="reflection" class="level3">
 <h3 class="anchored" data-anchor-id="reflection">Reflection</h3>
-<p>To Do</p>
+<p>For the Lab 2 AI prototype, I found that the Verilog generated followed a lot of the same structure for implementing communicating FSMs as discussed in lecture. For these particular prompts, especially the second (where context files of my own code were provided), I found the code the model generated was noticeably more useful than in Lab 1, mainly because of its legibility. The structure of the modules and the flow of signals made much more sense to me compared to the module generated in the previous lab’s prototyping session, which in turn made it more difficult to troubleshoot during the synthesis and compilation phases (as previously mentioned).</p>
 </section>
 <section id="hours-spent" class="level3">
 <h3 class="anchored" data-anchor-id="hours-spent">Hours spent</h3>
@@ -391,8 +421,8 @@ Figure&nbsp;9: Onboard confirmation of design: both hex digit signals muxxed acr
 <li>Assembly and Wire Routing/Pin Assignments: 10h</li>
 <li>Verilog design and synthesis: 5h</li>
 <li>QuestaSim setup and simulation debugging: 4h</li>
-<li>Report writeup, block diagram, and schematic: 6h</li>
-<li><strong>Total: 25 hours</strong></li>
+<li>Report writeup, block diagram, and schematic: 8h</li>
+<li><strong>Total: 27 hours</strong></li>
 </ul>
 
 
