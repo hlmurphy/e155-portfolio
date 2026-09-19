@@ -1,0 +1,8 @@
+---
+title: "Lab 3 — Full 4x4 Keypad Scanning and Display"
+author: "Haspard Murphy"
+date: "2026-09-19"
+categories: [FPGA, Verilog, Multiplexing, iCE40, Nucleo]
+description: ""
+image: images/
+---
