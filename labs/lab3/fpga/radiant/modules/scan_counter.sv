@@ -10,7 +10,8 @@ module scan_counter #(parameter bit_number = 24,
         (input logic clk, // Clock signal dervied from internal HSOSC
         input logic reset,
         input logic enable,
-        output logic [3:0] rows);
+        output logic [3:0] rows,
+        output logic end_of_scan);
 
         logic [bit_number-1:0] count = 0; // Current counter value
         logic            [1:0] state;
@@ -39,4 +40,7 @@ module scan_counter #(parameter bit_number = 24,
             default: rows = 4'b1000;
             endcase
         end
+        // One cycle pulse to indicate a full scan of the keypad has completed (at the wrap of states)
+        assign end_of_scan = enable && (state == 2'b11) && (count == max_count);
+
 endmodule
