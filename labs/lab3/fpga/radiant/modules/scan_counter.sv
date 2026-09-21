@@ -2,8 +2,8 @@
 // scan_counter.sv  
 // Author: Haspard Murphy <hmurphy@g.hmc.edu>
 // Date:   2026-09-12
-// Course: HMC E155, Lab 2
-// Purpose: Counter module for scanning the rows of the keypad matrix
+// Course: HMC E155, Lab 3
+// Purpose: Counter module for fully scanning the columns and rows of the keypad matrix
 // -------------------------------------------------------------
 module scan_counter #(parameter bit_number = 24, 
         parameter max_count = 11_999_999) // 48_000_000 / 2*2 - 1
