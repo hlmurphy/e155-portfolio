@@ -77,7 +77,7 @@ module lab3_hm #(parameter display_max = 23_999,
         assign anode_0 = ~select;
         assign anode_1 = select;
 
-        assign rows = ~rows_one_hot;
+        assign rows = rows_one_hot;
 
         assign reset_inv = ~reset;
 
