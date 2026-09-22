@@ -6,7 +6,8 @@
 // Purpose: Counter module for fully scanning the columns and rows of the keypad matrix
 // -------------------------------------------------------------
 module scan_counter #(parameter bit_number = 24, 
-        parameter max_count = 11_999_999) // 48_000_000 / 2*2 - 1
+        parameter max_count = 11_999_999,
+        parameter settle_time = 500) // 48_000_000 / 2*2 - 1
         (input logic clk, // Clock signal dervied from internal HSOSC
         input logic reset,
         input logic enable,
@@ -20,18 +21,21 @@ module scan_counter #(parameter bit_number = 24,
         begin
             if (reset) begin
                 count <= 0;
-                state <= 2'b11;
+                state <= 2'b00 ;
             end
             else if (enable) begin
                 if (count == max_count) begin
-                count <= 0;
-                state <= state + 1;
+                    count <= 0;
+                    state <= state + 1;
                 end
                 else count <= count + 1;
             end
         end
 
         always_comb begin
+            if (count < settle_time) begin
+                rows = 4'b0000;
+            end
             case (state)
             2'b00: rows = 4'b1000;
             2'b01: rows = 4'b0100;

@@ -8,7 +8,8 @@
 module lab3_hm #(parameter display_max = 23_999,
                 parameter display_bit_number = 15,
                 parameter row_scan_max = 47_999,
-                parameter row_scan_bit_number = 16)(
+                parameter row_scan_bit_number = 16,
+                parameter settle_time = 500)(
                 input logic         reset,
                 input logic [3:0]   cols,
                 output logic [3:0]  rows,
@@ -41,7 +42,7 @@ module lab3_hm #(parameter display_max = 23_999,
         logic clk;
         HSOSC hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(clk));
 
-        scan_counter #(.bit_number(row_scan_bit_number), .max_count(row_scan_max))
+        scan_counter #(.bit_number(row_scan_bit_number), .max_count(row_scan_max), .settle_time(settle_time))
         u_scan_counter (.clk(clk), .reset(reset_synced), .enable(1'b1), .rows(rows_one_hot), 
         .end_of_scan(end_of_scan));
 
