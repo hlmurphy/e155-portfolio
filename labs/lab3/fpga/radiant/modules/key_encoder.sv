@@ -13,7 +13,7 @@ module key_encoder(input  logic [3:0]   row_active,
                 logic [3:0] cols_pressed;
                 assign cols_pressed = ~cols_in;
 
-                // Valid keystroke metric
+                // Valid keystroke metric (only one key from one row, and only one row)
                 assign key_valid = (
                 cols_pressed == 4'b0001) || (cols_pressed == 4'b0010) 
                 || (cols_pressed == 4'b0100) || (cols_pressed == 4'b1000);

@@ -10,6 +10,7 @@ module debouncer #(parameter N_STABLE = 3)(
                 input logic        reset,
                 input logic [3:0]  key_value,
                 input logic        key_valid,
+                input logic        sample_ok,
                 input logic        end_of_scan,
                 output logic [3:0] key_stable,
                 output logic       new_keypress);
@@ -62,7 +63,7 @@ module debouncer #(parameter N_STABLE = 3)(
                                 match_counter <= 2'b0;
                             end 
                         end
-                        else if (key_valid) begin
+                        else if (sample_ok && key_valid) begin
                             scan_seen_valid <= 1;
                             scan_seen_value <= key_value;
                         end

@@ -8,8 +8,7 @@
 module lab3_hm #(parameter display_max = 23_999,
                 parameter display_bit_number = 15,
                 parameter row_scan_max = 47_999,
-                parameter row_scan_bit_number = 16,
-                parameter settle_time = 500)(
+                parameter row_scan_bit_number = 16)(
                 input logic         reset,
                 input logic [3:0]   cols,
                 output logic [3:0]  rows,
@@ -38,13 +37,15 @@ module lab3_hm #(parameter display_max = 23_999,
         logic       select;
         logic [3:0] hex_current;
 
+        logic sample_ok;
+
         // Internal clock signal from 48MHz oscillator
         logic clk;
-        HSOSC hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(clk));
+        SB_HFOSC #(.CLKHF_DIV("0b01")) hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(clk));
 
-        scan_counter #(.bit_number(row_scan_bit_number), .max_count(row_scan_max), .settle_time(settle_time))
+        scan_counter #(.bit_number(row_scan_bit_number), .max_count(row_scan_max))
         u_scan_counter (.clk(clk), .reset(reset_synced), .enable(1'b1), .rows(rows_one_hot), 
-        .end_of_scan(end_of_scan));
+        .end_of_scan(end_of_scan), .sample_ok(sample_ok));
 
 
         cols_sync u_cols_sync (.clk(clk), .reset(reset_synced), .cols_in(cols), 
@@ -57,7 +58,7 @@ module lab3_hm #(parameter display_max = 23_999,
 
         debouncer #(.N_STABLE(3))
         u_debouncer (.clk(clk), .reset(reset_synced), .key_value(key_value),
-        .key_valid(key_valid), .end_of_scan(end_of_scan), .key_stable(key_stable),
+        .key_valid(key_valid), .sample_ok(sample_ok), .end_of_scan(end_of_scan), .key_stable(key_stable),
         .new_keypress(new_keypress));
 
         display_register u_display_register (.clk(clk), .reset(reset_synced), .new_key(key_stable), 
