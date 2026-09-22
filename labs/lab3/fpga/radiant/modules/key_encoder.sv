@@ -20,7 +20,7 @@ module key_encoder(input  logic [3:0]   row_active,
 
                 always_comb
                     case ({row_active, cols_pressed})
-                    // Row 0 & Columns 0-3 (R0+C0, R0+C1, R0+C2, ...)
+                    // Row 0 & Columns 0-3 (R0+C3, R0+C2, R0+C1, ...)
                         8'b0001_1000: key_value = 4'hA;
                         8'b0001_0100: key_value = 4'h3;
                         8'b0001_0010: key_value = 4'h2;
