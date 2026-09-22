@@ -20,7 +20,7 @@ module scan_counter #(parameter bit_number = 24,
         begin
             if (reset) begin
                 count <= 0;
-                state <= 2'b0;
+                state <= 2'b11;
             end
             else if (enable) begin
                 if (count == max_count) begin

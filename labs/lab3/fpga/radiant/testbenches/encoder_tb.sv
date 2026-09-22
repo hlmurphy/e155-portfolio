@@ -20,7 +20,7 @@ module encoder_tb;
 
     initial begin
         // Test cases
-    {row_active, cols_in} = 8'b0001_1110;
+    {row_active, cols_in} = 8'b0001_1101;
     #10;                        // wait required time
     assert (key_value == 4'h1)       // check outputs
         $display("PASSED! At time: %0t.", $time);
