@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RadiantProject version="4.2" radiant="2026.1.0.37.0" title="lab3_murphy" device="iCE40UP5K-SG48I" performance_grade="High-Performance_1.2V" family_int="ice40tp" device_int="itpa08" package_int="SG48" operation_int="IND" speed_int="6" default_implementation="impl_1">
+    <Options/>
+    <Implementation title="impl_1" dir="impl_1" description="impl_1" synthesis="lse" default_strategy="Strategy1">
+        <Options top="lab3_hm"/>
+        <Source name="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/cols_sync.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/debouncer.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/display_register.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/display_scan.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/key_encoder.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/lab3_hm.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/reset_sync.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/scan_counter.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/seven_seg_decoder.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/encoder_tb.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/cols_tb.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/debouncer_tb.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/rst_tb.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/scan_tb.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/disp_reg_tb.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/top_tb.sv" type="Verilog" type_short="Verilog">
+            <Options VerilogStandard="System Verilog"/>
+        </Source>
+        <Source name="lab3_murphy.pdc" type="Physical Constraints File" type_short="PDC">
+            <Options/>
+        </Source>
+        <Source name="lab3_sim/lab3_sim.spf" type="Simulation Project File" type_short="SPF">
+            <Options/>
+        </Source>
+        <Source name="lab3_sim_cols/lab3_sim_cols.spf" type="Simulation Project File" type_short="SPF">
+            <Options/>
+        </Source>
+        <Source name="lab3_sim_debouncer/lab3_sim_debouncer.spf" type="Simulation Project File" type_short="SPF">
+            <Options/>
+        </Source>
+        <Source name="lab3_sim_disp_reg/lab3_sim_disp_reg.spf" type="Simulation Project File" type_short="SPF">
+            <Options/>
+        </Source>
+        <Source name="lab3_sim_encoder/lab3_sim_encoder.spf" type="Simulation Project File" type_short="SPF">
+            <Options/>
+        </Source>
+        <Source name="lab3_sim_reset/lab3_sim_reset.spf" type="Simulation Project File" type_short="SPF">
+            <Options/>
+        </Source>
+        <Source name="lab3_sim_scan/lab3_sim_scan.spf" type="Simulation Project File" type_short="SPF">
+            <Options/>
+        </Source>
+        <Source name="lab3_sim_top/lab3_sim_top.spf" type="Simulation Project File" type_short="SPF">
+            <Options/>
+        </Source>
+        <Source name="source/impl_1.xcf" type="Programming Project File" type_short="Programming">
+            <Options/>
+        </Source>
+    </Implementation>
+    <Strategy name="Strategy1" file="lab3_murphy1.sty"/>
+</RadiantProject>

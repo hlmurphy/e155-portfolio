@@ -1,0 +1,81 @@
+C:/Users/hmurphy/Downloads/E155/lab3_murphy/lab3_hm.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/hmurphy/Downloads/E155/lab3_murphy/lab3_hm.sv
+Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vlog-220) 'C:/Users/hmurphy/Downloads/E155/lab3_murphy/lab3_encode.mpf' is used as the ini file.
+-- Compiling module lab3_hm
+
+Top level modules:
+	lab3_hm
+
+} {} {}} C:/Users/hmurphy/Downloads/E155/lab3_murphy/display_scan.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/hmurphy/Downloads/E155/lab3_murphy/display_scan.sv
+Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vlog-220) 'C:/Users/hmurphy/Downloads/E155/lab3_murphy/lab3_encode.mpf' is used as the ini file.
+-- Compiling module display_scan
+
+Top level modules:
+	display_scan
+
+} {} {}} C:/Users/hmurphy/Downloads/E155/lab3_murphy/display_register.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/hmurphy/Downloads/E155/lab3_murphy/display_register.sv
+Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vlog-220) 'C:/Users/hmurphy/Downloads/E155/lab3_murphy/lab3_encode.mpf' is used as the ini file.
+-- Compiling module display_register
+
+Top level modules:
+	display_register
+
+} {} {}} C:/Users/hmurphy/Downloads/E155/lab3_murphy/reset_sync.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/hmurphy/Downloads/E155/lab3_murphy/reset_sync.sv
+Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vlog-220) 'C:/Users/hmurphy/Downloads/E155/lab3_murphy/lab3_encode.mpf' is used as the ini file.
+-- Compiling module reset_sync
+
+Top level modules:
+	reset_sync
+
+} {} {}} C:/Users/hmurphy/Downloads/E155/lab3_murphy/debouncer.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/hmurphy/Downloads/E155/lab3_murphy/debouncer.sv
+Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vlog-220) 'C:/Users/hmurphy/Downloads/E155/lab3_murphy/lab3_encode.mpf' is used as the ini file.
+-- Compiling module debouncer
+
+Top level modules:
+	debouncer
+
+} {} {}} C:/Users/hmurphy/Downloads/E155/lab3_murphy/seven_seg_decoder.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/hmurphy/Downloads/E155/lab3_murphy/seven_seg_decoder.sv
+Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vlog-220) 'C:/Users/hmurphy/Downloads/E155/lab3_murphy/lab3_encode.mpf' is used as the ini file.
+-- Compiling module seven_segment_decoder
+
+Top level modules:
+	seven_segment_decoder
+
+} {} {}} C:/Users/hmurphy/Downloads/E155/lab3_murphy/scan_counter.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/hmurphy/Downloads/E155/lab3_murphy/scan_counter.sv
+Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vlog-220) 'C:/Users/hmurphy/Downloads/E155/lab3_murphy/lab3_encode.mpf' is used as the ini file.
+-- Compiling module scan_counter
+
+Top level modules:
+	scan_counter
+
+} {} {}} C:/Users/hmurphy/Downloads/E155/lab3_murphy/key_encoder.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/hmurphy/Downloads/E155/lab3_murphy/key_encoder.sv
+Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vlog-220) 'C:/Users/hmurphy/Downloads/E155/lab3_murphy/lab3_encode.mpf' is used as the ini file.
+-- Compiling module key_encoder
+
+Top level modules:
+	key_encoder
+
+} {} {}} C:/Users/hmurphy/Downloads/E155/lab3_murphy/encoder_tb.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/hmurphy/Downloads/E155/lab3_murphy/encoder_tb.sv
+Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vlog-220) 'C:/Users/hmurphy/Downloads/E155/lab3_murphy/lab3_encode.mpf' is used as the ini file.
+-- Compiling module encoder_tb
+
+Top level modules:
+	encoder_tb
+
+} {} {}} C:/Users/hmurphy/Downloads/E155/lab3_murphy/cols_sync.sv {1 {vlog -work work -vopt -sv -stats=none C:/Users/hmurphy/Downloads/E155/lab3_murphy/cols_sync.sv
+Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vlog-220) 'C:/Users/hmurphy/Downloads/E155/lab3_murphy/lab3_encode.mpf' is used as the ini file.
+-- Compiling module cols_sync
+
+Top level modules:
+	cols_sync
+
+} {} {}}

@@ -1,0 +1,117 @@
+# //  Questa Lattice OEM Edition-64
+# //  Version 2025.2 win64 May 31 2025
+# //
+# // Unpublished work. Copyright 2025 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# do C:/Users/hmurphy/Downloads/E155/lab3_murphy/lab3_sim_cols/lab3_sim_cols.vdo
+# ** Note: (qrun-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# Deleting directory qrun.out...
+# Creating library 'qrun.out/work'.
+# Questa Lattice OEM Edition-64 vlog 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# Start time: 23:30:12 on Sep 22,2026
+# 
+# vlog -reportprogress 300 -L work -sv -L pmi_work -L ovi_ice40up C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/cols_sync.sv C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/debouncer.sv C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/display_register.sv C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/display_scan.sv C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/key_encoder.sv C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/lab3_hm.sv C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/reset_sync.sv C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/scan_counter.sv C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/seven_seg_decoder.sv C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/encoder_tb.sv C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/cols_tb.sv C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/debouncer_tb.sv C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/rst_tb.sv C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/scan_tb.sv -work qrun.out/work -statslog qrun.out/stats_log -csession=incr 
+# 
+# ** Note: (vlog-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# -- Compiling module cols_sync
+# 
+# -- Compiling module debouncer
+# 
+# -- Compiling module display_register
+# 
+# -- Compiling module display_scan
+# 
+# -- Compiling module key_encoder
+# 
+# -- Compiling module lab3_hm
+# 
+# -- Compiling module reset_sync
+# 
+# -- Compiling module scan_counter
+# 
+# -- Compiling module seven_segment_decoder
+# 
+# -- Compiling module encoder_tb
+# 
+# -- Compiling module cols_tb
+# 
+# -- Compiling module debouncer_tb
+# 
+# -- Compiling module rst_tb
+# 
+# -- Compiling module scan_tb
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	lab3_hm
+# 
+# 	encoder_tb
+# 
+# 	cols_tb
+# 
+# 	debouncer_tb
+# 
+# 	rst_tb
+# 
+# 	scan_tb
+# 
+# End time: 23:30:12 on Sep 22,2026, Elapsed time: 0:00:00
+# 
+# Errors: 0, Warnings: 0
+# 
+# Questa Lattice OEM Edition-64 vopt 2025.2 Compiler 2025.05 May 31 2025
+# 
+# 
+# ** Warning: (vopt-10908) Some optimizations are turned off because the +acc switch is in effect.
+# 
+# Start time: 23:30:13 on Sep 22,2026
+# 
+# vopt -reportprogress 300 -L work "+acc" "+noacc+pmi_work.*" "+noacc+ovi_ice40up.*" -L pmi_work -L ovi_ice40up cols_tb -suppress vopt-7033 -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=3 
+# 
+# ** Note: (vopt-220) 'C:/lscc/radiant/2026.1/questasim/win64/../modelsim.ini' is used as the ini file.
+# 
+# 
+# 
+# Top level modules:
+# 
+# 	cols_tb
+# 
+# 
+# 
+# Analyzing design...
+# 
+# -- Loading module cols_tb
+# 
+# -- Loading module cols_sync
+# 
+# ** Warning: (vopt-2108) Cannot find module '*' specified in +noacc option.
+# 
+# ** Warning: (vopt-2108) Cannot find module '*' specified in +noacc option.
+# 
+# Optimizing 2 design-units (inlining 0/2 module instances):
+# 
+# -- Optimizing module cols_tb(fast)
+# 
+# -- Optimizing module cols_sync(fast)
+# 
+# Optimized design name is qrun_opt
+# 
+# End time: 23:30:13 on Sep 22,2026, Elapsed time: 0:00:00
+# 
+# Errors: 0, Warnings: 3
+# 
+vsim -L work -L pmi_work -L ovi_ice40up -lib qrun.out/work -wlf vsim.wlf -gui -do {view wave} -do {add wave /*} -do {run 100 ns} -statslog qrun.out/stats_log qrun_opt -suppress vsim-7033,vsim-8630,3009,3389 -appendlog -l qrun.log

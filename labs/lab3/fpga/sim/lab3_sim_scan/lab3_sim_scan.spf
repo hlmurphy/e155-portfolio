@@ -1,0 +1,21 @@
+<RadiantSimulationProject language="1" name="lab3_sim_scan" path="." simType="QuestaSim Qrun" stage="0" version="2.0">
+    <Source include="none" langstandard="System Verilog" path="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/cols_sync.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="System Verilog" path="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/debouncer.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="System Verilog" path="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/display_register.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="System Verilog" path="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/display_scan.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="System Verilog" path="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/key_encoder.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="System Verilog" path="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/lab3_hm.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="System Verilog" path="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/reset_sync.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="System Verilog" path="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/scan_counter.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="System Verilog" path="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/seven_seg_decoder.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="System Verilog" path="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/encoder_tb.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="System Verilog" path="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/cols_tb.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="System Verilog" path="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/debouncer_tb.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="System Verilog" path="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/rst_tb.sv" type="VERILOG" worklib="work"/>
+    <Source include="none" langstandard="System Verilog" path="../../../Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/scan_tb.sv" type="VERILOG" worklib="work"/>
+    <SimLib value="pmi_work ovi_ice40up"/>
+    <GlbInc value=""/>
+    <Macro value=""/>
+    <Udo value=""/>
+    <TopModule instance="" language="VERILOG" name="scan_tb"/>
+</RadiantSimulationProject>

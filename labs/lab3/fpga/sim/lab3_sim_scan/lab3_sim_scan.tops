@@ -1,0 +1,6 @@
+lab3_hm,/,C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/lab3_hm.sv
+encoder_tb,/,C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/encoder_tb.sv
+cols_tb,/,C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/cols_tb.sv
+debouncer_tb,/,C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/debouncer_tb.sv
+rst_tb,/,C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/rst_tb.sv
+scan_tb,/,C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/scan_tb.sv

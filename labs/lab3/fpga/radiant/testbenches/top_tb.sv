@@ -46,7 +46,7 @@ module top_tb;
             
             #10;
             key_down = 1'b1;
-            repeat(80)@(posedge clk);
+            repeat(20)@(posedge clk);
 
             assert (dut.current_number == 4'h1)
                 $display("PASSED! current_number=%h at time: %0t.", dut.current_number,  $time);

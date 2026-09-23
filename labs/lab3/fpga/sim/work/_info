@@ -1,0 +1,261 @@
+m255
+K4
+z2
+!s11f vlog 2025.2 2025.05, May 31 2025
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/hmurphy/Downloads/E155/lab3_murphy
+vcols_sync
+2C:/Users/hmurphy/Downloads/E155/lab3_murphy/cols_sync.sv
+Z1 DXx6 sv_std 3 std 0 22 @5XbY]_OacJl=`ToSm<M^0
+Z2 !s110 1790047337
+!i10b 1
+!s100 5=904L?zJDJ]Cnf5kmN=B0
+I7lzA53kDVNbc17Ea8<fR@0
+S1
+R0
+Z3 w1790023984
+8C:/Users/hmurphy/Downloads/E155/lab3_murphy/cols_sync.sv
+FC:/Users/hmurphy/Downloads/E155/lab3_murphy/cols_sync.sv
+!i122 0
+Z4 L0 9 19
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+Z6 OL;L;2025.2;82
+r1
+!s85 0
+31
+Z7 !s108 1790047337.000000
+!s107 C:/Users/hmurphy/Downloads/E155/lab3_murphy/cols_sync.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/hmurphy/Downloads/E155/lab3_murphy/cols_sync.sv|
+!i113 0
+Z8 o-work work -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z9 tCvgOpt 0 defaultOptions 1085333592
+vdebouncer
+2C:/Users/hmurphy/Downloads/E155/lab3_murphy/debouncer.sv
+R1
+R2
+!i10b 1
+!s100 hHLGXMl_W<[?^L:@MXbN^1
+I@M<3=F>O2b3;1ITKI_<HT0
+S1
+R0
+R3
+8C:/Users/hmurphy/Downloads/E155/lab3_murphy/debouncer.sv
+FC:/Users/hmurphy/Downloads/E155/lab3_murphy/debouncer.sv
+!i122 1
+L0 8 64
+R5
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/hmurphy/Downloads/E155/lab3_murphy/debouncer.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/hmurphy/Downloads/E155/lab3_murphy/debouncer.sv|
+!i113 0
+R8
+R9
+vdisplay_register
+2C:/Users/hmurphy/Downloads/E155/lab3_murphy/display_register.sv
+R1
+R2
+!i10b 1
+!s100 Oa1>LGnb7eDM[9G>BCZQ41
+IN=^zefZc?a9gm2h0`^a=M1
+S1
+R0
+R3
+8C:/Users/hmurphy/Downloads/E155/lab3_murphy/display_register.sv
+FC:/Users/hmurphy/Downloads/E155/lab3_murphy/display_register.sv
+!i122 2
+R4
+R5
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/hmurphy/Downloads/E155/lab3_murphy/display_register.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/hmurphy/Downloads/E155/lab3_murphy/display_register.sv|
+!i113 0
+R8
+R9
+vdisplay_scan
+2C:/Users/hmurphy/Downloads/E155/lab3_murphy/display_scan.sv
+R1
+Z10 !s110 1790047338
+!i10b 1
+!s100 fSN5]0bJRJ2II^2Ien82?2
+IHW>JL7W=M<mJ4TV:AnV[Y0
+S1
+R0
+R3
+8C:/Users/hmurphy/Downloads/E155/lab3_murphy/display_scan.sv
+FC:/Users/hmurphy/Downloads/E155/lab3_murphy/display_scan.sv
+!i122 3
+L0 8 22
+R5
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/hmurphy/Downloads/E155/lab3_murphy/display_scan.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/hmurphy/Downloads/E155/lab3_murphy/display_scan.sv|
+!i113 0
+R8
+R9
+vencoder_tb
+2C:/Users/hmurphy/Downloads/E155/lab3_murphy/encoder_tb.sv
+R1
+R10
+!i10b 1
+!s100 7;dZ:iO=5H<KPk4N99XaI2
+Inio4UC]E=Ig^Qg8J>2=SX2
+S1
+R0
+w1790047196
+8C:/Users/hmurphy/Downloads/E155/lab3_murphy/encoder_tb.sv
+FC:/Users/hmurphy/Downloads/E155/lab3_murphy/encoder_tb.sv
+!i122 9
+L0 11 200
+R5
+R6
+r1
+!s85 0
+31
+Z11 !s108 1790047338.000000
+!s107 C:/Users/hmurphy/Downloads/E155/lab3_murphy/encoder_tb.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/hmurphy/Downloads/E155/lab3_murphy/encoder_tb.sv|
+!i113 0
+R8
+R9
+vkey_encoder
+2C:/Users/hmurphy/Downloads/E155/lab3_murphy/key_encoder.sv
+R1
+R10
+!i10b 1
+!s100 QH;7CPCFVb<Ic5gPgcGLE2
+I]oWQ[B5<G:lHnofgf_Y4j1
+S1
+R0
+w1790036093
+8C:/Users/hmurphy/Downloads/E155/lab3_murphy/key_encoder.sv
+FC:/Users/hmurphy/Downloads/E155/lab3_murphy/key_encoder.sv
+!i122 4
+Z12 L0 8 39
+R5
+R6
+r1
+!s85 0
+31
+R11
+!s107 C:/Users/hmurphy/Downloads/E155/lab3_murphy/key_encoder.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/hmurphy/Downloads/E155/lab3_murphy/key_encoder.sv|
+!i113 0
+R8
+R9
+vlab3_hm
+2C:/Users/hmurphy/Downloads/E155/lab3_murphy/lab3_hm.sv
+R1
+R10
+!i10b 1
+!s100 zLNb6A[4@YlW?LbAO<NDQ1
+IbJegPfG>Z=Wi3JVd;=cjl1
+S1
+R0
+w1790028879
+8C:/Users/hmurphy/Downloads/E155/lab3_murphy/lab3_hm.sv
+FC:/Users/hmurphy/Downloads/E155/lab3_murphy/lab3_hm.sv
+!i122 5
+L0 8 82
+R5
+R6
+r1
+!s85 0
+31
+R11
+!s107 C:/Users/hmurphy/Downloads/E155/lab3_murphy/lab3_hm.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/hmurphy/Downloads/E155/lab3_murphy/lab3_hm.sv|
+!i113 0
+R8
+R9
+vreset_sync
+2C:/Users/hmurphy/Downloads/E155/lab3_murphy/reset_sync.sv
+R1
+R10
+!i10b 1
+!s100 JEUM=mBzCF7M?]??0:2lB0
+IF^ZLKFYF66of75n?4^F5m2
+S1
+R0
+Z13 w1790023985
+8C:/Users/hmurphy/Downloads/E155/lab3_murphy/reset_sync.sv
+FC:/Users/hmurphy/Downloads/E155/lab3_murphy/reset_sync.sv
+!i122 6
+L0 8 12
+R5
+R6
+r1
+!s85 0
+31
+R11
+!s107 C:/Users/hmurphy/Downloads/E155/lab3_murphy/reset_sync.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/hmurphy/Downloads/E155/lab3_murphy/reset_sync.sv|
+!i113 0
+R8
+R9
+vscan_counter
+2C:/Users/hmurphy/Downloads/E155/lab3_murphy/scan_counter.sv
+R1
+R10
+!i10b 1
+!s100 3DcRin3955JkK0>>9=lBO3
+IgdQV]UMGAMcg?EckoYjRK1
+S1
+R0
+R13
+8C:/Users/hmurphy/Downloads/E155/lab3_murphy/scan_counter.sv
+FC:/Users/hmurphy/Downloads/E155/lab3_murphy/scan_counter.sv
+!i122 7
+R12
+R5
+R6
+r1
+!s85 0
+31
+R11
+!s107 C:/Users/hmurphy/Downloads/E155/lab3_murphy/scan_counter.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/hmurphy/Downloads/E155/lab3_murphy/scan_counter.sv|
+!i113 0
+R8
+R9
+vseven_segment_decoder
+2C:/Users/hmurphy/Downloads/E155/lab3_murphy/seven_seg_decoder.sv
+R1
+R10
+!i10b 1
+!s100 Uie<[0Cc[]ic^W[zNfA980
+IXY?N7?h]8G9CIBXb;FY3Q2
+S1
+R0
+w1790024673
+8C:/Users/hmurphy/Downloads/E155/lab3_murphy/seven_seg_decoder.sv
+FC:/Users/hmurphy/Downloads/E155/lab3_murphy/seven_seg_decoder.sv
+!i122 8
+L0 9 27
+R5
+R6
+r1
+!s85 0
+31
+R11
+!s107 C:/Users/hmurphy/Downloads/E155/lab3_murphy/seven_seg_decoder.sv|
+!s90 -reportprogress|300|-work|work|-vopt|-sv|-stats=none|C:/Users/hmurphy/Downloads/E155/lab3_murphy/seven_seg_decoder.sv|
+!i113 0
+R8
+R9

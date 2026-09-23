@@ -1,0 +1,427 @@
+m255
+K4
+z2
+Z0 !s99 nomlopt
+!s11f vlog 2025.2 2025.05, May 31 2025
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 dC:/Users/hmurphy/Downloads/E155/lab3_murphy/lab3_sim_disp_reg
+vcols_sync
+Z2 2C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/cols_sync.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/debouncer.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/display_register.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/display_scan.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/key_encoder.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/lab3_hm.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/reset_sync.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/scan_counter.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/seven_seg_decoder.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/encoder_tb.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/cols_tb.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/debouncer_tb.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/rst_tb.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/scan_tb.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/disp_reg_tb.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/top_tb.sv
+Z3 DXx6 sv_std 3 std 0 22 @5XbY]_OacJl=`ToSm<M^0
+Z4 !s110 1790185996
+!i10b 1
+!s100 Q9ldnKEU6@dg_:0SjkTnh2
+IF0JL[_T7mo8UX7<Y4FZAo3
+S1
+R1
+Z5 w1790144534
+8C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/cols_sync.sv
+FC:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/cols_sync.sv
+!i122 0
+L0 9 20
+Z6 VDg1SIo80bB@j0V0VzS_@n1
+Z7 OL;L;2025.2;82
+r1
+!s85 0
+31
+Z8 !s108 1790185996.000000
+Z9 !s107 C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/top_tb.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/disp_reg_tb.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/scan_tb.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/rst_tb.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/debouncer_tb.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/cols_tb.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/encoder_tb.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/seven_seg_decoder.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/scan_counter.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/reset_sync.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/lab3_hm.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/key_encoder.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/display_scan.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/display_register.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/debouncer.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/cols_sync.sv|
+Z10 !s90 -reportprogress|300|-L|work|-sv|-L|pmi_work|-L|ovi_ice40up|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/cols_sync.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/debouncer.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/display_register.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/display_scan.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/key_encoder.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/lab3_hm.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/reset_sync.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/scan_counter.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/seven_seg_decoder.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/encoder_tb.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/cols_tb.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/debouncer_tb.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/rst_tb.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/scan_tb.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/disp_reg_tb.sv|C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/top_tb.sv|-work|qrun.out/work|-statslog|qrun.out/stats_log|-csession=incr|
+!i113 0
+Z11 o-L work -sv -L pmi_work -L ovi_ice40up -work qrun.out/work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z12 tCvgOpt 0 defaultOptions 1085333592
+vcols_tb
+R2
+R3
+R4
+!i10b 1
+!s100 Wai9BLNzT[UFRaOzkW:oG1
+I=ZzCRaVN7J269HC;]i52h1
+S1
+R1
+w1790145325
+8C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/cols_tb.sv
+FC:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/cols_tb.sv
+!i122 0
+L0 11 59
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vdebouncer
+R2
+R3
+R4
+!i10b 1
+!s100 88@j=Y?lS:?^mLo]WKdQb2
+Il^T:;[S31XMLka:2Z3>642
+S1
+R1
+Z13 w1790184135
+8C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/debouncer.sv
+FC:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/debouncer.sv
+!i122 0
+L0 31 89
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vdebouncer_tb
+R2
+R3
+R4
+!i10b 1
+!s100 [;N<fK9@T8l9DR576o@l83
+Iz5@@IVC<@fbV<ghclR>`A0
+S1
+R1
+w1790150472
+8C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/debouncer_tb.sv
+FC:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/debouncer_tb.sv
+!i122 0
+L0 11 159
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vdisplay_register
+R2
+R3
+R4
+!i10b 1
+!s100 K3EjT0`jWXAzU2KhTiiXN2
+I43fBaWD]I5[eF?caliTKH1
+S1
+R1
+R5
+8C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/display_register.sv
+FC:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/display_register.sv
+!i122 0
+L0 13 19
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vdisplay_register_tb
+R2
+R3
+R4
+!i10b 1
+!s100 Lb^VU@Vb1E_;D@W06kKzN1
+IeKR;POon3WNKgDGTV_8Jj0
+S1
+R1
+R13
+8C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/disp_reg_tb.sv
+FC:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/disp_reg_tb.sv
+!i122 0
+L0 11 72
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vdisplay_scan
+R2
+R3
+R4
+!i10b 1
+!s100 z<M=fClHgg7MKmkk?KN4T3
+I5eJ<gW?QRT<Jo_?c`6GgJ0
+S1
+R1
+R5
+8C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/display_scan.sv
+FC:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/display_scan.sv
+!i122 0
+L0 10 22
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vencoder_tb
+R2
+R3
+R4
+!i10b 1
+!s100 R6>T2Bl:jk3RG=]Gihj0[0
+IJClOS0O6B^fW[BDU4X:2f3
+S1
+R1
+R5
+8C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/encoder_tb.sv
+FC:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/encoder_tb.sv
+!i122 0
+L0 11 200
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vkey_encoder
+R2
+R3
+R4
+!i10b 1
+!s100 H[EW4GB<1mZecSj^PWJUk1
+I>gS41o`@f_>2=HPXhMWij3
+S1
+R1
+R5
+8C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/key_encoder.sv
+FC:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/key_encoder.sv
+!i122 0
+L0 14 39
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vlab3_hm
+R2
+R3
+R4
+!i10b 1
+!s100 OR`af`h;@g1dDJjP<S65B0
+I9EFKH_<aR`eA_WPUj2[HG2
+S1
+R1
+w1790144661
+8C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/lab3_hm.sv
+FC:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/lab3_hm.sv
+!i122 0
+L0 8 88
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+Tqrun_opt
+!i145 1
+!i144 0
+R4
+Vd:QziQiT8FVzK`AcX:8_d3
+04 19 4 work display_register_tb fast 0
+R0
+!s12f OEM25U2 
+!s12b OEM100
+!s124 OEM100
+!s135 nogc
+o-suppress vopt-7033 -L work +acc +noacc+pmi_work.* +noacc+ovi_ice40up.* -L pmi_work -L ovi_ice40up -work qrun.out/work
+tCvgOpt 0 defaultOptions 1107585188
+nqrun_opt
+OL;O;2025.2;82
+vreset_sync
+R2
+R3
+R4
+!i10b 1
+!s100 JEUM=mBzCF7M?]??0:2lB0
+I=9e;5G;mP1AX70Uaz6d>k3
+S1
+R1
+R5
+8C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/reset_sync.sv
+FC:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/reset_sync.sv
+!i122 0
+L0 8 12
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vrst_tb
+R2
+R3
+R4
+!i10b 1
+!s100 _IKF_H<EN74:WfoQoKCId0
+IXDV4P3jP3MVljHb_G:zNR3
+S1
+R1
+R5
+8C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/rst_tb.sv
+FC:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/rst_tb.sv
+!i122 0
+Z14 L0 11 52
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vscan_counter
+R2
+R3
+R4
+!i10b 1
+!s100 L2V?S9A>5^BkmCQGR2Olf3
+IDJ9?>E?DJeX_Tg[f_EB:N3
+S1
+R1
+R5
+8C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/scan_counter.sv
+FC:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/scan_counter.sv
+!i122 0
+L0 27 43
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vscan_tb
+R2
+R3
+R4
+!i10b 1
+!s100 _:BFoe73n<D]2dd9o12W11
+I1?2kll<UTfoX5YZIWo7gd0
+S1
+R1
+R13
+8C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/scan_tb.sv
+FC:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/scan_tb.sv
+!i122 0
+L0 9 186
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vseven_segment_decoder
+R2
+R3
+R4
+!i10b 1
+!s100 Uie<[0Cc[]ic^W[zNfA980
+Ic4YUcj]JgSRW_YkN@4Gn]2
+S1
+R1
+R5
+8C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/seven_seg_decoder.sv
+FC:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/modules/seven_seg_decoder.sv
+!i122 0
+L0 9 27
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+vtop_tb
+R2
+R3
+R4
+!i10b 1
+!s100 jLdMhdN_jcELWW_;[Mkel2
+I89Uc2kOQei2Rigzc5dHea2
+S1
+R1
+w1790185850
+8C:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/top_tb.sv
+FC:/Users/hmurphy/Documents/GitHub/e155-portfolio/labs/lab3/fpga/radiant/testbenches/top_tb.sv
+!i122 0
+R14
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12

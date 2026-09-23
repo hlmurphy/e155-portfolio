@@ -1,0 +1,154 @@
+$date
+	Tue Sep 22 23:35:42 2026
+$end
+$version
+	Questa Lattice OEM Edition 2025.2
+$end
+$timescale
+	1ns
+$end
+
+$scope module cols_tb $end
+$var reg 1 ! clk $end
+$var reg 1 " reset $end
+$var reg 4 # cols_in [3:0] $end
+$var reg 4 $ cols_synced [3:0] $end
+$var integer 32 % errors $end
+
+$scope module dut $end
+$var wire 1 & clk $end
+$var wire 1 ' reset $end
+$var wire 1 ( cols_in [3] $end
+$var wire 1 ) cols_in [2] $end
+$var wire 1 * cols_in [1] $end
+$var wire 1 + cols_in [0] $end
+$var reg 4 , cols_synced [3:0] $end
+$var reg 4 - cols_inter [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0!
+0"
+b0 #
+bx $
+bx ,
+bx -
+b0 %
+0+
+0*
+0)
+0(
+0'
+0&
+$end
+#5
+1!
+1&
+b0 -
+#10
+0!
+0&
+#15
+1!
+1&
+b0 ,
+b0 $
+#20
+1"
+0!
+1'
+0&
+#25
+1!
+1&
+#30
+0!
+0&
+#35
+0"
+1!
+0'
+1&
+b1110 #
+1*
+1)
+1(
+#40
+0!
+0&
+#45
+1!
+1&
+b1110 -
+#50
+0!
+0&
+#55
+1!
+1&
+b1110 ,
+b1110 $
+#60
+0!
+0&
+#65
+1!
+1&
+#70
+0!
+0&
+#75
+1!
+1&
+#80
+0!
+0&
+#85
+1!
+1&
+b1111 #
+1+
+#90
+0!
+0&
+#95
+1!
+1&
+b1111 -
+#100
+0!
+0&
+#105
+1!
+1&
+b1111 ,
+b1111 $
+#110
+0!
+0&
+#115
+1!
+1&
+#120
+0!
+0&
+#125
+1!
+1&
+#130
+0!
+0&
+#135
+1!
+1&
+#140
+0!
+0&
+#145
+1!
+1&
+#150
+0!
+0&
