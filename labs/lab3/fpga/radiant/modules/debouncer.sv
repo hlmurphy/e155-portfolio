@@ -41,6 +41,7 @@ module debouncer #(parameter N_STABLE = 3)(
                 // Per scan accumulator that check if any valid presses were identity on the most recent full scan
                 logic       scan_seen_valid; // only one or no keypresses observed boolean 
                 logic [3:0] scan_seen_value; // hex value of the corresponding valid keystroke
+                
 
                 // Scan memory: to check what the previous results was and how many consecutive scans has that been the result
                 logic [4:0] prev_scan_result; // both hex value and keystoke validity boolean from the previous scan 
@@ -54,23 +55,30 @@ module debouncer #(parameter N_STABLE = 3)(
                 logic current_valid;
                 logic [3:0] current_value; 
                 logic [4:0] current_result; 
+                
                 // OR gate
                 assign current_valid = scan_seen_valid | key_valid; 
                 // 2:1 mux to ensure the same key is being recognized as pressed at all times
                 assign current_value = key_valid ? key_value : scan_seen_value;
                 // wire bundle of 5 bits (1 + 4)
                 assign current_result = {current_valid, current_value}; 
-
-                logic       multi_press_seen;
-                logic       multi_this_cycle;
                 
-                logic       effective_valid;
-                logic [3:0] effective_value;
-                logic [4:0] effective_result;
+                logic       multi_press_seen; // key presses observed on multiple rows
+                logic       multi_this_cycle; 
+                
+                logic       effective_valid;    // 1: full scan conatins exactly one key pressed
+                                                // 0: idle or multiple pressed
+                logic [3:0] effective_value;    // 4'b hex value of efffective_valid key press
+                logic [4:0] effective_result;   // {effective_valid, effective_value}
 
+                // OR gate: are multiple rows alreayd been idenitified, 
+                // or is a second row idenitified during the state 11 scan
                 assign multi_this_cycle = multi_press_seen || (scan_seen_valid && key_valid);
+                // determination of single press across all rows 
                 assign effective_valid  = current_valid && !multi_this_cycle;
+                // 2:1 mux to ensure the value of a postively idenitfies single keypress
                 assign effective_value  = effective_valid ? current_value : 4'b0;
+                // wire bunlde of 5 bit (much like current_result)
                 assign effective_result = {effective_valid, effective_value};
 
                 always_ff @(posedge clk) begin
@@ -110,7 +118,7 @@ module debouncer #(parameter N_STABLE = 3)(
                         end
                         else if (sample_ok && key_valid) begin // update accumulator for the CURRENT cycle
                             if (scan_seen_valid) 
-                                multi_press_seen <= 1;
+                                multi_press_seen <= 1; // another row see key press in the full scan
                             scan_seen_valid <= 1; 
                             scan_seen_value <= key_value;
                         end

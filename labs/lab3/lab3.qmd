@@ -36,21 +36,28 @@ The encoder's one-hot column check already rejects two keys pressed on the same 
 ### Technical Documentation:
 The source code for the project can be found in the `/labs/lab3/fpga/radiant/modules` directory of the associated [GitHub repository](https://github.com/hlmurphy/e155-portfolio).
 
+## Documentation
+
 ### Block Diagrams
 ![Top-level RTL block diagram — HSOSC drives every synchronous submodule; async inputs pass through their dedicated synchronizers; scan_counter's row output feeds both the keypad pins and the key_encoder; the debouncer's new_keypress pulse gates display_register updates; the display_scan mux select drives both the anode enables and the hex-source mux into seven_segment_decoder.](images/top_block.png){#fig-top-block width=90%}
 
 ![scan_counter internal block diagram — non-canonical FSM: 16-bit counter increments while enabled, 2-bit state register advances when count == max_count. Combinational output logic maps state → one-hot rows[3:0]. Two combinational timing pulses (sample_ok, end_of_scan) are decoded from state and count.](images/scan_block.png){#fig-scan-block width=80%}
 
 ### Schematic
-The Lab 3 breadboard circuit is unchanged from Lab 2: two 2N3906 PNP anode drivers for the dual seven-segment display, four 2N3904 NPN open-drain drivers for the keypad rows, 150 Ω current-limiting resistors on each of the seven shared segment lines, the 4x4 matrix keypad with 1 kΩ column pull-ups to +3.3 V, and a reset push button using the FPGA's internal ~100 kΩ pull-up. No new off-board components were added for Lab 3. 
+![The Lab 3 breadboard circuit is unchanged from Lab 2: two 2N3906 PNP anode drivers for the dual seven-segment display, four 2N3904 NPN open-drain drivers for the keypad rows, 150 Ω current-limiting resistors on each of the seven shared segment lines, the 4x4 matrix keypad with 1 kΩ column pull-ups to +3.3 V, and a reset push button using the FPGA's internal ~100 kΩ pull-up. No new off-board components were added for Lab 3](images/schematic3.jpeg){#fig-schematic width=80%} 
 
 ::: {.callout-note}
 DIP switch connections for S0 and S1 data signals were removed given the change in input to keypad rows. 
 ::: 
 
+### State Transition Diagram
+![State Transition Diagram for rows scanner FSM "scan_counter"](images/transition_diagram.jpeg){#fig-scan-transition width 80%}
+
+![State Transition Table](images/transition_table.jpeg){#fig-scan-transition width 80%}
+
 ## Results and Discussion
 
-### scan_counter Simulation
+### Scan Counter Simulation
 
 All four row-scan states cycled through, cold-start reset and mid-cycle reset behavior verified, enable-freeze verified, and both timing pulses ("sample_ok" firing once per state at count=max, "end_of_scan" firing only during state 11) verified at the correct sample points. All self-checking assertions passed.
 
@@ -58,7 +65,7 @@ All four row-scan states cycled through, cold-start reset and mid-cycle reset be
 
 ![scan_counter console — every phase's assertions PASSED, ending in "*** scan_tb complete ***".](images/screenshots/scan%20console.png){#fig-scan-console}
 
-### cols_sync Simulation
+### Cols Sync Simulation
 
 Verifies that the 2-flop column synchronizer correctly propagates both a keypress transition (cols_in = 4'b1110, one key pressed) and a release transition (cols_in = 4'b1111) within exactly two clock cycles. In addition to that, also confirming that reset clears both flops to zero.
 
@@ -66,7 +73,7 @@ Verifies that the 2-flop column synchronizer correctly propagates both a keypres
 
 ![cols_sync console — both PASS lines and final "cols_tb PASSED" banner.](images/screenshots/cols_sync%20console.png){#fig-cols-console}
 
-### reset_sync Simulation
+### Reset Sync Simulation
 
 Much like cols_sync, the simulation verifies that a raw reset assertion and deassertion each propagate through the 2-flop synchronizer within two clock cycles, so the internal reset_synced signal can be safely distributed to every register in the design.
 
@@ -74,7 +81,7 @@ Much like cols_sync, the simulation verifies that a raw reset assertion and deas
 
 ![reset_sync console — both edges PASSED, ending in "rst_tb PASSED".](images/screenshots/rst%20console.png){#fig-rst-console}
 
-### key_encoder Simulation
+### Key Encoder Simulation
 
 Test of all 16 valid {row_active, cols_pressed} combinations mapping to their expected hex values, plus 4 invalid patterns (no press, two-column press, three-column press, single valid press on a different row) verifying that "key_valid" correctly distinguishes one-hot column patterns from noise.
 
@@ -82,7 +89,7 @@ Test of all 16 valid {row_active, cols_pressed} combinations mapping to their ex
 
 ![key_encoder console — 20 PASS lines followed by "key_encoder PASSED".](images/screenshots/encoder_console.png){#fig-encoder-console}
 
-### debouncer Simulation
+### Debouncer Simulation
 
 Two blocks: (1) a stable press of key '5' held across 4 scans sets "key_stable = 4'h5" and pulses "new_keypress"; (2) a bouncy input alternating "key_valid=1/0/1/0" while "key_value" stays at 4'h5 (simulating mechanical contact chatter) is correctly rejected via "key_stable" staying at 0 and no "new_keypress" pulse firing.
 
@@ -90,7 +97,7 @@ Two blocks: (1) a stable press of key '5' held across 4 scans sets "key_stable =
 
 ![debouncer console — both blocks PASSED, ending in "debouncer_tb PASSED".](images/screenshots/debouncer%20console.png){#fig-deb-console}
 
-### display_register Simulation
+### Display Register Simulation
 
 Four blocks: reset defaults, first key load '5' to current_number, shift + load 'A' to current_number with 5 going to previous_number, and a hold check new_keypress low leaving both registers unchanged even though new_key changes.
 
