@@ -40,9 +40,9 @@ module top_tb;
             key_down = 1'b0;
             pressed_row = 2'b00;
             pressed_col = 1'b0;
-            reset = 1;
-            @(posedge clk); @(posedge clk);
             reset = 0;
+            @(posedge clk); @(posedge clk);
+            reset = 1;
             
             #10;
             key_down = 1'b1;
