@@ -5,6 +5,7 @@
 // Course: HMC E155, Lab 3
 // Purpose: Scanning module self-checking testbench for Lab 3. 
 // -------------------------------------------------------------
+
 module scan_tb;
     logic clk = 0;
     logic reset, enable;
