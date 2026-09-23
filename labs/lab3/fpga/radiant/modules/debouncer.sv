@@ -42,6 +42,9 @@ module debouncer #(parameter N_STABLE = 3)(
                 logic       scan_seen_valid; // only one or no keypresses observed boolean 
                 logic [3:0] scan_seen_value; // hex value of the corresponding valid keystroke
 
+                logic       multi_press_seen;
+                logic       multi_this_cycle;
+
                 // Scan memory: to check what the previous results was and how many consecutive scans has that been the result
                 logic [4:0] prev_scan_result; // both hex value and keystoke validity boolean from the previous scan 
                 logic [1:0] match_counter; // sub module counter incremented to delay stability determination (counts up to N_STABLE-1)
@@ -61,10 +64,20 @@ module debouncer #(parameter N_STABLE = 3)(
                 // wire bundle of 5 bits (1 + 4)
                 assign current_result = {current_valid, current_value}; 
 
+                logic       effective_valid;
+                logic [3:0] effective_value;
+                logic [4:0] effective_result;
+
+                assign multi_this_cycle = multi_press_seen || (scan_seen_valid && key_valid);
+                assign effective_valid  = current_valid && !multi_this_cycle;
+                assign effective_value  = effective_valid ? current_value : 4'b0;
+                assign effective_result = {effective_valid, effective_value};
+
                 always_ff @(posedge clk) begin
                     if (reset) begin // Upon reset, return to state zero
                         scan_seen_valid     <= 0;
                         scan_seen_value     <= 4'b0;
+                        multi_press_seen    <= 0;
                         prev_scan_result    <= 5'b0;
                         match_counter       <= 2'b0;
                         key_stable          <= 4'b0;
@@ -78,23 +91,26 @@ module debouncer #(parameter N_STABLE = 3)(
                         if (end_of_scan) begin // Wipe accumulator for the next full scan
                             scan_seen_valid <= 0;
                             scan_seen_value <= 4'b0;
-                            if (current_result == prev_scan_result) begin // Assess current and compare to establish stability
+                            multi_press_seen <= 0;
+                            if (effective_result == prev_scan_result) begin // Assess current and compare to establish stability
                                 if (match_counter != N_STABLE - 1)
                                     match_counter <= match_counter + 1;
                                 else begin
-                                    if (current_valid && ~stable_present) begin // Toggle new_keypress and set the output to the stable concluded value (hex)
+                                    if (effective_valid && ~stable_present) begin // Toggle new_keypress and set the output to the stable concluded value (hex)
                                         new_keypress <= 1;
-                                        key_stable <= current_value;
+                                        key_stable <= effective_value;
                                     end
-                                    stable_present <= current_valid; // tracks held down state to prevents repeat new_keypress pulses
+                                    stable_present <= effective_valid; // tracks held down state to prevents repeat new_keypress pulses
                                 end 
                             end
                             else begin // full scan results did not match, update and reassess by restarting the counter. 
-                                prev_scan_result <= current_result;
+                                prev_scan_result <= effective_result;
                                 match_counter <= 2'b0;
                             end 
                         end
                         else if (sample_ok && key_valid) begin // update accumulator for the CURRENT cycle
+                            if (scan_seen_valid) 
+                                multi_press_seen <= 1;
                             scan_seen_valid <= 1; 
                             scan_seen_value <= key_value;
                         end

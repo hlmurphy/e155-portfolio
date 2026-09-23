@@ -130,6 +130,38 @@ module debouncer_tb;
                     $time, key_stable, new_keypress);
                 errors++;
             end
+
+            reset = 1; key_valid = 0; key_value = 0; sample_ok = 0; end_of_scan = 0;
+            @(posedge clk); @(posedge clk); 
+            reset = 0;
+
+            // One "scan" with two mid-sweep valid captures (row A key, row B key), then end_of_scan idle
+            repeat (4) begin
+            // row-A sample: capture key '5'
+            @(posedge clk); 
+            sample_ok = 1; key_valid = 1; key_value = 4'h5;
+            @(posedge clk); 
+            sample_ok = 0;
+            // row-B sample: capture key 'A' → multi_press_seen sets
+            @(posedge clk); 
+            sample_ok = 1; key_valid = 1; key_value = 4'hA;
+            @(posedge clk); 
+            sample_ok = 0;
+            // idle intermediate + end_of_scan
+            @(posedge clk); 
+            key_valid = 0;
+            @(posedge clk); 
+            end_of_scan = 1;
+            @(posedge clk); 
+            end_of_scan = 0;
+            end
+            #1;
+            assert (key_stable === 4'h0 && new_keypress === 1'b0)
+                $display("PASS multi-row multi-press rejected");
+            else begin
+                $error("FAIL multi-row multi-press latched: key_stable=%h new_keypress=%b", key_stable, new_keypress);
+                errors++;
+            end
             if (errors == 0) $display("debouncer_tb PASSED");
             else             $display("debouncer_tb FAILED: %0d errors", errors);
             $finish;
