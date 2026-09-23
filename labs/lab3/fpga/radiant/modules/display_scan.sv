@@ -4,9 +4,11 @@
 // Date:   2026-09-12
 // Course: HMC E155, Lab 2
 // Purpose: Counter module for muxing the two 7-segment displays.
+// Only one 7-seg display is lit at a time. "select" toggle at rate (1kHz), 
+// fast enough for human vision to interpret both digits as lit. 
 // -------------------------------------------------------------
 module display_scan #(parameter bit_number = 15, parameter max_count = 23_999) // 48_000_000 / (2 * 1_000) - 1)(
-    (input logic clk, // Clock signal dervied from internal HSOSC
+    (input logic clk, // Clock signal derived from internal HSOSC
     input logic reset, 
     input logic enable,
     output logic select); // High when counter reaches the max_count, used to select which display to show
@@ -21,7 +23,7 @@ module display_scan #(parameter bit_number = 15, parameter max_count = 23_999) /
         else if (enable) begin
             if (count == max_count) begin
                 count <= 0;
-                select <= ~select;
+                select <= ~select; // toggle digit at the final count before wrapping
             end 
             else count <= count + 1;
         end

@@ -12,7 +12,7 @@ module seven_segment_decoder(
 
     always_comb
         case (data)
-        // abc_defg
+        //                  abcdefg
         4'h0: segments = 7'b0000001; // 0
         4'h1: segments = 7'b1001111; // 1
         4'h2: segments = 7'b0010010; // 2

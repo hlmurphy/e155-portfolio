@@ -1,14 +1,68 @@
 // -------------------------------------------------------------
 // cols_tb.sv  
 // Author: Haspard Murphy <hmurphy@g.hmc.edu>
-// Date:   2026-09-07
-// Course: HMC E155, Lab 1
-// Purpose: Testbench for column input syncronizer
+// Date:   2026-09-22
+// Course: HMC E155, Lab 3
+// Purpose: Testbench for column input synchronizer
 // -------------------------------------------------------------
 `timescale 1ns/1ns
 `default_nettype none
 
 module cols_tb;
+        logic clk;
+        logic reset;
+        logic [3:0] cols_in;
+        logic [3:0] cols_synced;
 
+        int errors = 0;
 
+        cols_sync dut (.clk(clk), .reset(reset), .cols_in(cols_in), 
+        .cols_synced(cols_synced));
+
+        always #5 clk = ~clk;
+
+        initial begin
+            clk = 0;
+            reset = 0;
+            cols_in = 0;
+            
+            #20;
+            reset = 1;
+            #15;
+            
+            // One key pressed
+            reset = 0;
+            @(posedge clk);
+            cols_in = 4'b1110;
+            @(posedge clk); @(posedge clk); 
+            #1;
+            assert (cols_synced == 4'b1110)
+                $display("PASSED! At time: %0t.", $time);
+            else begin
+                $error("FAILED! At time: %0t.", $time); 
+                errors++;
+            end
+
+            #20;
+
+            // No key pressed
+            @(posedge clk);
+            cols_in = 4'b1111;
+            @(posedge clk); @(posedge clk); 
+            #1;
+            assert (cols_synced == 4'b1111)
+                $display("PASSED! At time: %0t.", $time);
+            else begin
+                $error("FAILED! At time: %0t.", $time); 
+                errors++;
+            end
+
+            if (errors == 0) $display("cols_tb PASSED");
+            else             $display("cols_tb FAILED: %0d errors", errors);
+            $finish;
+        end
+        initial begin
+            $dumpfile("cols_tb.vcd");
+            $dumpvars(0, cols_tb);
+        end
 endmodule
