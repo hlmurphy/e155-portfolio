@@ -43,10 +43,15 @@ module top_tb;
             reset = 1;
             @(posedge clk); @(posedge clk);
             reset = 0;
-            
-            #10;
-            key_down = 1'b1;
-            repeat(80)@(posedge clk);
+
+            // async input + bouncy press
+            #7;   key_down = 1'b1;   // first contact
+            #4;   key_down = 1'b0;   // bounce release
+            #3;   key_down = 1'b1;   // re-contact
+            #6;   key_down = 1'b0;   // bounce again
+            #5;   key_down = 1'b1;   // final settle
+
+            repeat (120) @(posedge clk);
 
             assert (dut.current_number == 4'h1)
                 $display("PASSED! current_number=%h at time: %0t.", dut.current_number,  $time);
@@ -54,7 +59,7 @@ module top_tb;
                 $error("FAILED! current number=%h, expected 1 at time: %0t.", dut.current_number, $time); 
                 errors++;
             end
-
+            
             if (errors == 0) $display("top_tb PASSED");
             else             $display("top_tb FAILED: %0d errors", errors);
             $finish;

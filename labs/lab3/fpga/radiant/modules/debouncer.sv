@@ -42,9 +42,6 @@ module debouncer #(parameter N_STABLE = 3)(
                 logic       scan_seen_valid; // only one or no keypresses observed boolean 
                 logic [3:0] scan_seen_value; // hex value of the corresponding valid keystroke
 
-                logic       multi_press_seen;
-                logic       multi_this_cycle;
-
                 // Scan memory: to check what the previous results was and how many consecutive scans has that been the result
                 logic [4:0] prev_scan_result; // both hex value and keystoke validity boolean from the previous scan 
                 logic [1:0] match_counter; // sub module counter incremented to delay stability determination (counts up to N_STABLE-1)
@@ -64,6 +61,9 @@ module debouncer #(parameter N_STABLE = 3)(
                 // wire bundle of 5 bits (1 + 4)
                 assign current_result = {current_valid, current_value}; 
 
+                logic       multi_press_seen;
+                logic       multi_this_cycle;
+                
                 logic       effective_valid;
                 logic [3:0] effective_value;
                 logic [4:0] effective_result;
