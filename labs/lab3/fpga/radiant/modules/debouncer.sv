@@ -101,7 +101,7 @@ module debouncer #(parameter N_STABLE = 3)(
                             scan_seen_value <= 4'b0;
                             multi_press_seen <= 0;
                             if (effective_result == prev_scan_result) begin // Assess current and compare to establish stability
-                                if (match_counter != N_STABLE - 1)
+                                if (match_counter != N_STABLE - 1) // counting up to confirm stability
                                     match_counter <= match_counter + 1;
                                 else begin
                                     if (effective_valid && ~stable_present) begin // Toggle new_keypress and set the output to the stable concluded value (hex)

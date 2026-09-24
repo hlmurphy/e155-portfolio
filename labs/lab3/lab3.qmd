@@ -4,7 +4,7 @@ author: "Haspard Murphy"
 date: "2026-09-23"
 categories: [FPGA, Verilog, FSM, Debouncing, Synchronizer, iCE40, Nucleo]
 description: "Scanning a 4x4 matrix keypad, debouncing keypresses across full row sweeps, and driving the two most recent hex digits onto a time-multiplexed dual seven-segment display. Deals with async inputs, mechanical bounce, and multi-key ambiguity."
-image: images/screenshots/top.png
+image: images/screenshots/debouncer.png
 ---
 
 ## Introduction:
@@ -51,9 +51,9 @@ DIP switch connections for S0 and S1 data signals were removed given the change 
 ::: 
 
 ### State Transition Diagram
-![State Transition Diagram for rows scanner FSM "scan_counter"](images/transition_diagram.jpeg){#fig-scan-transition width 80%}
+![State Transition Diagram for rows scanner FSM "scan_counter"](images/transition_diagram.jpeg){#fig-scan-transition width=80%}
 
-![State Transition Table](images/transition_table.jpeg){#fig-scan-transition width 80%}
+![State Transition Table](images/transition_table.jpeg){#fig-scan-transition width=80%}
 
 ## Results and Discussion
 
