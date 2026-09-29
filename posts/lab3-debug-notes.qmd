@@ -1,0 +1,23 @@
+---
+title: "Lab 3 Debug Notes: Ghost Captures & Multi-Key Rejection"
+description: "Two subtle bugs that surfaced in the keypad decoder — how they manifested on hardware and what fixed them."
+author: "Haspard Murphy"
+date: "2026-09-23"
+categories:
+  - labreport
+  - lab3
+  - fpga
+draft: false
+---
+
+Two issues came up during hardware bring-up of the Lab 3 keypad decoder that didn't show in simulation. Notes on both, and the fixes that shipped.
+
+::: {.callout-note title="Ghost captures at state transitions"}
+The initial implementation sampled “key_valid” continuously through each scan state, which caused row-shift errors on hardware. The 2-flop column synchronizer plus the physical RC settle time on the column pull-ups meant that at the start of each new state, “cols_synced” still reflected the previous state's press pattern combined with the new state's “row_active” — decoding as a legitimate-looking key on the wrong row.
+
+The fix restricts captures to the single “sample_ok” pulse fired at “count == max_count” of each state, guaranteeing “cols_synced” has fully settled for the currently driven row.
+:::
+
+::: {.callout-note title="Multi-key rejection"}
+The encoder's one-hot column check already rejects two keys pressed on the same row (both column bits set → “key_valid = 0”). Two keys on **different** rows each produce a legitimate single-hot column on their own row's scanatching whichever rowwas scanned last.                                                   Adding a sticky “multi_press_seen” flag (set on any second valid capture within a sweep) plus a combinational catch for the “end_of_scan” cycle (where “sample_ok”'s else-if branch cannot fire) forces the entire swhenever two rows show valid captures, matching the spec's "register first press, ignore extras, resolve on ron.
+:::

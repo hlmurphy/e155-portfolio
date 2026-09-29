@@ -1,5 +1,5 @@
 ---
-title: "Lab 2 — Dual Seven Segment Display Muxxing & 4X4 Keypad Integration"
+title: "Lab 2 — Dual Seven Segment Display Muxxing & 4x4 Keypad Integration"
 author: "Haspard Murphy"
 date: "2026-09-16"
 categories: [FPGA, Verilog, Multiplexing, iCE40, Nucleo]

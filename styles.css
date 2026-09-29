@@ -1,1 +1,321 @@
 /* css styles */
+/* ============================================================
+   E155 Portfolio — navy theme
+   Overrides Quarto/Cosmo (Bootstrap 5) tokens; no layout changes.
+   ============================================================ */
+
+:root {
+  /* palette */
+  --nv-bg:        #0a1628;
+  --nv-bg-2:      #0e1c34;
+  --nv-surface:   #13233d;
+  --nv-surface-2: #182b48;
+  --nv-border:    #22304a;
+  --nv-border-2:  #2c3e5e;
+  --nv-text:      #e6ecf5;
+  --nv-muted:     #c8d3e6;
+  --nv-soft:      #dbe4f2;
+  --nv-accent:    #6ea8ff;
+  --nv-accent-2:  #ffcc66;
+
+  /* map to Bootstrap so Cosmo picks them up */
+  --bs-body-bg: var(--nv-bg);
+  --bs-body-color: var(--nv-text);
+  --bs-emphasis-color: #ffffff;
+  --bs-secondary-color: var(--nv-muted);
+  --bs-tertiary-color: var(--nv-muted);
+  --bs-border-color: var(--nv-border);
+  --bs-link-color: var(--nv-accent);
+  --bs-link-hover-color: var(--nv-accent-2);
+  --bs-primary: var(--nv-accent);
+  --bs-primary-rgb: 110, 168, 255;
+  --bs-heading-color: #f2f6ff;
+  --bs-code-color: #ffd08a;
+}
+
+/* ---------- base ---------- */
+html, body {
+  background: var(--nv-bg);
+  color: var(--nv-text);
+}
+
+body {
+  /* subtle radial glow, then flat navy */
+  background-image:
+    radial-gradient(1000px 600px at 15% -10%, rgba(110,168,255,0.10), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%,  rgba(255,204,102,0.06), transparent 60%),
+    linear-gradient(180deg, var(--nv-bg-2) 0%, var(--nv-bg) 40%);
+  background-attachment: fixed;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: rgba(110,168,255,0.35); color: #fff; }
+
+/* ---------- typography ---------- */
+h1, h2, h3, h4, h5 {
+  color: #f2f6ff;
+  letter-spacing: -0.01em;
+}
+h2, h3 {
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--nv-accent);
+  margin-top: 2rem;
+}
+h4 { color: var(--nv-accent-2); }
+
+a { text-decoration: none; border-bottom: 1px dotted rgba(110,168,255,0.4); transition: color .15s, border-color .15s; }
+a:hover { border-bottom-color: var(--nv-accent-2); }
+
+hr { border-color: var(--nv-border); opacity: 0.6; }
+
+blockquote {
+  border-left: 3px solid var(--nv-accent-2);
+  background: var(--nv-surface);
+  color: var(--nv-text);
+  padding: 0.75rem 1rem;
+  border-radius: 0 6px 6px 0;
+}
+
+/* ---------- callouts (note / tip / warning / important / caution) ---------- */
+div.callout {
+  background: var(--nv-surface) !important;
+  border: 1px solid var(--nv-border) !important;
+  border-left-width: 4px !important;
+  border-radius: 8px !important;
+  color: var(--nv-text) !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  margin: 1.25rem 0;
+  overflow: hidden;
+}
+div.callout .callout-header,
+div.callout div.callout-header {
+  background: var(--nv-surface-2) !important;
+  color: #ffffff !important;
+  border-bottom: 1px solid var(--nv-border) !important;
+  padding: 0.55rem 0.85rem;
+}
+div.callout .callout-title,
+div.callout .callout-title-container {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+div.callout .callout-body,
+div.callout div.callout-body-container,
+div.callout .callout-body-container p {
+  background: transparent !important;
+  color: var(--nv-text) !important;
+  padding: 0.85rem 1rem;
+}
+div.callout a { color: var(--nv-accent); }
+div.callout code {
+  color: var(--nv-accent-2);
+  background: rgba(255,204,102,0.10);
+}
+
+/* per-type accent bar + icon tint */
+div.callout-note        { border-left-color: #6ea8ff !important; }
+div.callout-note .callout-icon::before        { filter: brightness(0) invert(1); }
+
+div.callout-tip         { border-left-color: #7bd88f !important; }
+div.callout-warning     { border-left-color: #ffcc66 !important; }
+div.callout-important   { border-left-color: #ff7b72 !important; }
+div.callout-caution     { border-left-color: #ffa657 !important; }
+
+/* make sure the icon glyph is visible on dark */
+div.callout .callout-icon::before,
+div.callout .callout-icon-container i {
+  color: #ffffff !important;
+}
+
+/* ---------- navbar ---------- */
+.navbar {
+  background: rgba(10, 22, 40, 0.85) !important;
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--nv-border);
+  box-shadow: 0 1px 0 rgba(110,168,255,0.15), 0 6px 24px rgba(0,0,0,0.35);
+}
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: var(--nv-text) !important;
+  border-bottom: none;
+  letter-spacing: 0.02em;
+}
+.navbar .nav-link {
+  position: relative;
+  padding: 0.5rem 0.9rem;
+}
+.navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.9rem; right: 0.9rem; bottom: 0.35rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--nv-accent), var(--nv-accent-2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .2s ease;
+}
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after { transform: scaleX(1); }
+
+/* ---------- page title / banner ---------- */
+.quarto-title-banner,
+.quarto-title-block {
+  background: linear-gradient(135deg, var(--nv-surface) 0%, var(--nv-bg-2) 100%);
+  border: 1px solid var(--nv-border);
+  border-radius: 12px;
+  padding: 1.75rem 1.75rem 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+.quarto-title-banner .title,
+.quarto-title h1.title {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* ---------- about / index page ---------- */
+.about-jolla .about-links a,
+.about-links a {
+  color: var(--nv-text);
+  border: 1px solid var(--nv-border);
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  transition: all .15s ease;
+}
+.about-links a:hover {
+  background: var(--nv-accent);
+  color: var(--nv-bg);
+  border-color: var(--nv-accent);
+}
+.about-jolla img.about-image,
+img.about-image {
+  border: 3px solid var(--nv-border-2);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45), 0 0 0 6px rgba(110,168,255,0.08);
+}
+
+/* ---------- listings (Labs, Blog) ---------- */
+.quarto-listing .list .quarto-post,
+.quarto-listing-default .quarto-post,
+div.quarto-post {
+  background: var(--nv-surface);
+  border: 1px solid var(--nv-border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+div.quarto-post::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--nv-accent), var(--nv-accent-2));
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+div.quarto-post:hover {
+  transform: translateY(-2px);
+  border-color: var(--nv-border-2);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+div.quarto-post:hover::before { opacity: 1; }
+
+.quarto-post .listing-title,
+.quarto-post .listing-title a {
+  color: #ffffff;
+  border-bottom: none;
+  font-weight: 600;
+}
+.quarto-post .listing-date,
+.quarto-post .listing-subtitle,
+.quarto-post .listing-reading-time {
+  color: var(--nv-muted);
+}
+.quarto-post .listing-description,
+.quarto-post .listing-description a,
+.quarto-post .description,
+.quarto-post .listing-author,
+.quarto-post .metadata,
+.quarto-post .listing-item-description {
+  color: var(--nv-soft) !important;
+  opacity: 1;
+}
+.quarto-post .listing-description { font-size: 0.98rem; line-height: 1.55; }
+.quarto-post .listing-author { font-weight: 500; }
+
+/* ---------- cards (fallback) ---------- */
+.card {
+  background: var(--nv-surface);
+  border: 1px solid var(--nv-border);
+  color: var(--nv-text);
+  border-radius: 10px;
+}
+.card-title { color: #fff; }
+
+/* ---------- TOC ---------- */
+#TOC, .sidebar, nav[role="doc-toc"] {
+  color: var(--nv-muted);
+}
+nav[role="doc-toc"] ul li a {
+  color: var(--nv-muted);
+  border-left: 2px solid transparent;
+  border-bottom: none;
+  padding-left: 0.5rem;
+  transition: color .15s, border-color .15s;
+}
+nav[role="doc-toc"] ul li a:hover,
+nav[role="doc-toc"] ul li a.active {
+  color: var(--nv-accent);
+  border-left-color: var(--nv-accent);
+}
+
+/* ---------- code ---------- */
+code, kbd, samp {
+  color: var(--nv-accent-2);
+  background: rgba(255,204,102,0.08);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+pre, pre code, div.sourceCode {
+  background: #0b1930 !important;
+  border: 1px solid var(--nv-border);
+  border-radius: 8px;
+  color: #e6ecf5;
+}
+pre code { background: transparent !important; padding: 0; }
+
+/* ---------- tables ---------- */
+table {
+  background: var(--nv-surface);
+  color: var(--nv-text);
+  border: 1px solid var(--nv-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+table thead th {
+  background: var(--nv-surface-2);
+  color: #fff;
+  border-bottom: 1px solid var(--nv-border-2) !important;
+}
+table td, table th { border-color: var(--nv-border) !important; }
+tr:hover td { background: rgba(110,168,255,0.04); }
+
+/* ---------- footer ---------- */
+.nav-footer, footer {
+  background: transparent;
+  border-top: 1px solid var(--nv-border);
+  color: var(--nv-muted);
+}
+
+/* ---------- images in content ---------- */
+.quarto-content img,
+main img {
+  border-radius: 8px;
+  border: 1px solid var(--nv-border);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
