@@ -70,7 +70,7 @@
       <file file_name="Setup/SEGGER_Flash.icf" />
     </folder>
     <folder Name="Source">
-      <file file_name="Source/alla_turca.c" />
+      <file file_name="Source/angry_birds.c" />
       <file file_name="Source/lab4_starter.c" />
       <file file_name="Source/main.c" />
     </folder>
