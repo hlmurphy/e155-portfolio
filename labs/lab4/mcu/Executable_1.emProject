@@ -1,0 +1,83 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="e155_lab4hm" target="8" version="2">
+  <configuration
+    Name="Debug"
+    c_preprocessor_definitions="DEBUG"
+    gcc_debugging_level="Level 3"
+    gcc_omit_frame_pointer="Yes"
+    gcc_optimization_level="None" />
+  <configuration
+    Name="Release"
+    c_preprocessor_definitions="NDEBUG"
+    gcc_debugging_level="Level 2"
+    gcc_omit_frame_pointer="Yes"
+    gcc_optimization_level="Level 2 balanced" />
+  <configuration
+    LIBRARY_HEAP_TYPE="Minimal"
+    LIBRARY_IO_TYPE="SEMIHOST (host-formatted)"
+    LIBRARY_LOCALES="Minimal"
+    Name="Release_MinSize"
+    arm_library_optimization="Small"
+    c_preprocessor_definitions="NDEBUG;__OPTIMIZATION_SMALL"
+    cpp_enable_exceptions="No"
+    gcc_debugging_level="None"
+    gcc_omit_frame_pointer="Yes"
+    gcc_optimization_level="Level 2 for size"
+    gcc_short_enum="Minimal Container Size"
+    libcxx="Yes (No Exceptions)"
+    link_dedupe_code="Yes"
+    link_dedupe_data="Yes"
+    link_merge_strings="Yes"
+    link_time_optimization="Yes"
+    linker_printf_fmt_level="int"
+    linker_printf_fp_enabled="No"
+    linker_printf_width_precision_supported="No" />
+  <project Name="e155_lab4">
+    <configuration
+      LIBRARY_IO_TYPE="RTT"
+      Name="Common"
+      Target="STM32L432KCUx"
+      arm_architecture="v7EM"
+      arm_compiler_variant="SEGGER"
+      arm_core_type="Cortex-M4"
+      arm_endian="Little"
+      arm_fp_abi="Hard"
+      arm_fpu_type="FPv4-SP-D16"
+      arm_linker_heap_size="2048"
+      arm_linker_process_stack_size="0"
+      arm_linker_stack_size="2048"
+      arm_linker_variant="SEGGER"
+      arm_simulator_memory_simulation_parameter="ROM;0x08000000;0x00040000;RAM;0x10000000;0x00004000;RAM;0x20000000;0x0000C000"
+      arm_target_device_name="STM32L432KC"
+      arm_target_interface_type="SWD"
+      debug_register_definition_file="$(ProjectDir)/STM32L4x2_Registers.xml"
+      debug_stack_pointer_start="__stack_end__"
+      debug_target_connection="J-Link"
+      gcc_entry_point="Reset_Handler"
+      link_dedupe_code="Yes"
+      link_linker_script_file="Setup/SEGGER_Flash.icf"
+      linker_memory_map_file="$(ProjectDir)/STM32L432KCUx_MemoryMap.xml"
+      linker_output_format="hex"
+      linker_section_placements_segments="FLASH1 RX 0x00000000 0x00100000;RAM1 RWX 0x20000000 0x00010000"
+      macros="DeviceHeaderFile=$(PackagesDir)/STM32L4xx/Device/Include/stm32l4xx.h;DeviceSystemFile=$(PackagesDir)/STM32L4xx/Device/Source/system_stm32l4xx.c;DeviceVectorsFile=$(PackagesDir)/STM32L4xx/Source/stm32l432xx_Vectors.s;DeviceFamily=STM32L4xx;DeviceSubFamily=STM32L432"
+      project_directory=""
+      project_type="Executable" />
+    <configuration Name="Release" link_dedupe_code="Yes" />
+    <configuration
+      LIBRARY_IO_TYPE="SEMIHOST (host-formatted)"
+      Name="Release_MinSize" />
+    <folder Name="Setup">
+      <file file_name="Setup/SEGGER_Flash.icf" />
+    </folder>
+    <folder Name="Source">
+      <file file_name="Source/alla_turca.c" />
+      <file file_name="Source/lab4_starter.c" />
+      <file file_name="Source/main.c" />
+    </folder>
+    <folder Name="System">
+      <file file_name="System/Cortex_M_Startup.s" />
+      <file file_name="System/SEGGER_THUMB_Startup.s" />
+      <file file_name="STM32L4xx/Source/stm32l432xx_Vectors.s" />
+    </folder>
+  </project>
+</solution>
