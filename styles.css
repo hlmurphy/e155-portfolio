@@ -13,7 +13,7 @@
   --nv-border:    #22304a;
   --nv-border-2:  #2c3e5e;
   --nv-text:      #e6ecf5;
-  --nv-muted:     #c8d3e6;
+  --nv-muted:     #c8d3e9;
   --nv-soft:      #dbe4f2;
   --nv-accent:    #6ea8ff;
   --nv-accent-2:  #ffcc66;
@@ -324,4 +324,17 @@ main img {
   border-radius: 8px;
   border: 1px solid var(--nv-border);
   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* ---------- figure captions ---------- */
+figcaption,
+.figure-caption,
+.quarto-figure-caption,
+.quarto-float-caption,
+figure > figcaption {
+  color: var(--nv-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+  text-align: center;
+  margin-top: 0.5rem;
 }

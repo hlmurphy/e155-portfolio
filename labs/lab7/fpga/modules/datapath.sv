@@ -3,7 +3,8 @@
 // Author: Haspard Murphy <hmurphy@g.hmc.edu>
 // Date:   2026-10-27
 // Course: HMC E155, Lab 7
-// Purpose:
+// Purpose: The datapath module for the AES encryption algorithm, handling the state, key, and round operations
+
 // -------------------------------------------------------------
 module datapath(input logic clk,
                 input logic init,
@@ -48,15 +49,20 @@ module datapath(input logic clk,
         sbox_sync sbox14(.clk(clk), .a(state_stored[15:8]),    .y(sub[15:8]));
         sbox_sync sbox15(.clk(clk), .a(state_stored[7:0]),     .y(sub[7:0]));
 
-        //shiftrows
-        assign shifted = {sub[127:120], sub[87:80], sub[47:40], sub[7:0],
-                          sub[95:88], sub[55:48], sub[15:8], sub[103:96],
-                          sub[63:56], sub[23:16], sub[111:104], sub[71:64],
-                          sub[31:24], sub[119:112], sub[79:72], sub[39:32]};
+        // ShiftRows operation via inline concatenation
+        assign shifted = {sub[127:120],     sub[87:80],     sub[47:40],     sub[7:0],
+
+                          sub[95:88],       sub[55:48],     sub[15:8],      sub[103:96],
+
+                          sub[63:56],       sub[23:16],     sub[111:104],   sub[71:64],
+
+                          sub[31:24],       sub[119:112],   sub[79:72],     sub[39:32]};
 
         mixcolumns mc(.a(shifted), .y(mixed));
 
+        // AddRoundKey for round 0
         assign initial_state = key ^ plaintext;
+
         assign state_next = init ? initial_state : round_out;
 
         always_ff @(posedge clk) begin
@@ -66,10 +72,15 @@ module datapath(input logic clk,
             end
         end
 
+        // AddRoundKey for the next round (Rounds 1-10)
         assign key_next =  init ? key : next_key;
 
+        // Final round selection of mixed vs premixed data
         assign premix = final_round ? shifted : mixed;
+
+        // Round output calculation given new key
         assign round_out = premix ^ next_key;
 
+        // Valid cyphertext output assignment upon completion of the final round
         assign cyphertext = state_stored;
 endmodule

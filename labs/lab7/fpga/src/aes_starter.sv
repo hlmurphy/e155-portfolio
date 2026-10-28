@@ -3,15 +3,17 @@
 //   Top level module with SPI interface and SPI core
 /////////////////////////////////////////////
 
-module aes(input  logic clk,
-           input  logic sck, 
+module aes(input  logic sck, 
            input  logic sdi,
            output logic sdo,
            input  logic load,
            output logic done);
-                    
+
+    logic clk;             
     logic [127:0] key, plaintext, cyphertext;
-            
+
+    SB_HFOSC #(.CLKHF_DIV("0b01")) hf_osc (.CLKHFPU(1'b1), .CLKHFEN(1'b1), .CLKHF(clk));
+
     aes_spi spi(sck, sdi, sdo, done, key, plaintext, cyphertext);   
     aes_core core(clk, load, key, plaintext, done, cyphertext);
 endmodule
@@ -78,7 +80,7 @@ module aes_core(input  logic         clk,
                 input  logic [127:0] plaintext, 
                 output logic         done, 
                 output logic [127:0] cyphertext);
-                
+
     logic init;
     logic advance;
     logic final_round;
@@ -136,7 +138,7 @@ module sbox_sync(
   // sbox implemented as a ROM
   // This module is synchronous and will be inferred using BRAMs (Block RAMs)
   logic [7:0] sbox [0:255];
-
+    
   initial   $readmemh("sbox.txt", sbox);
 	
 	// Synchronous version

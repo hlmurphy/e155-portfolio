@@ -10,10 +10,10 @@ module controller(input logic clk,
                   output logic init,
                   output logic advance,
                   output logic final_round,
-                  output logic [3:0] cnt,
+                  output logic [3:0] cnt = 4'd0,
                   output logic done);
 
-                  logic [2:0] state;
+                  logic [2:0] state = 3'd0;
                   logic [2:0] nextstate;
                   logic [3:0] cnt_next;
 

@@ -1,2 +1,2 @@
 Output/Debug/Obj/lab07_mcu/SEGGER_THUMB_Startup.o: \
- /Users/joshbrake/dev/E155FA22/labs/lab07/lab07_mcu/lab07_proj/SEGGER_THUMB_Startup.s
+ /Users/mando/Downloads/E155/hmc-e155-portfolio/labs/lab7/mcu/lab07_proj/SEGGER_THUMB_Startup.s

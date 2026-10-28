@@ -22,8 +22,8 @@ module nextkey (input logic [127:0] prev_key,
             assign word3 = prev_key[31:0];
 
             // instantiate the rcon, subword, and rotword modules
-            rotword rotword(.a(word3), .y(rotword_out));
-            subword subword(.a(rotword_out), .y(subword_out));
+            rotword rw(.a(word3), .y(rotword_out));
+            subword sw(.a(rotword_out), .y(subword_out));
 
             always_comb begin
                 rcon_out = 32'h00000000;

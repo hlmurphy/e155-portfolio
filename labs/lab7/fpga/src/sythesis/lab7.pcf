@@ -1,0 +1,5 @@
+set_io sck  21
+set_io sdi  10
+set_io sdo  12
+set_io load 26
+set_io done 27
