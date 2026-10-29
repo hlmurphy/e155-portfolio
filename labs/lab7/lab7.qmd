@@ -69,11 +69,6 @@ The source code for the FPGA core and the full SEGGER project for the MCU can be
 ### KeyExpansion (nextkey) block diagram
 ![Key expansion for one round. four 32-bit words. 'w3' passes through 'rotword' and then 'subword' (four parallel sboxes), is XOR'd with 'Rcon[cnt]', and feeds a cascanw0..nw3'. The resulting 128bits form 'next_key'.](images/nextkey.png){#fig-nextkey width=80%}
 
-### Pin Mapping
-
-
-
-
 ## Results and Discussion
 Both testbenches passed with the FIPS-197 standard vector:
 
@@ -110,8 +105,39 @@ This submission meets every Proficiency requirement in the Lab 7 spec.
 
 
 ## AI Prototype Summary
+The AES KeyExpansion step was prototyped twice with an LLM (Claude) to test how prompt framing and
+domain context affect the generated HDL.
+
 ### Reflection 
 
+**Prompt A** fed the FIPS-197 document and asked for a module that computes the next
+round key from the previous one, and produced a per-round, AES-128 specific module that
+was structurally similar to the my own 'nextkey.sv' module.
+Both the same decomposition (RotWord → SubWord → XOR Rcon → cascade XOR), 
+and the same Rcon table ('01, 02, 04, 08, 10, 20, 40, 80, 1B, 36'). Granted this makes alot of sense given the FIPS-197 standard. Three things the LLM added on its own by reading the attached document: FIPS-vocabulary
+module names ('rotword', 'subword'), the complete 256-entry S-box from
+Table 4 of the standard, and in-code section citations ('§5.2', '§3.3', etc.).
+Once both rotword and subword module were not assumed, and defined, the given design synthesised fully in radiant.
+
+**Prompt B** fed abstract pseudocode with 'module1'/'module2' placeholders, forbidden
+to use AES-specific knowledge, and told explicitly to unroll the loop having it produce a
+fully-unrolled parameterized 'generate'-based module that computed all 44 round-key
+words at once ('w[0..NW-1]') for a configurable 'Nk' and 'Nr'. The LLM honored the
+"ignore AES specifications" clause superficially by using generic variable names, placeholder
+helpers, but preserved the AES-256 special case ('Nk > 6 && i mod Nk == 4') because
+the pseudocode encoded it. This can be seen as an indication that context leaked through the prompt is stronger
+than an explicit instruction to ignore domain knowledge.
+
+It can be found that my own design converged on Prompt A's architecture not necesarily because of a
+shared source, but because both were targeting a controller-sequenced
+one-round-per-cycle design on a resource-constrained iCE40 UP5K. Prompt B's unrolled
+output would require 11 copies of RotWord and SubWord in parallel which would exceed the available BRAM budget
+far for the FPGA. The lesson from running both prompts is: a specific
+interface description produces the hardware you actually want to synthesize; an
+abstract loop plus an "unroll it" directive produces a mathematically efficient and elegant design but
+architecturally, the wrong answer for the given platform. Domain context (FIPS-197 attachment)
+filled in the specific constants and vocabulary once the architecture was predetermined by the prompt phrasing.
+    
 ### Hours Spent
 
 - Lit Review: 4 Hours
