@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Haspard Murphy">
+<meta name="dcterms.date" content="2026-11-05">
+<meta name="description" content="Measuring angular velocity and direction of a brushed DC motor on a Nucleo-L432KC using a 2-channel Hall-effect quadrature encoder.">
+
+<title>Lab 5 — Quadrature Encoder Velocity: Interrupt-Driven Motor Speed Measurement – E155 Portfolio</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-445b8638c3d06994fee0907d791121c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">E155 Portfolio</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../labs.html"> 
+<span class="menu-text">Labs</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#design-and-testing-methodology" id="toc-design-and-testing-methodology" class="nav-link" data-scroll-target="#design-and-testing-methodology">Design and Testing Methodology</a>
+  <ul class="collapse">
+  <li><a href="#register-layer-stm32l432_registers.h" id="toc-register-layer-stm32l432_registers.h" class="nav-link" data-scroll-target="#register-layer-stm32l432_registers.h">Register layer (‘stm32l432_registers.h’)</a></li>
+  <li><a href="#gpio-initialization-gpio_init_all" id="toc-gpio-initialization-gpio_init_all" class="nav-link" data-scroll-target="#gpio-initialization-gpio_init_all">GPIO initialization (‘gpio_init_all’)</a></li>
+  <li><a href="#exti-routing-exti_init" id="toc-exti-routing-exti_init" class="nav-link" data-scroll-target="#exti-routing-exti_init">EXTI routing (‘exti_init’)</a></li>
+  <li><a href="#quadrature-decoder-encoder.c" id="toc-quadrature-decoder-encoder.c" class="nav-link" data-scroll-target="#quadrature-decoder-encoder.c">Quadrature decoder (‘encoder.c’)</a></li>
+  <li><a href="#tim6-10-hz-tick-tim6.c" id="toc-tim6-10-hz-tick-tim6.c" class="nav-link" data-scroll-target="#tim6-10-hz-tick-tim6.c">TIM6 10 Hz tick (‘tim6.c’)</a></li>
+  <li><a href="#usart2-serial-output-uart.c" id="toc-usart2-serial-output-uart.c" class="nav-link" data-scroll-target="#usart2-serial-output-uart.c">USART2 serial output (‘uart.c’)</a></li>
+  <li><a href="#main-loop-main.c" id="toc-main-loop-main.c" class="nav-link" data-scroll-target="#main-loop-main.c">main loop (‘main.c’)</a></li>
+  <li><a href="#technical-documentation" id="toc-technical-documentation" class="nav-link" data-scroll-target="#technical-documentation">Technical Documentation</a></li>
+  </ul></li>
+  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation">Documentation</a>
+  <ul class="collapse">
+  <li><a href="#schematic" id="toc-schematic" class="nav-link" data-scroll-target="#schematic">Schematic</a></li>
+  <li><a href="#register-map-summary" id="toc-register-map-summary" class="nav-link" data-scroll-target="#register-map-summary">Register Map Summary</a></li>
+  <li><a href="#quadrature-decoding-math" id="toc-quadrature-decoding-math" class="nav-link" data-scroll-target="#quadrature-decoding-math">Quadrature decoding math</a></li>
+  <li><a href="#isr-timing" id="toc-isr-timing" class="nav-link" data-scroll-target="#isr-timing">ISR timing</a></li>
+  </ul></li>
+  <li><a href="#results-and-discussion" id="toc-results-and-discussion" class="nav-link" data-scroll-target="#results-and-discussion">Results and Discussion</a>
+  <ul class="collapse">
+  <li><a href="#live-terminal-output" id="toc-live-terminal-output" class="nav-link" data-scroll-target="#live-terminal-output">Live Terminal Output</a></li>
+  <li><a href="#hardware" id="toc-hardware" class="nav-link" data-scroll-target="#hardware">Hardware</a></li>
+  </ul></li>
+  <li><a href="#summary-conclusion" id="toc-summary-conclusion" class="nav-link" data-scroll-target="#summary-conclusion">Summary &amp; Conclusion</a></li>
+  <li><a href="#ai-prototype-summary" id="toc-ai-prototype-summary" class="nav-link" data-scroll-target="#ai-prototype-summary">AI Prototype Summary</a>
+  <ul class="collapse">
+  <li><a href="#reflection" id="toc-reflection" class="nav-link" data-scroll-target="#reflection">Reflection</a></li>
+  <li><a href="#hours-spent" id="toc-hours-spent" class="nav-link" data-scroll-target="#hours-spent">Hours spent</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lab 5 — Quadrature Encoder Velocity: Interrupt-Driven Motor Speed Measurement</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">MCU</div>
+    <div class="quarto-category">STM32L4</div>
+    <div class="quarto-category">C</div>
+    <div class="quarto-category">Register-Level</div>
+    <div class="quarto-category">EXTI</div>
+    <div class="quarto-category">Interrupts</div>
+    <div class="quarto-category">Quadrature Encoder</div>
+    <div class="quarto-category">GPIO</div>
+    <div class="quarto-category">USART</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Measuring angular velocity and direction of a brushed DC motor on a Nucleo-L432KC using a 2-channel Hall-effect quadrature encoder.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Haspard Murphy </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 5, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Lab 5 uses the Nucleo-L432KC’s STM32L432KC MCU to measure the angular velocity of a 25GA-370 brushed DC motor via its attached 2-channel Hall-effect quadrature encoder. The design constraint that shapes the entire lab is that all peripheral register access must be written by hand from RM0394 — i.e.&nbsp;no CMSIS headers. For this design, EXTI line-interrupts on both encoder channels (PA8 for A, PB7 for B) feed a 16-entry lookup-table quadrature decoder running inside ‘EXTI9_5_IRQHandler’ that increments/decrements a free-running edge counter. TIM6 generates a 10 Hz sampling tick by polling its update-event flag, and the main loop snapshots the counter each tick, computes rev/s in integer milli-rev units, and streams a live-updating ‘direction = F/R speed = X.XXX rev/s’ line over USART2 → ST-Link.</p>
+</section>
+<section id="design-and-testing-methodology" class="level2">
+<h2 class="anchored" data-anchor-id="design-and-testing-methodology">Design and Testing Methodology</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The design decomposes into six register-level driver files plus a shared register header. ‘stm32l432_registers.h’ defines ‘GPIO_TypeDef’, ‘BASIC_TIM_TypeDef’, ‘SYSCFG_TypeDef’, ‘EXTI_TypeDef’, and ‘USART_TypeDef’ structs laid out to mirror the register offsets outlined in the reference manual, plus base-address ’#define’s for every peripheral.</p>
+</div>
+</div>
+<section id="register-layer-stm32l432_registers.h" class="level3">
+<h3 class="anchored" data-anchor-id="register-layer-stm32l432_registers.h">Register layer (‘stm32l432_registers.h’)</h3>
+<p>Each peripheral is a ‘typedef struct’ of ‘volatile uint32_t’ fields whose layout matches RM0394’s register offsets exactly. Reserved slots are included where registers are skipped preserving field alignment so that a write to ‘EXTICR2’ lands at physical address ‘SYSCFG_BASE + 0x0C’. Base pointers are ‘static const’-equivalent ’#define’s (’GPIOA ((GPIO_TypeDef *) 0x48000000UL)‘, etc.). The four RCC enable registers that only need bit-level writes (’RCC_AHB2ENR’, ‘RCC_APB1ENR1’, ‘RCC_APB2ENR’, ‘NVIC_ISER0’) are declared as direct-address ‘(<em>(volatile uint32_t </em>)…)’ macros rather than struct fields.</p>
+</section>
+<section id="gpio-initialization-gpio_init_all" class="level3">
+<h3 class="anchored" data-anchor-id="gpio-initialization-gpio_init_all">GPIO initialization (‘gpio_init_all’)</h3>
+<p>Enables ‘GPIOAEN’ and ‘GPIOBEN’ in ‘RCC_AHB2ENR’, then configures three pins: PA2 to alternate function 7 (USART2_TX) via ‘MODER[5:4] = 10’ and ‘AFRL[11:8] = 7’; PA8 as input with internal pull-up via ‘MODER[17:16] = 00’ and ‘PUPDR[17:16] = 01’; PB7 identically via ‘MODER[15:14]’ and ‘PUPDR[15:14]’. The pull-ups guard against open-drain-style encoder outputs or long-wire ringing.</p>
+</section>
+<section id="exti-routing-exti_init" class="level3">
+<h3 class="anchored" data-anchor-id="exti-routing-exti_init">EXTI routing (‘exti_init’)</h3>
+<p>Enables ‘SYSCFGEN’ in ‘RCC_APB2ENR’, then routes PA8 → EXTI line 8 by clearing ‘SYSCFG_EXTICR3[3:0]’ (port A is the reset default) and PB7 → EXTI line 7 by writing ‘SYSCFG_EXTICR2[15:12] = 0001’ (port B). Both edges on both lines are enabled via ‘EXTI_RTSR1’ and ‘EXTI_FTSR1’ bits 7 and 8, achieving 4× quadrature resolution. Stale pending bits are cleared by writing ‘1’ to ‘EXTI_PR1[7]’ and ‘[8]’ (W1C), the lines are unmasked in ‘EXTI_IMR1’, and the shared EXTI9_5 interrupt is enabled in the NVIC by setting bit 23 of ‘NVIC_ISER0’.</p>
+</section>
+<section id="quadrature-decoder-encoder.c" class="level3">
+<h3 class="anchored" data-anchor-id="quadrature-decoder-encoder.c">Quadrature decoder (‘encoder.c’)</h3>
+<p>The LUT indexes on a packed 4-bit state ‘(prev_AB &lt;&lt; 2) | current_AB’ and returns an ‘int8_t’ of -1, 0, or +1:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">static</span> <span class="dt">const</span> <span class="dt">int8_t</span> encoder_lut<span class="op">[</span><span class="dv">16</span><span class="op">]</span> <span class="op">=</span> <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     <span class="dv">0</span><span class="op">,</span> <span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="op">+</span><span class="dv">1</span><span class="op">,</span>  <span class="dv">0</span><span class="op">,</span>    <span class="co">// prev = 00</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span><span class="dv">1</span><span class="op">,</span>  <span class="dv">0</span><span class="op">,</span>  <span class="dv">0</span><span class="op">,</span> <span class="op">-</span><span class="dv">1</span><span class="op">,</span>    <span class="co">// prev = 01</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">-</span><span class="dv">1</span><span class="op">,</span>  <span class="dv">0</span><span class="op">,</span>  <span class="dv">0</span><span class="op">,</span> <span class="op">+</span><span class="dv">1</span><span class="op">,</span>    <span class="co">// prev = 10</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>     <span class="dv">0</span><span class="op">,</span> <span class="op">+</span><span class="dv">1</span><span class="op">,</span> <span class="op">-</span><span class="dv">1</span><span class="op">,</span>  <span class="dv">0</span>     <span class="co">// prev = 11</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Zeros appear on the diagonal (no state change, ‘prev == now’) and on the anti-diagonal (illegal transitions where both bits flip simultaneously, treated as a missed intermediate state). ‘EXTI9_5_IRQHandler’ clears the PR1 bits first, reads ‘GPIOA-&gt;IDR’ bit 8 and ‘GPIOB-&gt;IDR’ bit 7 to form ‘current’, indexes the LUT, adds the result to a ‘static volatile int32_t edge_count’, and updates ‘prev_AB’. ‘encoder_capture’ is the “Option B” free-running-counter pattern: it loads ‘edge_count’ atomically (ARM Cortex-M4 32-bit aligned loads are single-cycle atomic), subtracts a ‘static int32_t prev_cap’, stores the new baseline, and returns the delta — no interrupt-disable critical section needed.</p>
+</section>
+<section id="tim6-10-hz-tick-tim6.c" class="level3">
+<h3 class="anchored" data-anchor-id="tim6-10-hz-tick-tim6.c">TIM6 10 Hz tick (‘tim6.c’)</h3>
+<p>Enables ‘TIM6EN’ in ‘RCC_APB1ENR1’, programs ‘PSC = 3999’ and ‘ARR = 99’ so the update event fires every ‘(3999+1)(99+1)/4,000,000 s = 100 ms = 10 Hz’, pulses ‘EGR.UG’ to load the shadow registers, clears the resulting spurious ‘UIF’, and starts the counter via ‘CR1.CEN’. ‘tim6_wait_tick’ spin-polls ‘SR.UIF’ and clears it when set. Polling is used rather than an interrupt because the main loop has no other work during the wait.</p>
+</section>
+<section id="usart2-serial-output-uart.c" class="level3">
+<h3 class="anchored" data-anchor-id="usart2-serial-output-uart.c">USART2 serial output (‘uart.c’)</h3>
+<p>Enables ‘USART2EN’ in ‘RCC_APB1ENR1’, writes ‘BRR = 417’ (‘f_CK / baud = 4,000,000 / 9600 = 416.67 ≈ 417’), then enables ‘TE’ and ‘UE’ in ‘CR1’. ‘uart_putc’ spin-polls the ‘ISR.TXE’ flag before writing to ‘TDR’. ‘uart_print’ walks a null-terminated string. ‘uart_print_int’ handles signed decimal via a scratch buffer and least-significant-digit-first construction, emitted in reverse.</p>
+</section>
+<section id="main-loop-main.c" class="level3">
+<h3 class="anchored" data-anchor-id="main-loop-main.c">main loop (‘main.c’)</h3>
+<p>After init in the dependency-safe order ‘gpio_init_all → encoder_init → exti_init → tim6_init → uart_init’ (encoder before EXTI so ‘prev_AB’ is seeded before the ISR can fire; UART last so a successful welcome print confirms end-to-end bring-up), the loop waits on ‘tim6_wait_tick’, snapshots ‘encoder_capture’, scales to milli-rev/s via ‘rev_mill = (capture * 10000) / ENCODER_EDGES_PER_REV’ (the extra ‘10×’ accounts for the 100 ms window instead of 1 s), splits sign from magnitude, and prints ‘direction = F/R speed = X.XXX rev/s’.</p>
+</section>
+<section id="technical-documentation" class="level3">
+<h3 class="anchored" data-anchor-id="technical-documentation">Technical Documentation</h3>
+<p>The source code for the project can be found in the ‘/labs/lab5/mcu/’ directory of the associated <a href="https://github.com/hlmurphy/e155-portfolio">GitHub repository</a>.</p>
+</section>
+</section>
+<section id="documentation" class="level2">
+<h2 class="anchored" data-anchor-id="documentation">Documentation</h2>
+<section id="schematic" class="level3">
+<h3 class="anchored" data-anchor-id="schematic">Schematic</h3>
+<div id="fig-schematic" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-schematic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/lab5_schematic.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-schematic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Full Lab 5 signal chain: the 25GA-370 motor’s six-wire pigtail splits into motor-power (M+, M−) wired to a bench PSU at 6–9 V with its negative rail tied to Nucleo GND, and the 4-wire encoder bus (+5V, GND, A, B) wired through the E155 dev board to Nucleo PA8 (D9) and PB7 (D4). The Nucleo’s USART2_TX (PA2) is routed to the ST-Link’s VCOM via solder bridge SB2 (default closed), appearing at the host as ’/dev/cu.usbmodem*’.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="register-map-summary" class="level3">
+<h3 class="anchored" data-anchor-id="register-map-summary">Register Map Summary</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="Register offsets used (from RM0394)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Register offsets used (from RM0394)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Peripheral</th>
+<th>Base</th>
+<th>Register</th>
+<th>Offset</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RCC</td>
+<td>0x40021000</td>
+<td>AHB2ENR</td>
+<td>0x4C</td>
+<td>GPIOAEN (bit 0), GPIOBEN (bit 1)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>APB1ENR1</td>
+<td>0x58</td>
+<td>TIM6EN (bit 4), USART2EN (bit 17)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>APB2ENR</td>
+<td>0x60</td>
+<td>SYSCFGEN (bit 0)</td>
+</tr>
+<tr class="even">
+<td>GPIOA (AHB2)</td>
+<td>0x48000000</td>
+<td>MODER</td>
+<td>0x00</td>
+<td>PA2 AF / PA8 input</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>PUPDR</td>
+<td>0x0C</td>
+<td>PA8 pull-up</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>IDR</td>
+<td>0x10</td>
+<td>PA8 state read</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>AFRL</td>
+<td>0x20</td>
+<td>PA2 AF = 7 (USART2_TX)</td>
+</tr>
+<tr class="even">
+<td>GPIOB (AHB2)</td>
+<td>0x48000400</td>
+<td>MODER</td>
+<td>0x00</td>
+<td>PB7 input</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>PUPDR</td>
+<td>0x0C</td>
+<td>PB7 pull-up</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>IDR</td>
+<td>0x10</td>
+<td>PB7 state read</td>
+</tr>
+<tr class="odd">
+<td>SYSCFG (APB2)</td>
+<td>0x40010000</td>
+<td>EXTICR2</td>
+<td>0x0C</td>
+<td>EXTI7 → port B (bits [15:12] = 0001)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>EXTICR3</td>
+<td>0x10</td>
+<td>EXTI8 → port A (bits [3:0] = 0000, default)</td>
+</tr>
+<tr class="odd">
+<td>EXTI (APB2)</td>
+<td>0x40010400</td>
+<td>IMR1</td>
+<td>0x00</td>
+<td>Unmask lines 7 and 8</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>RTSR1</td>
+<td>0x08</td>
+<td>Rising edge on lines 7 and 8</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>FTSR1</td>
+<td>0x0C</td>
+<td>Falling edge on lines 7 and 8</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>PR1</td>
+<td>0x14</td>
+<td>Pending bit (W1C) for lines 7 and 8</td>
+</tr>
+<tr class="odd">
+<td>NVIC</td>
+<td>0xE000E100</td>
+<td>ISER0</td>
+<td>0x00</td>
+<td>Enable IRQ 23 (EXTI9_5)</td>
+</tr>
+<tr class="even">
+<td>TIM6 (APB1)</td>
+<td>0x40001000</td>
+<td>CR1</td>
+<td>0x00</td>
+<td>Counter enable (bit 0)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>SR</td>
+<td>0x10</td>
+<td>Update flag UIF (bit 0)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>EGR</td>
+<td>0x14</td>
+<td>Update generation UG (bit 0)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>PSC</td>
+<td>0x28</td>
+<td>Prescaler = 3999</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>ARR</td>
+<td>0x2C</td>
+<td>Auto-reload = 99 (10 Hz)</td>
+</tr>
+<tr class="odd">
+<td>USART2 (APB1)</td>
+<td>0x40004400</td>
+<td>CR1</td>
+<td>0x00</td>
+<td>TE (bit 3), UE (bit 0)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>BRR</td>
+<td>0x0C</td>
+<td>Baud divisor = 417 (9600 baud @ 4 MHz)</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td>ISR</td>
+<td>0x1C</td>
+<td>TXE (bit 7)</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td>TDR</td>
+<td>0x28</td>
+<td>Transmit data</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="quadrature-decoding-math" class="level3">
+<h3 class="anchored" data-anchor-id="quadrature-decoding-math">Quadrature decoding math</h3>
+<p>The 25GA-370 datasheet specifies 12 pulses per motor-shaft revolution per channel and a 1:10 gear reduction, giving 120 pulses per output-shaft revolution per channel. With 4× quadrature decoding (both edges on both channels), each output-shaft revolution generates:</p>
+<p><span class="math display">\[
+\text{edges/rev} = 12 \text{ PPR}_{\text{motor}} \times 10 \text{ (gear)} \times 4 \text{ (quadrature)} = 480
+\]</span></p>
+<p>At 10 Hz sampling (100 ms window), the per-window edge count scales to rev/s as:</p>
+<p><span class="math display">\[
+\text{rev/s} = \frac{\text{edges}_{100\text{ms}} \times 10}{480}
+\]</span></p>
+<p>Multiplying by 1000 first for milli-rev precision and using integer division gives the final integer-only computation:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rev_mill <span class="op">=</span> <span class="op">(</span>capture <span class="op">*</span> <span class="dv">10000</span><span class="op">)</span> <span class="op">/</span> <span class="dv">480</span><span class="op">;</span>   <span class="co">// units: milli-rev/s</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Overflow sanity: at the 25GA-370’s ~10 rev/s maximum at 12 V, capture per 100 ms window ≈ 48 edges, and ‘48 × 10000 = 480,000’ is well within ‘int32_t’ range.</p>
+</section>
+<section id="isr-timing" class="level3">
+<h3 class="anchored" data-anchor-id="isr-timing">ISR timing</h3>
+<p>At MSI 4 MHz, each clock cycle is 250 ns. A typical EXTI9_5 ISR entry/exit on Cortex-M4 costs ~24 cycles, and the handler body (PR1 clear, two IDR reads, LUT index, ‘edge_count’ update, ‘prev_AB’ assign) adds ~30-50 cycles — total ~15-20 μs per ISR firing. At the measured ~910 Hz edge rate, inter-edge spacing is ~1 ms, giving a comfortable 50× margin before ISR overhead becomes a bottleneck.</p>
+</section>
+</section>
+<section id="results-and-discussion" class="level2">
+<h2 class="anchored" data-anchor-id="results-and-discussion">Results and Discussion</h2>
+<section id="live-terminal-output" class="level3">
+<h3 class="anchored" data-anchor-id="live-terminal-output">Live Terminal Output</h3>
+<p>With the design complete, flashed, and the motor driven at ~5 V, terminal emulator shows a single-line in-place updating at 10 Hz. Direction character toggles cleanly as the shaft reverses, and the speed figure stabilizes within one or two sample windows of a load change. The ‘E155 Lab 5: Quadrature Encoder Velocity’ welcome banner remains visible on the line above the updating status line.</p>
+<div id="fig-terminal" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-terminal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/terminal_forward.png" class="img-fluid figure-img" style="width:85.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-terminal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Terminal output while the motor is spinning at ~4 rev/s CW. The single status line updates in place at 10 Hz as the shaft spins and reverses.
+</figcaption>
+</figure>
+</div>
+<div id="fig-terminal" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-terminal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/terminal_reverse.png" class="img-fluid figure-img" style="width:85.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-terminal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Terminal output while the motor is spinning at ~4 rev/s CCW.
+</figcaption>
+</figure>
+</div>
+<div id="fig-terminal" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-terminal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/terminal_still.png" class="img-fluid figure-img" style="width:85.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-terminal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Terminal output while the motor is spinning at ~0 rev/s when stationary and power supply is set 0V.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="hardware" class="level3">
+<h3 class="anchored" data-anchor-id="hardware">Hardware</h3>
+<div id="fig-hardware" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-hardware-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/lab5_hardware.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-hardware-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Finished breadboard build: Nucleo-L432KC seated on the E155 dev board, 25GA-370 motor with pigtail broken out, bench PSU supplying motor power, common ground to Nucleo GND.
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="summary-conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="summary-conclusion">Summary &amp; Conclusion</h2>
+<p>The design meets every Proficiency requirement in the Lab 5 spec: the MCU reads a 2-channel quadrature encoder on a brushed DC motor via EXTI interrupts, decodes direction and magnitude from the quadrature state transitions, and displays signed rotational velocity in rev/s on the host terminal at ≥1 Hz. All register access is hand-written from RM0394 with no CMSIS headers, and every register field plus every ISR-shared variable is declared ‘volatile’. Excellence-tier work adds 4× quadrature resolution, a 10 Hz sampling rate, and an in-place-updating single-line display.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Compliance">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Compliance
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This submission meets every Proficiency requirement in the Lab 5 spec and includes 4× quadrature decoding, a 10 Hz sampling window, and an in-place-updating terminal display for Excellence credit.</p>
+</div>
+</div>
+</section>
+<section id="ai-prototype-summary" class="level2">
+<h2 class="anchored" data-anchor-id="ai-prototype-summary">AI Prototype Summary</h2>
+<details>
+<summary>
+Prompting Conversation
+</summary>
+<p><strong>[Design discussion]:</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ai_convo1.png" class="img-fluid figure-img"></p>
+<figcaption>Claude Conversation</figcaption>
+</figure>
+</div>
+<p><strong>[Debugging trace]:</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ai_convo2.png" class="img-fluid figure-img"></p>
+<figcaption>Claude Conversation</figcaption>
+</figure>
+</div>
+</details>
+<section id="reflection" class="level3">
+<h3 class="anchored" data-anchor-id="reflection">Reflection</h3>
+<p>The opening prompt — <em>“Write me interrupt handlers to interface with a quadrature encoder. I’m using the STM32L432KC, what pins should I connect the encoder to in order to allow it to easily trigger the interrupts?”</em> — produced a response with three concrete recommendations: use PA0 and PA1 (header pins A0/A1), rely on dedicated EXTI0 and EXTI1 interrupt vectors so no PR1 dispatch is needed inside the ISR, and decode both edges on both channels through a single lookup table for 4× resolution. The AI also flagged that PA0/PA1 double as TIM2_CH1/CH2 on AF1, which would let the design later swap the software decoder for TIM2’s hardware encoder mode without rewiring, and warned off PA2/PA15 (ST-Link VCOM) and PB3 (green LED).</p>
+<p>Two pieces of that insight transfer into the final design: the “pin numbers must differ” rule, since the EXTI line is selected by pin number (not port) and PA0/PB0 collide on EXTI0; and the 4×-via-LUT decode, which is exactly what ‘encoder_lut[16]’ does. The pin recommendation itself was <em>not</em> followed. Channels A and B were routed to PA8 and PB7 instead of PA0/PA1, for two practical reasons. First, PA8 and PB7 are 5V-tolerant (FT) and sit on headers already broken out by the E155 dev board, whereas running the encoder’s open-drain lines to PA0/PA1 would have been a longer jumper path.</p>
+</section>
+<section id="hours-spent" class="level3">
+<h3 class="anchored" data-anchor-id="hours-spent">Hours spent</h3>
+<ul>
+<li>Manual search through RM0394 (EXTI, SYSCFG, NVIC, TIM6, USART2) + 25GA-370 datasheet: 4h</li>
+<li>Writing up C files: 6h</li>
+<li>SES project setup, J-Link firmware conversion, flash chain bring-up: 2h</li>
+<li>Hardware wiring and setup: 2h</li>
+<li>Report writeup, schematic drawing, and documentation: 4h</li>
+<li><strong>Total: 18 hours</strong></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/hlmurphy\.github\.io\/e155-portfolio\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
